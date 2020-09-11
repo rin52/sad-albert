@@ -6,6 +6,7 @@ import IngredientGeneratorPanel from '../ingredientGenerator/IngredientGenerator
 import WitcherRecipesPanel from '../witcherRecipes/WitcherRecipesPanel';
 import AlchemyFormulaePanel from '../alchemyFormulae/AlchemyFormulaePanel';
 import Banner from '../common/Banner';
+import Footer from '../common/Footer';
 import Constants from '../../helper/Constants';
 import LabPanel from '../lab/LabPanel';
 import IngredientsPanel from '../ingredients/IngredientsPanel';
@@ -50,6 +51,7 @@ export default function AppsButton() {
         <div className={classes.root}>
             <Banner />
             {renderPanels()}
+            <Footer />
         </div>
     );
 }
