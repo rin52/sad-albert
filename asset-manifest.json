@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/sad-albert/static/css/main.52054afd.chunk.css",
-    "main.js": "/sad-albert/static/js/main.9e1a9ee5.chunk.js",
-    "main.js.map": "/sad-albert/static/js/main.9e1a9ee5.chunk.js.map",
+    "main.js": "/sad-albert/static/js/main.a4af5a27.chunk.js",
+    "main.js.map": "/sad-albert/static/js/main.a4af5a27.chunk.js.map",
     "runtime-main.js": "/sad-albert/static/js/runtime-main.df777153.js",
     "runtime-main.js.map": "/sad-albert/static/js/runtime-main.df777153.js.map",
     "static/js/2.fcee6592.chunk.js": "/sad-albert/static/js/2.fcee6592.chunk.js",
     "static/js/2.fcee6592.chunk.js.map": "/sad-albert/static/js/2.fcee6592.chunk.js.map",
     "index.html": "/sad-albert/index.html",
-    "precache-manifest.e847d18c35ac4c8999dd53e52207e501.js": "/sad-albert/precache-manifest.e847d18c35ac4c8999dd53e52207e501.js",
+    "precache-manifest.4d63013a15f45e00128078ee6a11f3b0.js": "/sad-albert/precache-manifest.4d63013a15f45e00128078ee6a11f3b0.js",
     "service-worker.js": "/sad-albert/service-worker.js",
     "static/css/main.52054afd.chunk.css.map": "/sad-albert/static/css/main.52054afd.chunk.css.map",
     "static/js/2.fcee6592.chunk.js.LICENSE.txt": "/sad-albert/static/js/2.fcee6592.chunk.js.LICENSE.txt",
@@ -31,6 +31,6 @@
     "static/js/runtime-main.df777153.js",
     "static/js/2.fcee6592.chunk.js",
     "static/css/main.52054afd.chunk.css",
-    "static/js/main.9e1a9ee5.chunk.js"
+    "static/js/main.a4af5a27.chunk.js"
   ]
 }
