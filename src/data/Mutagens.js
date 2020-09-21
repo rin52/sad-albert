@@ -16,6 +16,13 @@ export default {
         DC: 18,
         rarity: Rarity.RARE,
     },
+    FORKTAIL: {
+        item: 'Forktail Mutagen',
+        category: IngredientCategory.BLUE_MUTAGEN,
+        maxAmount: 1,
+        DC: 18,
+        rarity: Rarity.RARE,
+    },
     GHOUL: {
         item: 'Ghoul Mutagen',
         category: IngredientCategory.RED_MUTAGEN,

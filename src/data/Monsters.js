@@ -248,6 +248,13 @@ export default {
             maxAmount: 12,
         },
     ],
+    Forktail: [
+        {
+            ...Ingredients.VENOM_EXTRACT,
+            maxAmount: 10,
+        },
+        Mutagens.FORKTAIL,
+    ],
     Frightener: [
         {
             ...Ingredients.CHITIN,
