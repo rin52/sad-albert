@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CenteredTabs from '../common/CenteredTabs';
 import GeneratorPanel from './subcomponents/GeneratorPanel';
+import HoardPanel from './subcomponents/hoard/HoardPanel';
 import Monsters from '../../data/Monsters';
 import Foraging from '../../data/Foraging';
 import { switchSelectedIngredientsGeneratorTab } from '../../actions/SystemActions';
@@ -19,7 +20,7 @@ const mapStateToProps = state => ({
 class IngredientGeneratorPanel extends React.Component {
     constructor() {
         super();
-        this.tabs = ["Monsters", "Foraging"];
+        this.tabs = ["Monsters", "Foraging", "Hoard of Monsters"];
     }
 
     renderPanel = () => {
@@ -31,6 +32,11 @@ class IngredientGeneratorPanel extends React.Component {
         if (this.props.selectedTab === 1) {
             return (
                 <GeneratorPanel title="Location" list={Foraging} />
+            )
+        }
+        if (this.props.selectedTab === 2) {
+            return (
+                <HoardPanel/>
             )
         }
         return (

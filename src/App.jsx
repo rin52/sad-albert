@@ -9,7 +9,7 @@ const themeColors = {
             main: Colors.accent,
         },
         secondary: {
-            main: '#E3E9ED',
+            main: '#97702F',
         }
     },
     overrides: {

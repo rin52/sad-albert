@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import IngredientDisplay from './IngredientDisplay';
 import GenerateButton from './GenerateButton';
-import getRandomInt from '../../../helper/getRandomInt';
+import generateIngredientDrops from '../../../helper/generateIngredientDrops';
 import DisplayArea from '../../common/DisplayArea';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,44 +24,12 @@ export default function GeneratedDrops(props) {
     }, [props]);
 
     const generate = (check) => {
-        const possibleDrops = [];
         setDrops([]);
         setMessage('');
-
-        props.list[props.selected].forEach((item) => {
-            if (item.DC <= check) {
-                possibleDrops.push(item);
-            }
-        });
-
-        if (possibleDrops.length === 0) {
+        const newDrops = generateIngredientDrops(props.list, props.selected, check);
+        if (newDrops.length === 0) {
             setMessage('Nothing found');
         } else {
-            const numDropped = getRandomInt(possibleDrops.length) + 1;
-            let newDrops = [];
-
-            if (numDropped === possibleDrops.length) {
-                newDrops = possibleDrops;
-                newDrops.forEach((item) => {
-                    item.amount = getRandomInt(item.maxAmount) + 1;
-                })
-            } else {
-                let counter = 0;
-                let selectedArray = [];
-
-                while (counter < numDropped) {
-                    let index = getRandomInt(possibleDrops.length);
-
-                    if (selectedArray.indexOf(index) === -1) {
-                        const droppedItem = possibleDrops[index];
-                        droppedItem.amount = getRandomInt(droppedItem.maxAmount) + 1;
-                        newDrops.push(droppedItem);
-                        selectedArray.push(index);
-                        counter++;
-                    }
-                }
-            }
-
             setDrops(newDrops);
         }
     }
