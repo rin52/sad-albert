@@ -27,7 +27,12 @@ export default function CraftableRecipes(props) {
                         <div>
                             {recipeList.recipes.length > 0 &&
                                 recipeList.recipes.map(recipe => (
-                                    <RecipeItem recipe={recipe} key={recipe.name} />
+                                    <RecipeItem
+                                        recipe={recipe}
+                                        key={recipe.name}
+                                        craftRecipeClicked={props.craftRecipeClicked}
+                                        showCraft
+                                    />
                                 ))
                             }
                             {

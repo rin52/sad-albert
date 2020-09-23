@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import DisplayArea from '../common/DisplayArea';
@@ -38,12 +38,13 @@ export default function InventoryPanel(props) {
     const [greenMutagen, setGreenMutagen] = React.useState(0);
     const [blueMutagen, setBlueMutagen] = React.useState(0);
     const [craftable, setCraftable] = React.useState([]);
+    const [regenerate, setRegenerate] = React.useState(false);
 
     React.useEffect(() => {
         setCraftable([]);
     }, [props]);
 
-    const compareIngredientRequiredToAmount = (ingredient) => {
+    const compareIngredientRequiredToAmount = useCallback((ingredient) => {
         if ((ingredient.category === IngredientCategory.VITRIOL && Number(vitriol) >= ingredient.amount)
             || (ingredient.category === IngredientCategory.REBIS && Number(rebis) >= ingredient.amount)
             || (ingredient.category === IngredientCategory.AETHER && Number(aether) >= ingredient.amount)
@@ -60,9 +61,9 @@ export default function InventoryPanel(props) {
             return true;
         }
         return false;
-    };
+    }, [vitriol, rebis, aether, quebrith, hydragenum, sol, vermilion, caelum, fulgur, redMutagen, greenMutagen, blueMutagen]);
 
-    const determineRecipes = () => {
+    const determineRecipes = useCallback(() => {
         const craftableRecipes = [];
 
         props.allRecipes.forEach(recipeList => {
@@ -84,7 +85,45 @@ export default function InventoryPanel(props) {
         });
 
         setCraftable(craftableRecipes);
-    };
+    }, [compareIngredientRequiredToAmount, props.allRecipes]);
+
+    const craftRecipeClicked = (ingredients) => {
+        ingredients.forEach((ingredient) => {
+            if (ingredient.category === IngredientCategory.VITRIOL) {
+                setVitriol(vitriol - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.REBIS) {
+                setRebis(rebis - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.AETHER) {
+                setAether(aether - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.QUEBRITH) {
+                setQuebrith(quebrith - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.HYDRAGENUM) {
+                setHydragenum(hydragenum - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.SOL) {
+                setSol(sol - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.VERMILION) {
+                setVermilion(vermilion - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.CAELUM) {
+                setCaelum(caelum - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.FULGUR) {
+                setFulgur(fulgur - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.RED_MUTAGEN) {
+                setRedMutagen(redMutagen - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.GREEN_MUTAGEN) {
+                setGreenMutagen(greenMutagen - ingredient.amount);
+            } else if (ingredient.category === IngredientCategory.BLUE_MUTAGEN) {
+                setBlueMutagen(blueMutagen - ingredient.amount);
+            }
+        });
+        setRegenerate(true);
+    }
+
+    React.useEffect(() => {
+        if (regenerate) {
+            determineRecipes();
+            setRegenerate(false);
+        }
+    }, [regenerate, determineRecipes]);
 
     const classes = useStyles();
     return (
@@ -117,7 +156,7 @@ export default function InventoryPanel(props) {
             </DisplayArea >
 
             {craftable.length !== 0 && (
-                <CraftableRecipes craftable={craftable} />
+                <CraftableRecipes craftable={craftable} craftRecipeClicked={craftRecipeClicked} />
             )}
         </div>
     );
