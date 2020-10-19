@@ -7,6 +7,10 @@ import Tab from '@material-ui/core/Tab';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97702F',
   },
 });
 
@@ -26,7 +30,7 @@ export default function CenteredTabs(props) {
         onChange={handleChange}
         indicatorColor="primary"
         textColor="primary"
-        centered
+        variant="scrollable"
       >
         {props.tabs.map(tab => (
           <Tab label={tab} key={tab} />

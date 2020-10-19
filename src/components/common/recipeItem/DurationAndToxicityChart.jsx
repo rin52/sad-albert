@@ -1,24 +1,35 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import Colors from '../../../helper/Colors';
 import Rarity from '../../../helper/Rarity';
 
 const useStyles = makeStyles((theme) => ({
-    inlineBlock: {
-        display: 'inline-block',
-    },
-    row: {
-        display: 'flex',
-        height: '24px',
-    },
     content: {
-        marginLeft: '8px',
-        marginRight: '8px',
-        width: '84px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#000000',
     },
-    divider: {
+    grid: {
+        display: 'grid',
+        gridTemplateColumns: 'auto auto auto',
+        rowGap: '1px',
+        columnGap: '1px',
+        backgroundColor: Colors.greyBorder,
+    },
+    gridTwoColumns: {
+        display: 'grid',
+        gridTemplateColumns: 'auto auto',
+        rowGap: '1px',
+        columnGap: '1px',
+        backgroundColor: Colors.greyBorder,
+    },
+    gridOneColumn: {
+        display: 'grid',
+        gridTemplateColumns: 'auto',
+        rowGap: '1px',
+        columnGap: '1px',
         backgroundColor: Colors.greyBorder,
     },
 }));
@@ -42,39 +53,44 @@ export default function PotionHeader(props) {
     const hasNoScale = !hasEveryday && !hasCommon && !hasUncommon && !hasRare;
 
     const renderCell = (content) => (
-        <div className={classes.row}>
-            <Divider className={classes.divider} orientation="vertical" />
-            <Typography className={classes.content}>{content}</Typography>
-        </div>
+        <Typography className={classes.content}>{content}</Typography>
     )
 
-    const renderRow = (title, item) => (
-        <div>
-            <Divider className={classes.divider} />
-            <div className={classes.row}>
-                {renderCell(title)}
-                {hasEveryday && (renderCell(item.everyday))}
-                {hasCommon && (renderCell(item.common))}
-                {hasUncommon && (renderCell(item.uncommon))}
-                {hasRare && (renderCell(item.rare))}
-                {hasNoScale && (renderCell(item))}
-                <Divider className={classes.divider} orientation="vertical" />
-                <div />
-            </div>
-        </div>
-    );
-
     if (props.duration || props.toxicity) {
+
+        if (hasNoScale) {
+            return (
+                <div className={(props.duration && props.toxicity) ? classes.gridTwoColumns : classes.gridOneColumn}>
+                    {props.duration && renderCell('Duration')}
+                    {props.toxicity && renderCell('Toxicity')}
+
+                    {(hasNoScale && props.duration) && renderCell(props.duration)}
+                    {(hasNoScale && props.toxicity) && renderCell(props.toxicity)}
+                </div>
+            )
+        }
+
         return (
-            <div className={classes.inlineBlock}>
-                {!hasNoScale && renderRow('', { everyday: Rarity.EVERYDAY, common: Rarity.COMMON, uncommon: Rarity.UNCOMMON, rare: Rarity.RARE, })}
-                {props.duration && (
-                    renderRow('Duration', props.duration)
-                )}
-                {props.toxicity && (
-                    renderRow('Toxicity', props.toxicity)
-                )}
-                <Divider className={classes.divider} />
+            <div className={classes.grid}>
+                {renderCell('')}
+                {props.duration && renderCell('Duration')}
+                {props.toxicity && renderCell('Toxicity')}
+
+                {hasEveryday && renderCell(Rarity.EVERYDAY)}
+                {(hasEveryday && props.duration) && renderCell(props.duration.everyday)}
+                {(hasEveryday && props.toxicity) && renderCell(props.toxicity.everyday)}
+
+                {hasCommon && renderCell(Rarity.COMMON)}
+                {(hasCommon && props.duration) && renderCell(props.duration.common)}
+                {(hasCommon && props.toxicity) && renderCell(props.toxicity.common)}
+
+                {hasUncommon && renderCell(Rarity.UNCOMMON)}
+                {(hasUncommon && props.duration) && renderCell(props.duration.uncommon)}
+                {(hasUncommon && props.toxicity) && renderCell(props.toxicity.uncommon)}
+
+                {hasRare && renderCell(Rarity.RARE)}
+                {(hasRare && props.duration) && renderCell(props.duration.rare)}
+                {(hasRare && props.toxicity) && renderCell(props.toxicity.rare)}
             </div>
         );
     }

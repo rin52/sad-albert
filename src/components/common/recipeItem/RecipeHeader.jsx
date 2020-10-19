@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     row: {
         display: 'flex',
         alignItems: 'center',
+        flexWrap: 'wrap',
     },
     image: {
         width: '32px',
@@ -16,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     title: {
         paddingRight: '16px',
     },
-    subtitle: {
-        paddingLeft: '16px',
+    ingredients: {
+        paddingRight: '16px',
     },
 }));
 
@@ -37,9 +38,11 @@ export default function PotionHeader(props) {
 
         return (
             <div className={classes.row}>
-                {ingredientsArray.map((ingredient, index) => (
+                <div className={classes.ingredients}>
+                    {ingredientsArray.map((ingredient, index) => (
                     <img src={getIngredientImage(ingredient)} className={classes.image} alt={ingredient} key={props.name + props.ingredient + index} />
                 ))}
+                </div>
             </div>
         );
     }
@@ -49,7 +52,7 @@ export default function PotionHeader(props) {
             <Typography className={classes.title} variant="h6">{props.name}</Typography>
             {renderIngredients()}
             {props.DC && (
-                <Typography variant="subtitle1" className={classes.subtitle} >
+                <Typography variant="subtitle1">
                     (Craft DC: {props.DC})
                 </Typography>
             )}

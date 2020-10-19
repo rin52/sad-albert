@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     root: {
         display: 'flex',
         justifyContent: 'space-between',
+        flexWrap: 'wrap',
     },
     row: {
         display: 'flex',
