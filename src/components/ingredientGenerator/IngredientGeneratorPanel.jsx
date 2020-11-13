@@ -20,7 +20,7 @@ const mapStateToProps = state => ({
 class IngredientGeneratorPanel extends React.Component {
     constructor() {
         super();
-        this.tabs = ["Monsters", "Foraging", "Hoard of Monsters"];
+        this.tabs = ["Monsters", "Foraging", "Hoard of Monsters", "Multiple Locations" ];
     }
 
     renderPanel = () => {
@@ -36,7 +36,12 @@ class IngredientGeneratorPanel extends React.Component {
         }
         if (this.props.selectedTab === 2) {
             return (
-                <HoardPanel/>
+                <HoardPanel title="Monster" list={Monsters}/>
+            )
+        }
+        if (this.props.selectedTab === 3) {
+            return (
+                <HoardPanel title="Location" list={Foraging}/>
             )
         }
         return (

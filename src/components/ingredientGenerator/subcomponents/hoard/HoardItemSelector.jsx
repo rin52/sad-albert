@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import Remove from '@material-ui/icons/HighlightOff';
 import StyledSelector from '../../../common/StyledSelector';
-import Monsters from '../../../../data/Monsters';
 import DisplayItem from '../../../common/DisplayItem';
 
 const useStyles = makeStyles((theme) => ({
@@ -17,39 +16,39 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function MonsterSelector(props) {
+export default function HoardItemSelector(props) {
     const classes = useStyles();
-    const [monster, setMonster] = React.useState(props.monster);
+    const [item, setItem] = React.useState(props.item);
     const [check, setCheck] = React.useState(props.check);
     React.useEffect(() => {
-        setMonster(props.monster);
+        setItem(props.item);
         setCheck(props.check);
     }, [props]);
 
-    const onMonsterChange = (event) => {
-        setMonster(event.target.value);
-        props.onMonsterChange(props.id, event.target.value, check);
+    const onItemChange = (event) => {
+        setItem(event.target.value);
+        props.onItemChange(props.id, event.target.value, check);
     }
 
     const onCheckChange = (event) => {
         const value = event.target.value === '' ? '' : Number(event.target.value);
 
         setCheck(value);
-        props.onMonsterChange(props.id, monster, value);
+        props.onItemChange(props.id, item, value);
     }
 
     const onRemoveClicked = () => {
-        props.removeMonster(props.id);
+        props.removeItem(props.id);
     }
 
     return (
         <DisplayItem>
             <div className={classes.grid}>
                 <StyledSelector
-                    name="Monster"
-                    options={Object.keys(Monsters)}
-                    selected={monster}
-                    onChange={onMonsterChange}
+                    name={props.type}
+                    options={Object.keys(props.list)}
+                    selected={item}
+                    onChange={onItemChange}
                 />
                 <div />
                 <TextField

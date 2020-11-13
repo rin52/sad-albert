@@ -4,9 +4,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import DisplayArea from '../../../common/DisplayArea';
 import DisplayItem from '../../../common/DisplayItem';
-import MonsterSelector from './MonsterSelector';
+import HoardItemSelector from './HoardItemSelector';
 import generateIngredientDrops from '../../../../helper/generateIngredientDrops';
-import Monsters from '../../../../data/Monsters';
 import IngredientDisplay from '../IngredientDisplay';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,47 +22,47 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HoardPanel(props) {
     const classes = useStyles();
-    const defaultMsg = 'Select monsters, enter checks, and click \'Generate\' to generate item drops.'
-    const [monsters, setMonsters] = React.useState([{ id: 1, monster: '', check: '' }]);
+    const defaultMsg = 'Select ' + props.title.toLowerCase() + ', enter checks, and click \'Generate\' to generate item drops.'
+    const [items, setItems] = React.useState([{ id: 1, item: '', check: '' }]);
     const [disabled, setDisabled] = React.useState(true);
     const [message, setMessage] = React.useState(defaultMsg);
     const [drops, setDrops] = React.useState([]);
     React.useEffect(() => {
-        setMonsters([{ id: 1, monster: '', check: '' }]);
+        setItems([{ id: 1, item: '', check: '' }]);
         setDisabled(true);
         setMessage(defaultMsg);
         setDrops([]);
     }, [props]);
 
-    const findIndex = (id) => (monsters.findIndex(monster => monster.id === id));
+    const findIndex = (id) => (items.findIndex(item => item.id === id));
 
-    const addMonster = () => {
-        const maxId = monsters.length > 0 ? Math.max.apply(Math.max, monsters.map(monster => monster.id)) : 0;
-        setMonsters([...monsters, { id: maxId + 1, monster: '', check: '' }]);
+    const addItem = () => {
+        const maxId = items.length > 0 ? Math.max.apply(Math.max, items.map(item => item.id)) : 0;
+        setItems([...items, { id: maxId + 1, item: '', check: '' }]);
         setDisabled(true);
     }
 
-    const removeMonster = (id) => {
-        const newMonsters = monsters.filter(monster => monster.id !== id);
-        setMonsters(newMonsters);
+    const removeItem = (id) => {
+        const newItems = items.filter(item => item.id !== id);
+        setItems(newItems);
         setDisabled(generateDisabled());
     }
 
-    const onMonsterChange = (id, monster, check) => {
+    const onItemChange = (id, item, check) => {
         const index = findIndex(id);
         if (index !== -1) {
-            const newMonsters = monsters;
-            newMonsters[index].id = id;
-            newMonsters[index].monster = monster;
-            newMonsters[index].check = check;
-            setMonsters(newMonsters);
+            const newItems = items;
+            newItems[index].id = id;
+            newItems[index].item = item;
+            newItems[index].check = check;
+            setItems(newItems);
         }
         setDisabled(generateDisabled());
     }
 
     const generateDisabled = () => {
-        for (let i = 0; i < monsters.length; i += 1) {
-            if (monsters[i].check === '' || monsters[i].monster === '') {
+        for (let i = 0; i < items.length; i += 1) {
+            if (items[i].check === '' || items[i].item === '') {
                 return true;
             }
         }
@@ -76,8 +75,8 @@ export default function HoardPanel(props) {
         setMessage('');
         let newDrops = [];
 
-        monsters.forEach(monster => {
-            newDrops = [...newDrops, ...generateIngredientDrops(Monsters, monster.monster, monster.check)];
+        items.forEach(item => {
+            newDrops = [...newDrops, ...generateIngredientDrops(props.list, item.item, item.check)];
         });
         if (newDrops.length === 0) {
             setMessage('Nothing found');
@@ -91,22 +90,24 @@ export default function HoardPanel(props) {
             <div>
                 <DisplayArea>
                     <div>
-                        {monsters.map(monster => {
+                        {items.map(item => {
                             return (
-                                <MonsterSelector
-                                    key={monster.id}
-                                    monster={monster.monster}
-                                    check={monster.check}
-                                    id={monster.id}
-                                    onMonsterChange={onMonsterChange}
-                                    removeMonster={removeMonster}
+                                <HoardItemSelector
+                                    key={item.id}
+                                    item={item.item}
+                                    check={item.check}
+                                    id={item.id}
+                                    onItemChange={onItemChange}
+                                    removeItem={removeItem}
+                                    type={props.title}
+                                    list={props.list}
                                 />
                             )
                         })}
                         <DisplayItem>
                             <div className={classes.bottomRow}>
-                                <Button onClick={addMonster}>Add Monster</Button>
-                                <Button onClick={generate} disabled={disabled || monsters.length === 0}>Generate</Button>
+                                <Button onClick={addItem}>Add</Button>
+                                <Button onClick={generate} disabled={disabled || items.length === 0}>Generate</Button>
                             </div>
                         </DisplayItem>
 
