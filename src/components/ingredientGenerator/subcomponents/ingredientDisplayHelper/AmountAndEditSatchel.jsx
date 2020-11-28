@@ -37,7 +37,6 @@ export default function AmountAndEditSatchel(props) {
     };
 
     const saveClicked = () => {
-        console.log('save to satchel');
         setIsEditing(false);
         const key = getIngredientKey(props.item.item);
 
