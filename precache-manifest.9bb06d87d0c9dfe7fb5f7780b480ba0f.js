@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2a4eef820b8bb57cfbfcffa6450a2ff2",
+    "revision": "f096b95c040ae4e2dc23deee61a566f9",
     "url": "/sad-albert/index.html"
   },
   {
-    "revision": "5758467171434060c6df",
+    "revision": "91cb0e306a4696cfe793",
     "url": "/sad-albert/static/css/main.52054afd.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sad-albert/static/js/2.c60cc014.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5758467171434060c6df",
-    "url": "/sad-albert/static/js/main.75ba35ff.chunk.js"
+    "revision": "91cb0e306a4696cfe793",
+    "url": "/sad-albert/static/js/main.910cfde7.chunk.js"
   },
   {
     "revision": "9a4bcd9e1724a49568ca",
