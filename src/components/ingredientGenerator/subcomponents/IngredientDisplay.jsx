@@ -3,8 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import getIngredientImage from '../../../helper/getIngredientImage';
 import DisplayItem from '../../common/DisplayItem';
+import DisplayMaxAmount from './ingredientDisplayHelper/DisplayMaxAmount';
+import AmountAndEditSatchel from './ingredientDisplayHelper/AmountAndEditSatchel';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     header: {
         display: 'flex',
         alignItems: 'flex-end',
@@ -21,12 +23,6 @@ const useStyles = makeStyles((theme) => ({
         fontStyle: 'italic',
         paddingRight: '4px',
     },
-    detailBlock: {
-        paddingLeft: '36px',
-    },
-    detailRow: {
-        display: 'flex',
-    }
 }));
 
 export default function IngredientDisplay(props) {
@@ -34,8 +30,8 @@ export default function IngredientDisplay(props) {
 
     const image = getIngredientImage(props.item.category);
     const subtitle = props.displayMaxAmount
-     ? props.item.rarity + ', DC: ' + props.item.DC
-      : props.item.rarity ;
+        ? props.item.rarity + ', DC: ' + props.item.DC
+        : props.item.rarity;
 
     return (
         <DisplayItem>
@@ -60,26 +56,10 @@ export default function IngredientDisplay(props) {
                 >
                     ({subtitle})
                 </Typography>
-                {props.displayAmount && (
-                    <Typography>x{props.item.amount}</Typography>
-                )}
+                <AmountAndEditSatchel displayAmount={props.displayAmount} item={props.item} editable={props.editable} />
             </div>
             {props.displayMaxAmount && (
-            <div className={classes.detailBlock}>
-                <div className={classes.detailRow}>
-                    <Typography
-                        className={classes.title}
-                        variant="body2"
-                    >
-                        Max Amount:
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                    >
-                        {props.item.maxAmount}
-                    </Typography>
-                </div>
-            </div>
+                <DisplayMaxAmount maxAmount={props.item.maxAmount} />
             )}
         </DisplayItem>
     );

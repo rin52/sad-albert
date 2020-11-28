@@ -1,26 +1,15 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Ingredients from '../../data/Ingredients';
-import Mutagens from '../../data/Mutagens';
 import IngredientDisplay from '../ingredientGenerator/subcomponents/IngredientDisplay';
 import DisplayArea from '../common/DisplayArea';
 
 export default function IngredientsList(props) {
-    let keys = [];
-    let data = {};
-
-    if (props.category.includes('Mutagen')) {
-        keys = Object.keys(Mutagens);
-        data = Mutagens;
-    } else {
-        keys = Object.keys(Ingredients);
-        data = Ingredients
-    }
+    let keys = Object.keys(props.data);
     const filteredList = [];
 
     keys.forEach((key) => {
-        if (data[key].category === props.category) {
-            filteredList.push(data[key]);
+        if (props.data[key].category === props.category) {
+            filteredList.push(props.data[key]);
         }
     })
 
@@ -29,9 +18,19 @@ export default function IngredientsList(props) {
             <Typography>{props.category}</Typography>
             <DisplayArea>
                 <div>
-                    {filteredList.map(ingredient => (
-                        <IngredientDisplay item={ingredient} key={ingredient.item} />
-                    ))}
+                    {filteredList.length > 0 ?
+                        filteredList.map(ingredient => (
+                            <IngredientDisplay
+                                item={ingredient}
+                                key={ingredient.item}
+                                displayAmount={props.displayAmount}
+                                editable={props.editable}
+                            />
+                        )) :
+                        <div style={{ padding: '16px' }}>
+                            <Typography>No ingredients found.</Typography>
+                        </div>
+                    }
                 </div>
             </DisplayArea>
         </div>

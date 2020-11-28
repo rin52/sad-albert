@@ -10,5 +10,7 @@ export default {
 
     RECIPES: 'Recipes',
 
+    SATCHEL: 'Satchel',
+
     WITCHER_RECIPES: 'Witcher Recipes',
 }

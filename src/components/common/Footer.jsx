@@ -4,11 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
-    root: {
-    },
+    root: {},
 });
 
-export default function CenteredTabs(props) {
+export default function Footer(props) {
     const classes = useStyles();
     return (
         <div className={classes.root}>

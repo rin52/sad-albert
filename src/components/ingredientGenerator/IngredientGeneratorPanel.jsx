@@ -36,12 +36,12 @@ class IngredientGeneratorPanel extends React.Component {
         }
         if (this.props.selectedTab === 2) {
             return (
-                <HoardPanel title="Monster" list={Monsters}/>
+                <HoardPanel title="Monster" list={Monsters} />
             )
         }
         if (this.props.selectedTab === 3) {
             return (
-                <HoardPanel title="Location" list={Foraging}/>
+                <HoardPanel title="Location" list={Foraging} />
             )
         }
         return (

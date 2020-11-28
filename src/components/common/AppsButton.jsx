@@ -41,7 +41,7 @@ const useStyles = makeStyles({
 
 export default function AppsButton() {
     const classes = useStyles();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const curApp = useSelector(state => state.systemState.app);
     const options = [
@@ -51,6 +51,7 @@ export default function AppsButton() {
         Constants.ALCHEMY_FORMULAE,
         Constants.LAB,
         Constants.DMG_POISONS,
+        Constants.SATCHEL,
     ];
 
     const handleClick = (event) => {

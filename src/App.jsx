@@ -74,6 +74,13 @@ const themeColors = {
                     color: Colors.disabledText,
                 },
             }
+        },
+        MuiTooltip: {
+            tooltip: {
+                color: Colors.text,
+                backgroundColor: Colors.background,
+                borderColor: Colors.greyBorder,
+            },
         }
     }
 };

@@ -11,6 +11,7 @@ import Constants from '../../helper/Constants';
 import LabPanel from '../lab/LabPanel';
 import IngredientsPanel from '../ingredients/IngredientsPanel';
 import PoisonsPanel from '../poisons/PoisonsPanel';
+import SatchelPanel from '../satchel/SatchelPanel';
 
 const useStyles = makeStyles({
     root: {
@@ -42,6 +43,9 @@ export default function AppsButton() {
         }
         if (curApp === Constants.DMG_POISONS) {
             return <PoisonsPanel/>;
+        }
+        if (curApp === Constants.SATCHEL) {
+            return <SatchelPanel/>;
         }
 
         return <div />;

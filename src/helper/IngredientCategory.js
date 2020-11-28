@@ -12,6 +12,4 @@ export default {
     RED_MUTAGEN: 'Red Mutagen',
     GREEN_MUTAGEN: 'Green Mutagen',
     BLUE_MUTAGEN: 'Blue Mutagen',
-    
-    ITEM: 'Item',
 }
