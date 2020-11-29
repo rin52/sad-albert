@@ -2,7 +2,6 @@ import React from 'react';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import MainScreen from './components/mainScreen/MainScreen';
 import Colors from './helper/Colors';
-import { Collapse } from '@material-ui/core';
 
 const themeColors = {
     palette: {
