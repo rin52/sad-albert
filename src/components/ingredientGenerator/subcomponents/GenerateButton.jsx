@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         padding: '16px',
     },
+    separator: {
+        width: '16px',
+    },
 }));
 
 export default function GenerateButton(props) {
@@ -39,6 +42,7 @@ export default function GenerateButton(props) {
                 value={check}
                 onChange={onChange}
             />
+            <div className={classes.separator} />
             <Button onClick={submit} disabled={check === ''}>Generate</Button>
         </div>
     );

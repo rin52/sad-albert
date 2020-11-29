@@ -7,6 +7,7 @@ import DisplayItem from '../../../common/DisplayItem';
 import HoardItemSelector from './HoardItemSelector';
 import generateIngredientDrops from '../../../../helper/generateIngredientDrops';
 import IngredientDisplay from '../IngredientDisplay';
+import AddToSatchelButton from '../AddToSatchelButton';
 
 const useStyles = makeStyles((theme) => ({
     grid: {
@@ -30,7 +31,7 @@ export default function HoardPanel(props) {
     React.useEffect(() => {
         setItems([{ id: 1, item: '', check: '' }]);
         setDisabled(true);
-        setMessage(defaultMsg);
+        setMessage('Select ' + props.title.toLowerCase() + ', enter checks, and click \'Generate\' to generate item drops.');
         setDrops([]);
     }, [props]);
 
@@ -128,6 +129,7 @@ export default function HoardPanel(props) {
                         {drops.map(item => (
                             <IngredientDisplay item={item} key={item.item} displayAmount />
                         ))}
+                        <AddToSatchelButton drops={drops} />
                     </div>
                 </DisplayArea>
             </div>

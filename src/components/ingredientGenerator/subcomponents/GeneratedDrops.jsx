@@ -5,6 +5,7 @@ import IngredientDisplay from './IngredientDisplay';
 import GenerateButton from './GenerateButton';
 import generateIngredientDrops from '../../../helper/generateIngredientDrops';
 import DisplayArea from '../../common/DisplayArea';
+import AddToSatchelButton from './AddToSatchelButton';
 
 const useStyles = makeStyles((theme) => ({
     messageArea: {
@@ -52,7 +53,7 @@ export default function GeneratedDrops(props) {
                     {drops.map(item => (
                         <IngredientDisplay item={item} key={item.item} displayAmount />
                     ))}
-
+                    <AddToSatchelButton drops={drops} />
                 </DisplayArea>
                 {(drops.length > 0 || message !== '') && (
                     <GenerateButton generate={generate} />
