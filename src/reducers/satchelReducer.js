@@ -25,6 +25,7 @@ export default function SatchelReducer(state = initialState, action) {
             localStorage.setItem(localStorageKey, JSON.stringify({ingredients: {}}));
             return {ingredients: {}};
         case OVERWRITE_SATCHEL:
+            localStorage.setItem(localStorageKey, JSON.stringify({ ...action.payload }));
             return { ...action.payload };
         case REMOVE_FROM_SATCHEL:
             const newState = { ...state }
