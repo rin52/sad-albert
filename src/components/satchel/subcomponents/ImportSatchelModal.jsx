@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function AddIngredientToSatchelModal(props) {
+export default function ImportSatchelModal(props) {
     const classes = useStyles();
     const [satchel, setSatchel] = React.useState('');
     const dispatch = useDispatch();
@@ -52,6 +52,7 @@ export default function AddIngredientToSatchelModal(props) {
                     value={satchel}
                     onChange={onChange}
                     className={classes.textArea}
+                    rowsMax={10}
                 />
             </div>
         </StyledModal>
