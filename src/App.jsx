@@ -82,6 +82,11 @@ const themeColors = {
                 borderColor: Colors.greyBorder,
             },
         },
+        MuiSwitch: {
+            track: {
+                backgroundColor: Colors.accent,
+            },
+        },
     }
 };
 

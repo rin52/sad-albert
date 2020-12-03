@@ -8,54 +8,63 @@ export default function getSatchelSummary(ingredients) {
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         Rebis: {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         Aether: {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         Quebrith: {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         Hydragenum: {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         Vermilion: {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         Sol: {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         Caelum: {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         Fulgur: {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
 
         'Red Mutagen': {
@@ -63,18 +72,21 @@ export default function getSatchelSummary(ingredients) {
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         'Green Mutagen': {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
         'Blue Mutagen': {
             Rare: 0,
             Uncommon: 0,
             Common: 0,
             Everyday: 0,
+            total: 0,
         },
     };
 
@@ -85,6 +97,7 @@ export default function getSatchelSummary(ingredients) {
         const ingredient = allIngredients[key];
         const rarity = ingredient.rarity;
         summary[ingredient.category][rarity] += ingredients[key].amount;
+        summary[ingredient.category].total += ingredients[key].amount;
     })
 
     return summary;

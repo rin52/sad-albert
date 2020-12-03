@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { TextField } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import getIngredientImage from '../../helper/getIngredientImage';
 
 const useStyles = makeStyles({
@@ -31,7 +32,10 @@ export default function InventoryItem(props) {
     return (
         <div className={classes.root}>
                 <img src={getIngredientImage(props.category)} alt={props.category} className={classes.image} />
-                <TextField
+                {props.readOnly ? (
+                    <Typography align="center">{props.value}</Typography>
+                ) : (
+                    <TextField
                     value={props.value}
                     onChange={handleChange}
                     className={classes.text}
@@ -40,6 +44,7 @@ export default function InventoryItem(props) {
                         min: 0
                     }}
                 />
+                )}
         </div>
     );
 }
