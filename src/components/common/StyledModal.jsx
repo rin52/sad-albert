@@ -11,6 +11,9 @@ const useStyles = makeStyles({
         width: '300px',
         backgroundColor: Colors.background,
         outline: Colors.button,
+        border: '1px',
+        borderColor: Colors.button,
+        borderStyle: 'solid',
     },
     title: {
         backgroundColor: Colors.button,

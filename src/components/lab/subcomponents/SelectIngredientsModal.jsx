@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import StyledModal from '../../common/StyledModal';
 import filterSatchelForIngredientsFromCategory from '../../../helper/satchel/filterSatchelForIngredientsFromCategory';
@@ -7,8 +8,28 @@ import getSelectedItemsObject from '../../../helper/lab/getSelectedItemsObject';
 import getIngredientKey from '../../../helper/satchel/getIngredientKey';
 import StyledSelector from '../../common/StyledSelector';
 import { updateSatchel, removeFromSatchel } from '../../../actions/SatchelActions';
+import getIngredientImage from '../../../helper/getIngredientImage';
+
+const useStyles = makeStyles({
+    root: {
+        maxHeight: '300px',
+        overflow: 'auto',
+    },
+    row: {
+        display: 'flex',
+        paddingTop: '4px',
+        alignItems: 'center',
+    },
+    image: {
+        height: '32px',
+        width: '32px',
+        paddingRight: '16px',
+    },
+});
+
 
 export default function SelectIngredientsModal(props) {
+    const classes = useStyles();
     const dispatch = useDispatch();
     const satchelIngredients = useSelector(state => state.satchelState.ingredients);
     const [selectedItems, setSelectedItems] = React.useState(getSelectedItemsObject(props.recipeIngredients));
@@ -85,11 +106,12 @@ export default function SelectIngredientsModal(props) {
                 }
             ]}
         >
-            <div>
+            <div className={classes.root}>
                 {keys.map((key) => {
                     const category = key.split('_')[0];
                     return (
-                        <div key={key}>
+                        <div key={key} className={classes.row}>
+                            <img className={classes.image} alt={key} src={getIngredientImage(category)} />
                             <StyledSelector
                                 name={category}
                                 options={filterSatchelForIngredientsFromCategory(satchelIngredients, category)}
