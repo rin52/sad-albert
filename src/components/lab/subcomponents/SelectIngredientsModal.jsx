@@ -11,6 +11,7 @@ import StyledSelector from '../../common/StyledSelector';
 import { updateSatchel, removeFromSatchel } from '../../../actions/SatchelActions';
 import getIngredientImage from '../../../helper/getIngredientImage';
 import determinePotionRarity from '../../../helper/lab/determinePotionRarity';
+import getIngredientRarity from '../../../helper/lab/getIngredientRarity';
 
 const useStyles = makeStyles({
     root: {
@@ -26,6 +27,10 @@ const useStyles = makeStyles({
         height: '32px',
         width: '32px',
         paddingRight: '16px',
+    },
+    rarity: {
+        fontStyle: 'italic',
+        paddingLeft: '4px',
     },
 });
 
@@ -136,6 +141,14 @@ export default function SelectIngredientsModal(props) {
                                 selected={selectedItems[key]}
                                 onChange={(event) => { onChange(event, key) }}
                             />
+                            {selectedItems[key] !== '' && (
+                                <Typography
+                                    className={classes.rarity}
+                                    variant="subtitle1"
+                                >
+                                    {getIngredientRarity(selectedItems[key]).substring(0, 1)}
+                                </Typography>
+                            )}
                         </div>
                     );
                 })}
