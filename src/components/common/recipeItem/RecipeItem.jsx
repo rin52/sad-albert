@@ -22,7 +22,8 @@ export default function RecipeItem(props) {
     const classes = useStyles();
 
     const onCraftClick = () => {
-        props.craftRecipeClicked(props.recipe.ingredients);
+        const hasRarities = (props.recipe.duration && typeof props.recipe.duration === 'object');
+        props.craftRecipeClicked(props.recipe.ingredients, hasRarities);
     };
 
     if (props.recipe.hide) {

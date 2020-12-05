@@ -37,8 +37,8 @@ export default function CategorySummary(props) {
             </div>
             {renderItem(Rarity.RARE)}
             {renderItem(Rarity.UNCOMMON)}
-            {renderItem(Rarity.EVERYDAY)}
             {renderItem(Rarity.COMMON)}
+            {renderItem(Rarity.EVERYDAY)}
         </div>
     );
 }

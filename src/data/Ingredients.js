@@ -107,19 +107,19 @@ export default {
         rarity: Rarity.RARE,
     },
     BOTCHLING_BONES: {
-        item: 'Blotchling Bones',
+        item: 'Botchling Bones',
         category: IngredientCategory.HYDRAGENUM,
         DC: 18,
         rarity: Rarity.RARE,
     },
     BOTCHLING_BRAIN: {
-        item: 'Blotchling Brain',
+        item: 'Botchling Brain',
         category: IngredientCategory.CAELUM,
         DC: 18,
         rarity: Rarity.RARE,
     },
     BOTCHLING_EAR: {
-        item: 'Blotching Ear',
+        item: 'Botching Ear',
         category: IngredientCategory.FULGUR,
         DC: 18,
         rarity: Rarity.RARE,

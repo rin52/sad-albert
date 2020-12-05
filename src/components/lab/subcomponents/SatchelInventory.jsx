@@ -35,6 +35,7 @@ export default function SatchelInventory(props) {
     const [recipeIngredients, setRecipeIngredients] = React.useState([]);
     const [craftable, setCraftable] = React.useState([]);
     const [regenerate, setRegenerate] = React.useState(false);
+    const [hasRarities, setHasRarities] = React.useState(false);
 
     React.useEffect(() => {
         setCraftable([]);
@@ -56,9 +57,10 @@ export default function SatchelInventory(props) {
             satchelIngredients['Blue Mutagen'].total));
     }, [props.allRecipes, satchelIngredients]);
 
-    const craftRecipeClicked = (ingredients) => {
+    const craftRecipeClicked = (ingredients, hasRarities) => {
         setSelectItemsOpen(true);
         setRecipeIngredients(ingredients);
+        setHasRarities(hasRarities);
     };
 
     const selectItemsClose = () => {
@@ -113,6 +115,7 @@ export default function SatchelInventory(props) {
                     close={selectItemsClose}
                     setRegenerate={setRegenerate}
                     recipeIngredients={recipeIngredients}
+                    hasRarities={hasRarities}
                 />
             )}
         </div>

@@ -9,6 +9,7 @@ import getIngredientKey from '../../../helper/satchel/getIngredientKey';
 import StyledSelector from '../../common/StyledSelector';
 import { updateSatchel, removeFromSatchel } from '../../../actions/SatchelActions';
 import getIngredientImage from '../../../helper/getIngredientImage';
+import determinePotionRarity from '../../../helper/lab/determinePotionRarity';
 
 const useStyles = makeStyles({
     root: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
     },
     row: {
         display: 'flex',
-        paddingTop: '4px',
+        paddingBottom: '4px',
         alignItems: 'center',
     },
     image: {
@@ -34,6 +35,7 @@ export default function SelectIngredientsModal(props) {
     const satchelIngredients = useSelector(state => state.satchelState.ingredients);
     const [selectedItems, setSelectedItems] = React.useState(getSelectedItemsObject(props.recipeIngredients));
     const [errorMsg, setErrorMsg] = React.useState('');
+    const [potionRarity, setPotionRarity] = React.useState('');
     const keys = Object.keys(selectedItems);
 
     const submit = () => {
@@ -87,7 +89,9 @@ export default function SelectIngredientsModal(props) {
     };
 
     const onChange = (event, key) => {
-        setSelectedItems({ ...selectedItems, [key]: event.target.value });
+        const newSelectedItems = { ...selectedItems, [key]: event.target.value };
+        setSelectedItems(newSelectedItems);
+        setPotionRarity(determinePotionRarity(newSelectedItems));
     };
 
     return (
@@ -121,6 +125,9 @@ export default function SelectIngredientsModal(props) {
                         </div>
                     );
                 })}
+                {props.hasRarities && (
+                    <Typography>Potion Rarity: {potionRarity}</Typography>
+                )}
                 <Typography color="error">{errorMsg}</Typography>
             </div>
         </StyledModal>
