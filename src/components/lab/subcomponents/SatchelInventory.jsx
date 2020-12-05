@@ -9,6 +9,8 @@ import CraftableRecipes from '../CraftableRecipes';
 import getCraftableRecipes from '../../../helper/lab/getCraftableRecipes';
 import getSatchelSummary from '../../../helper/satchel/getSatchelSummary';
 import SelectIngredientsModal from './SelectIngredientsModal';
+import CraftingFailedModal from './CraftingFailedModal';
+import CraftingSuccessModal from './CraftingSuccessModal';
 
 const useStyles = makeStyles({
     root: {
@@ -36,6 +38,12 @@ export default function SatchelInventory(props) {
     const [craftable, setCraftable] = React.useState([]);
     const [regenerate, setRegenerate] = React.useState(false);
     const [hasRarities, setHasRarities] = React.useState(false);
+    const [craftDc, setCraftDc] = React.useState(0);
+    const [recipeName, setRecipeName] = React.useState('');
+    const [potionRarity, setPotionRarity] = React.useState('');
+
+    const [craftingFailedOpen, setCraftingFailedOpen] = React.useState(false);
+    const [craftingSuccessOpen, setCraftingSuccessOpen] = React.useState(false);
 
     React.useEffect(() => {
         setCraftable([]);
@@ -57,15 +65,39 @@ export default function SatchelInventory(props) {
             satchelIngredients['Blue Mutagen'].total));
     }, [props.allRecipes, satchelIngredients]);
 
-    const craftRecipeClicked = (ingredients, hasRarities) => {
+    const craftRecipeClicked = (ingredients, hasRarities, craftDc, recipeName) => {
         setSelectItemsOpen(true);
         setRecipeIngredients(ingredients);
         setHasRarities(hasRarities);
+        setCraftDc(craftDc);
+        setRecipeName(recipeName)
     };
 
     const selectItemsClose = () => {
         setSelectItemsOpen(false);
         setRecipeIngredients([]);
+        setCraftDc(0);
+    };
+
+    const craftingSuccess = (rarity) => {
+        setCraftingSuccessOpen(true);
+        setPotionRarity(rarity);
+    };
+
+    const craftingSuccessClose = () => {
+        setPotionRarity('');
+        setCraftingSuccessOpen(false);
+        setRecipeName('');
+    };
+
+    const craftingFail = () => {
+        setCraftingFailedOpen(true);
+    };
+
+    const craftingFailedClose = () => {
+        setPotionRarity('');
+        setCraftingFailedOpen(false);
+        setRecipeName('');
     };
 
     React.useEffect(() => {
@@ -116,6 +148,22 @@ export default function SatchelInventory(props) {
                     setRegenerate={setRegenerate}
                     recipeIngredients={recipeIngredients}
                     hasRarities={hasRarities}
+                    craftDc={craftDc}
+                    recipeName={recipeName}
+                    craftingSuccess={craftingSuccess}
+                    craftingFail={craftingFail}
+                />
+            )}
+
+            {craftingFailedOpen && (
+                <CraftingFailedModal open={craftingFailedOpen} close={craftingFailedClose} recipeName={recipeName} />
+            )}
+            {craftingSuccessOpen && (
+                <CraftingSuccessModal
+                    open={craftingSuccessOpen}
+                    close={craftingSuccessClose}
+                    recipeName={recipeName}
+                    rarity={potionRarity}
                 />
             )}
         </div>

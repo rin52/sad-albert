@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import StyledModal from '../../common/StyledModal';
 import filterSatchelForIngredientsFromCategory from '../../../helper/satchel/filterSatchelForIngredientsFromCategory';
@@ -34,8 +35,8 @@ export default function SelectIngredientsModal(props) {
     const dispatch = useDispatch();
     const satchelIngredients = useSelector(state => state.satchelState.ingredients);
     const [selectedItems, setSelectedItems] = React.useState(getSelectedItemsObject(props.recipeIngredients));
+    const [check, setCheck] = React.useState('');
     const [errorMsg, setErrorMsg] = React.useState('');
-    const [potionRarity, setPotionRarity] = React.useState('');
     const keys = Object.keys(selectedItems);
 
     const submit = () => {
@@ -58,9 +59,13 @@ export default function SelectIngredientsModal(props) {
             }
         }
 
+        if (check === '') {
+            msg = "Missing craft check";
+        }
+
         if (msg === '') {
             const submittedItemsKeys = Object.keys(submittedItems);
-            
+
             for (let i = 0; i < submittedItemsKeys.length; i += 1) {
                 const key = submittedItemsKeys[i];
                 const satchelKey = getIngredientKey(key);
@@ -79,8 +84,13 @@ export default function SelectIngredientsModal(props) {
         if (msg === '') {
             dispatch(updateSatchel(newIngredients));
             deleteIngredients.forEach((ingredient) => {
-                dispatch(removeFromSatchel(deleteIngredients));
+                dispatch(removeFromSatchel(ingredient));
             });
+            if (check >= props.craftDc) {
+                props.craftingSuccess(props.hasRarities ? determinePotionRarity(selectedItems) : '');
+            } else {
+                props.craftingFail();
+            }
             props.setRegenerate(true);
             props.close();
         } else {
@@ -91,14 +101,18 @@ export default function SelectIngredientsModal(props) {
     const onChange = (event, key) => {
         const newSelectedItems = { ...selectedItems, [key]: event.target.value };
         setSelectedItems(newSelectedItems);
-        setPotionRarity(determinePotionRarity(newSelectedItems));
+    };
+
+    const onCheckChange = (event) => {
+        const value = event.target.value === '' ? '' : Number(event.target.value);
+        setCheck(value);
     };
 
     return (
         <StyledModal
             open={props.open}
             onClose={props.close}
-            title="Select Used Ingredients"
+            title="Select Ingredients"
             buttons={[
                 {
                     text: 'Cancel',
@@ -125,9 +139,12 @@ export default function SelectIngredientsModal(props) {
                         </div>
                     );
                 })}
-                {props.hasRarities && (
-                    <Typography>Potion Rarity: {potionRarity}</Typography>
-                )}
+                <TextField
+                    label="DC"
+                    type="number"
+                    value={check}
+                    onChange={onCheckChange}
+                />
                 <Typography color="error">{errorMsg}</Typography>
             </div>
         </StyledModal>
