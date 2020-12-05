@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import DisplayItem from '../../common/DisplayItem';
-import { updateSatchel } from '../../../actions/SatchelActions';
+import { updateSatchelIngredients } from '../../../actions/SatchelActions';
 import getIngredientKey from '../../../helper/satchel/getIngredientKey';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +45,7 @@ export default function AddToSatchelButton(props) {
             }
         });
 
-        dispatch(updateSatchel(newIngredients));
+        dispatch(updateSatchelIngredients(newIngredients));
         setBeenAdded(true);
     };
 

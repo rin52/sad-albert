@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import getIngredientKey from '../../../../helper/satchel/getIngredientKey';
-import { removeFromSatchel, updateSatchel } from '../../../../actions/SatchelActions';
+import { removeIngredientFromSatchel, updateSatchelIngredients } from '../../../../actions/SatchelActions';
 
 const useStyles = makeStyles(() => ({
     header: {
@@ -41,9 +41,9 @@ export default function AmountAndEditSatchel(props) {
         const key = getIngredientKey(props.item.item);
 
         if (amount > 0) {
-            dispatch(updateSatchel({[key] : {amount: Number(amount)}}));
+            dispatch(updateSatchelIngredients({[key] : {amount: Number(amount)}}));
         } else {
-            dispatch(removeFromSatchel(key));
+            dispatch(removeIngredientFromSatchel(key));
         }
         
     };

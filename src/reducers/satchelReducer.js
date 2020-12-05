@@ -1,14 +1,14 @@
 import {
     CLEAR_SATCHEL,
     OVERWRITE_SATCHEL,
-    REMOVE_FROM_SATCHEL,
-    UPDATE_SATCHEL,
+    REMOVE_INGREDIENT_FROM_SATCHEL,
+    UPDATE_SATCHEL_INGREDIENTS,
 } from "../actions/SatchelActions";
 
 const localStorageKey = "SAD_ALBERT_SATCHEL";
 
 const satchel = JSON.parse(localStorage.getItem(localStorageKey));
-const initialState = satchel === null ? {ingredients: {}} : satchel;
+const initialState = satchel === null ? {ingredients: {}, witcherBrews: {}, alchemy: {}} : satchel;
 
 //object example = {
 // ingredients: {
@@ -27,12 +27,12 @@ export default function SatchelReducer(state = initialState, action) {
         case OVERWRITE_SATCHEL:
             localStorage.setItem(localStorageKey, JSON.stringify({ ...action.payload }));
             return { ...action.payload };
-        case REMOVE_FROM_SATCHEL:
+        case REMOVE_INGREDIENT_FROM_SATCHEL:
             const newState = { ...state }
             delete newState.ingredients[action.payload];
             localStorage.setItem(localStorageKey,  JSON.stringify({ ...newState }));
             return { ...newState };
-        case UPDATE_SATCHEL:
+        case UPDATE_SATCHEL_INGREDIENTS:
             localStorage.setItem(localStorageKey,  JSON.stringify({ ...state, ingredients: { ...state.ingredients, ...action.payload } }));
             return { ...state, ingredients: { ...state.ingredients, ...action.payload } };
         default:

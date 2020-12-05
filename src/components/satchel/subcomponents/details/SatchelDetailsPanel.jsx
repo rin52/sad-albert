@@ -8,7 +8,7 @@ import IngredientCategory from '../../../../helper/IngredientCategory';
 import IngredientsList from '../../../ingredients/IngredientsList';
 import getSatchelDetails from '../../../../helper/satchel/getSatchelDetails';
 import AddIngredientToSatchelModal from './AddIngredientToSatchelModal';
-import { updateSatchel } from '../../../../actions/SatchelActions';
+import { updateSatchelIngredients } from '../../../../actions/SatchelActions';
 
 const useStyles = makeStyles({
     root: {
@@ -36,7 +36,7 @@ export default function SatchelSummary() {
     };
 
     const submitAdd = (key, amount) => {
-        dispatch(updateSatchel({ [key]: { amount: Number(amount) } }));
+        dispatch(updateSatchelIngredients({ [key]: { amount: Number(amount) } }));
         closeAdd();
     };
 

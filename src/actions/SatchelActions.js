@@ -1,15 +1,15 @@
 export const CLEAR_SATCHEL = 'clearSatchel';
 export const OVERWRITE_SATCHEL = 'overwriteSatchel';
-export const REMOVE_FROM_SATCHEL = 'removeFromSatchel';
-export const UPDATE_SATCHEL = 'updateSatchel';
+export const REMOVE_INGREDIENT_FROM_SATCHEL = 'removeIngredientFromSatchel';
+export const UPDATE_SATCHEL_INGREDIENTS = 'updateSatchelIngredients';
 
-export const updateSatchel = newItems => ({
-    type: UPDATE_SATCHEL,
+export const updateSatchelIngredients = newItems => ({
+    type: UPDATE_SATCHEL_INGREDIENTS,
     payload: newItems
 });
 
-export const removeFromSatchel = key => ({
-    type: REMOVE_FROM_SATCHEL,
+export const removeIngredientFromSatchel = key => ({
+    type: REMOVE_INGREDIENT_FROM_SATCHEL,
     payload: key,
 });
 

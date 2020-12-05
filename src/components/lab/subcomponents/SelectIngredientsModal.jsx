@@ -8,7 +8,7 @@ import filterSatchelForIngredientsFromCategory from '../../../helper/satchel/fil
 import getSelectedItemsObject from '../../../helper/lab/getSelectedItemsObject';
 import getIngredientKey from '../../../helper/satchel/getIngredientKey';
 import StyledSelector from '../../common/StyledSelector';
-import { updateSatchel, removeFromSatchel } from '../../../actions/SatchelActions';
+import { updateSatchelIngredients, removeIngredientFromSatchel } from '../../../actions/SatchelActions';
 import getIngredientImage from '../../../helper/getIngredientImage';
 import determinePotionRarity from '../../../helper/lab/determinePotionRarity';
 import getIngredientRarity from '../../../helper/lab/getIngredientRarity';
@@ -87,9 +87,9 @@ export default function SelectIngredientsModal(props) {
         };
 
         if (msg === '') {
-            dispatch(updateSatchel(newIngredients));
+            dispatch(updateSatchelIngredients(newIngredients));
             deleteIngredients.forEach((ingredient) => {
-                dispatch(removeFromSatchel(ingredient));
+                dispatch(removeIngredientFromSatchel(ingredient));
             });
             if (check >= props.craftDc) {
                 props.craftingSuccess(props.hasRarities ? determinePotionRarity(selectedItems) : '');
