@@ -23,7 +23,22 @@ export default function RecipeItem(props) {
 
     const onCraftClick = () => {
         const hasRarities = (props.recipe.duration && typeof props.recipe.duration === 'object');
-        props.craftRecipeClicked(props.recipe.ingredients, hasRarities, props.recipe.DC, props.recipe.name);
+        props.craftRecipeClicked(props.recipe.ingredients, hasRarities, props.recipe.DC, props.recipe.name, props.category);
+    };
+
+    const getAmounts = () => {
+        if (props.recipe.amount) {
+            return props.recipe.amount;
+        }
+        if (props.hasRarities) {
+            return {
+                Rare: props.recipe.Rare ? props.recipe.Rare : 0,
+                Uncommon: props.recipe.Uncommon ? props.recipe.Uncommon : 0,
+                Common: props.recipe.Common ? props.recipe.Common : 0,
+                Everyday: props.recipe.Everyday ? props.recipe.Everyday : 0,
+            };
+        }
+        return 0;
     };
 
     if (props.recipe.hide) {
@@ -38,6 +53,12 @@ export default function RecipeItem(props) {
                             name={props.recipe.name}
                             ingredients={props.recipe.ingredients}
                             DC={props.recipe.DC}
+                            category={props.category}
+                            amount={props.displayAmount ? getAmounts() : 0}
+                            displayAmount={props.displayAmount}
+                            editable={props.editable}
+                            hasRarities={props.hasRarities}
+                            witcherPotions={props.witcherPotions}
                         />
                         <Typography>{props.recipe.effects}</Typography>
                     </div>

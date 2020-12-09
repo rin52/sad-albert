@@ -1,7 +1,7 @@
 import IngredientCategory from '../../../helper/IngredientCategory';
 
-export default [
-    {
+export default {
+    BINDWEED: {
         name: 'Bindweed',
         DC: 16,
         ingredients: [
@@ -23,7 +23,7 @@ export default [
             rare: 50,
         },
     },
-    {
+    BLACK_BLOOD: {
         name: 'Black Blood',
         DC: 20,
         ingredients: [
@@ -45,7 +45,7 @@ export default [
             rare: 80,
         },
     },
-    {
+    BLIZZARD: {
         name: 'Blizzard',
         DC: 18,
         ingredients: [
@@ -66,7 +66,7 @@ export default [
             rare: 50,
         },
     },
-    {
+    CAT: {
         name: 'Cat',
         DC: 16,
         ingredients: [
@@ -87,7 +87,7 @@ export default [
             rare: 20,
         },
     },
-    {
+    DE_VRIES_EXTRACT: {
         name: 'De Vries\' Extract',
         DC: 16,
         ingredients: [
@@ -110,7 +110,7 @@ export default [
             rare: 45,
         },
     },
-    {
+    FULL_MOON: {
         name: 'Full Moon',
         DC: 20,
         ingredients: [
@@ -132,7 +132,7 @@ export default [
             rare: 50,
         },
     },
-    {
+    GOLDEN_ORIOLE: {
         name: 'Golden Oriole',
         DC: 16,
         ingredients: [
@@ -153,7 +153,7 @@ export default [
             rare: 50,
         },
     },
-    {
+    KISS: {
         name: 'Kiss',
         DC: 16,
         ingredients: [
@@ -174,7 +174,7 @@ export default [
             rare: 50,
         },
     },
-    {
+    MARIBOR_FOREST: {
         name: 'Maribor Forest',
         DC: 18,
         ingredients: [
@@ -190,7 +190,7 @@ export default [
             uncommon: 75,
         },
     },
-    {
+    PETRIS_PHILTER: {
         name: 'Petri\'s Philter',
         DC: 16,
         ingredients: [
@@ -213,7 +213,7 @@ export default [
             rare: 50,
         },
     },
-    {
+    SHRIKE: {
         name: 'Shrike',
         DC: 18,
         ingredients: [
@@ -236,7 +236,7 @@ export default [
             rare: 75,
         },
     },
-    {
+    SWALLOW: {
         name: 'Swallow',
         DC: 16,
         ingredients: [
@@ -258,7 +258,7 @@ export default [
             rare: 45,
         },
     },
-    {
+    TAWNY_OWL: {
         name: 'Tawny Owl',
         DC: 16,
         ingredients: [
@@ -279,7 +279,7 @@ export default [
             rare: 40,
         },
     },
-    {
+    THUNDERBOLT: {
         name: 'Thunderbolt',
         DC: 18,
         ingredients: [
@@ -302,7 +302,7 @@ export default [
             rare: 95,
         },
     },
-    {
+    WHITE_HONEY: {
         name: 'White Honey',
         DC: 16,
         ingredients: [
@@ -318,7 +318,7 @@ export default [
             everyday: 0,
         },
     },
-    {
+    WHITE_RAFFARDS_DECOCTION: {
         name: 'White Raffard\'s Decoction',
         DC: 16,
         ingredients: [
@@ -340,7 +340,7 @@ export default [
             rare: 65,
         },
     },
-    {
+    WILLOW: {
         name: 'Willow',
         DC: 16,
         ingredients: [
@@ -361,7 +361,7 @@ export default [
             rare: 75,
         },
     },
-    {
+    WOLF: {
         name: 'Wolf',
         DC: 18,
         ingredients: [
@@ -383,7 +383,7 @@ export default [
             rare: 45,
         },
     },
-    {
+    WOLVERINE: {
         name: 'Wolverine',
         DC: 18,
         ingredients: [
@@ -429,4 +429,4 @@ export default [
     //         rare: 5,
     //     },
     // },
-];
+};

@@ -19,7 +19,10 @@ export default function getCraftableRecipes(
 
     allRecipes.forEach(recipeList => {
         const craftableList = [];
-        recipeList.recipes.forEach(recipe => {
+
+        const recipeKeys = Object.keys(recipeList.recipes);
+        recipeKeys.forEach(key => {
+            const recipe = recipeList.recipes[key];
             let craftable = true;
 
             for (let i = 0; i < recipe.ingredients.length && craftable; i += 1) {

@@ -56,7 +56,13 @@ export default function IngredientDisplay(props) {
                 >
                     ({subtitle})
                 </Typography>
-                <AmountAndEditSatchel displayAmount={props.displayAmount} item={props.item} editable={props.editable} />
+                <AmountAndEditSatchel
+                    displayAmount={props.displayAmount}
+                    editable={props.editable}
+                    category="Ingredient"
+                    itemName={props.item.item}
+                    amount={props.item.amount}
+                />
             </div>
             {props.displayMaxAmount && (
                 <DisplayMaxAmount maxAmount={props.item.maxAmount} />

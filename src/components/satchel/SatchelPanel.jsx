@@ -6,6 +6,7 @@ import DisplayArea from '../common/DisplayArea';
 import SatchelSummary from './subcomponents/summary/SatchelSummary';
 import SatchelDetailsPanel from './subcomponents/details/SatchelDetailsPanel';
 import ImportExportSatchel from './subcomponents/ImportExportSatchel';
+import SatchelWitcherBrewsPanel from './subcomponents/witcherBrews/SatchelWitcherBrewsPanel';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedSatchelTab: (selectedTab) => {
@@ -20,7 +21,7 @@ const mapStateToProps = state => ({
 class SatchelPanel extends React.Component {
     constructor() {
         super();
-        this.tabs = ["Summary", "Details"];
+        this.tabs = ["Summary", "Details", "Witcher Brews", "Alchemy"];
     }
 
     renderPanel = () => {
@@ -33,6 +34,11 @@ class SatchelPanel extends React.Component {
             return (
                 <SatchelDetailsPanel />
             )
+        }
+        if (this.props.selectedTab === 2) {
+            return (
+                <SatchelWitcherBrewsPanel/>
+            );
         }
         return (
             <div />

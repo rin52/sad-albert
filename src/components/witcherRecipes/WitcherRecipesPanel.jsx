@@ -24,33 +24,29 @@ class WitcherRecipesPanel extends React.Component {
         this.tabs = ["Potions", "Blade Oils", "Decoctions"];
     }
 
+    renderRecipeItems = (recipes) => {
+        const keys = Object.keys(recipes);
+        return (
+            <div>
+                {keys.map(key => {
+                    const recipe = recipes[key];
+                    return (
+                        <RecipeItem recipe={recipe} key={recipe.name} />
+                    );
+                })}
+            </div>
+        )
+    }
+
     renderPanel = () => {
         if (this.props.selectedTab === 0) {
-            return (
-                <div>
-                    {Potions.map(potion => (
-                        <RecipeItem recipe={potion} key={potion.name} />
-                    ))}
-                </div>
-            )
+            return this.renderRecipeItems(Potions);
         }
         if (this.props.selectedTab === 1) {
-            return (
-                <div>
-                    {BladeOils.map(bladeOil => (
-                        <RecipeItem recipe={bladeOil} key={bladeOil.name} />
-                    ))}
-                </div>
-            )
+            return this.renderRecipeItems(BladeOils);
         }
         if (this.props.selectedTab === 2) {
-            return (
-                <div>
-                    {Decoctions.map(decoction => (
-                        <RecipeItem recipe={decoction} key={decoction.name} />
-                    ))}
-                </div>
-            )
+            return this.renderRecipeItems(Decoctions);
         }
         return (
             <div />

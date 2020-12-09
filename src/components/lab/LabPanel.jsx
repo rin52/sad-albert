@@ -45,12 +45,14 @@ class LabPanel extends React.Component {
                             recipes: Decoctions,
                         },
                     ]}
+                    type="witcherBrews"
                 />
             )
         }
         if (this.props.selectedTab === 1) {
             return (
                 <InventoryPanel
+                    type="alchemy"
                     allRecipes={[
                         {
                             name: 'Novice Formulae',

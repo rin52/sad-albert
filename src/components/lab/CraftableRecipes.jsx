@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import DisplayArea from '../common/DisplayArea';
 import RecipeItem from '../common/recipeItem/RecipeItem';
+import { getCategory } from '../../actions/helper/SatchelActionsHelper';
 
 const useStyles = makeStyles({
     root: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles({
 
 export default function CraftableRecipes(props) {
     const classes = useStyles();
+
     return (
         <div>
             {props.craftable.map(recipeList => (
@@ -32,6 +34,7 @@ export default function CraftableRecipes(props) {
                                         key={recipe.name}
                                         craftRecipeClicked={props.craftRecipeClicked}
                                         showCraft
+                                        category={getCategory(recipeList.name)}
                                     />
                                 ))
                             }

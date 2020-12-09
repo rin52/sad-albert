@@ -47,7 +47,7 @@ export default function InventoryPanel(props) {
                 <UserInventory allRecipes={props.allRecipes} hasMutagens={props.hasMutagens} />
             )}
             {useSatchel && (
-                <SatchelInventory allRecipes={props.allRecipes} hasMutagens={props.hasMutagens} />
+                <SatchelInventory allRecipes={props.allRecipes} hasMutagens={props.hasMutagens} type={props.type} />
             )}
 
         </div>

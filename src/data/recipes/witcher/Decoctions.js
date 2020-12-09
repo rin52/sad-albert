@@ -1,7 +1,7 @@
 import IngredientCategory from '../../../helper/IngredientCategory';
 
-export default [
-    {
+export default {
+    CHORT: {
         name: 'Chort',
         DC: 18,
         ingredients: [
@@ -14,7 +14,7 @@ export default [
         duration: '20 minutes',
         toxicity: 80,
     },
-    {
+    FORKTAIL: {
         name: 'Forktail',
         DC: 16,
         ingredients: [
@@ -29,7 +29,7 @@ export default [
         duration: '10 minutes',
         toxicity: 75,
     },
-    {
+    GHOUL: {
         name: 'Ghoul',
         DC: 14,
         ingredients: [
@@ -43,7 +43,7 @@ export default [
         duration: '10 minutes',
         toxicity: 65,
     },
-    {
+    GRIFFIN: {
         name: 'Griffin',
         DC: 16,
         ingredients: [
@@ -57,7 +57,7 @@ export default [
         duration: '6 rounds',
         toxicity: 70,
     },
-    {
+    KIKIMORE: {
         name: 'Kikimore',
         DC: 16,
         ingredients: [
@@ -71,7 +71,7 @@ export default [
         duration: '10 minutes',
         toxicity: 50,
     },
-    {
+    NEKKER: {
         name: 'Nekker',
         DC: 14,
         ingredients: [
@@ -86,7 +86,7 @@ export default [
         duration: '15 minutes',
         toxicity: 45,
     },
-    {
+    NOONWRAITH: {
         name: 'Noonwraith',
         DC: 18,
         ingredients: [
@@ -101,7 +101,7 @@ export default [
         duration: '30 minutes',
         toxicity: 65,
     },
-    {
+    VAMPIRE: {
         name: 'Vampire',
         DC: 16,
         ingredients: [
@@ -115,7 +115,7 @@ export default [
         duration: '30 minutes',
         toxicity: 95,
     },
-    {
+    WEREWOLF: {
         name: 'Werewolf',
         DC: 18,
         ingredients: [
@@ -129,7 +129,7 @@ export default [
         duration: '20 minutes',
         toxicity: 85,
     },
-    {
+    WYVERN: {
         name: 'Wyvern',
         DC: 18,
         ingredients: [
@@ -156,4 +156,4 @@ export default [
     //     duration: '',
     //     toxicity: 0,
     // },
-]
+};

@@ -2,8 +2,8 @@ import IngredientCategory from '../../../helper/IngredientCategory';
 
 const creatures = 'Increased damage (+5) to creatures of this type';
 
-export default [
-    {
+export default {
+    BEAST_OIL: {
         name: 'Beast Oil',
         DC: 14,
         ingredients: [
@@ -13,7 +13,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    CURSED_OIL: {
         name: 'Cursed Oil',
         DC: 16,
         ingredients: [
@@ -26,7 +26,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    DRACONID_OIL: {
         name: 'Draconid Oil',
         DC: 16,
         ingredients: [
@@ -37,7 +37,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    ELEMENTA_OIL: {
         name: 'Elementa Oil',
         DC: 16,
         ingredients: [
@@ -49,7 +49,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    HANGED_MANS_VENOM: {
         name: 'Hanged Man\'s Venom',
         DC: 16,
         ingredients: [
@@ -61,7 +61,7 @@ export default [
         effects: 'Increased damage (+5) against humanoids',
         duration: '1 hour',
     },
-    {
+    HYBRID_OIL: {
         name: 'Hybrid Oil',
         DC: 16,
         ingredients: [
@@ -73,7 +73,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    INSECTOID_OIL: {
         name: 'Insectoid Oil',
         DC: 14,
         ingredients: [
@@ -83,7 +83,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    NECROPHAGE_OIL: {
         name: 'Necrophage Oil',
         DC: 16,
         ingredients: [
@@ -95,7 +95,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    OGROID_OIL: {
         name: 'Ogroid Oil',
         DC: 15,
         ingredients: [
@@ -106,7 +106,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    RELICT_OIL: {
         name: 'Relict Oil',
         DC: 16,
         ingredients: [
@@ -118,7 +118,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    SPECTER_OIL: {
         name: 'Specter Oil',
         DC: 16,
         ingredients: [
@@ -130,7 +130,7 @@ export default [
         effects: creatures,
         duration: '1 hour',
     },
-    {
+    VAMPIRE_OIL: {
         name: 'Vampire Oil',
         DC: 16,
         ingredients: [
@@ -151,4 +151,4 @@ export default [
     //     effects: '',
     //     duration: '',
     // },
-];
+};
