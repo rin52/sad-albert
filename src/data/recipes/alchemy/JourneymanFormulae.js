@@ -1,7 +1,7 @@
 import IngredientCategory from '../../../helper/IngredientCategory';
 
-export default [
-    {
+export default {
+    ACID_SOLUTION: {
         name: 'Acid Solution',
         DC: 16,
         ingredients: [
@@ -15,7 +15,7 @@ export default [
             'attack against a creature or object, treating the acid as n improvised weapon. On a hit, the ' +
             'target takes 2d6 acid damage.',
     },
-    {
+    ALCHEMICAL_ADHESIVE: {
         name: 'Alchemical Adhesive',
         DC: 15,
         ingredients: [
@@ -29,7 +29,7 @@ export default [
             'harden, permanently sticking objects together, and sticking people to one another or to objects. ' +
             'The objects must be pried apart with a DC 16 Athletics check. Creatures stuck in this manner are considered Restrained',
     },
-    {
+    BLACK_VENOM: {
         name: 'Black Venom',
         DC: 15,
         ingredients: [
@@ -42,7 +42,7 @@ export default [
             'venom or are cut by a poisoned weapon. It takes a DC 16 Perception check to realize it' +
             'is in a drink.',
     },
-    {
+    CADAVERINE_SOLUTION: {
         name: 'Cadaverine Solution',
         DC: 16,
         ingredients: [
@@ -54,7 +54,7 @@ export default [
             'paralyzed conditions on a target on a successfuly damaging attack. Two separate DC 16 Con saves ' +
             'must be made to end both conditions.',
     },
-    {
+    CELESTINE: {
         name: 'Celestine',
         DC: 16,
         ingredients: [
@@ -67,7 +67,7 @@ export default [
             'and any other task that requires focus. This condition ends in 2d10 minutes but a DC 14 Con ' +
             'save ends the condition early.',
     },
-    {
+    CHLOROFORM: {
         name: 'Chloroform',
         DC: 16,
         ingredients: [
@@ -80,7 +80,7 @@ export default [
             'unconscious until they do make the save. Usually it requires a Melee attack with a cloth ' +
             'soaked in the chloroform. It can also be poured into a vessel. Each bottle contains 25 doses.',
     },
-    {
+    QUICK_FIRE: {
         name: 'Quick Fire',
         DC: 16,
         ingredients: [
@@ -104,4 +104,4 @@ export default [
     //     ],
     //     effects: '',
     // },
-]
+}

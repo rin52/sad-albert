@@ -3,8 +3,10 @@ import {
     OVERWRITE_SATCHEL,
     REMOVE_INGREDIENT_FROM_SATCHEL,
     REMOVE_WITCHER_BREW_FROM_SATCHEL,
+    REMOVE_ALCHEMY_FROM_SATCHEL,
     UPDATE_SATCHEL_INGREDIENTS,
-    UPDATE_SATCHEL_WITCHER_BREWS
+    UPDATE_SATCHEL_WITCHER_BREWS,
+    UPDATE_SATCHEL_ALCHEMY,
 } from "../actions/SatchelActions";
 
 const localStorageKey = "SAD_ALBERT_SATCHEL";
@@ -14,7 +16,7 @@ const initialState = satchel === null
     ? {
         ingredients: {},
         witcherBrews: { potions: {}, bladeOils: {}, decoctions: {} },
-        alchemy: {}
+        alchemy: { novice: {}, journeyman: {}, master: {} }
     }
     : satchel;
 
@@ -43,6 +45,10 @@ export default function SatchelReducer(state = initialState, action) {
             return updateSatchelWitcherBrews(state, action);
         case REMOVE_WITCHER_BREW_FROM_SATCHEL:
             return removeWitcherBrewFromSatchel(state, action);
+        case UPDATE_SATCHEL_ALCHEMY:
+            return updateSatchelAlchemy(state, action);
+        case REMOVE_ALCHEMY_FROM_SATCHEL:
+            return removeAlchemyFromSatchel(state, action);
         default:
             return { ...state };
     }
@@ -64,12 +70,12 @@ function updateSatchelIngredients(state, action) {
 function updateSatchelWitcherBrews(state, action) {
     const category = action.payload.category;
     const curCategoryState = state.witcherBrews && state.witcherBrews[category]
-     ? state.witcherBrews[category] : {};
+        ? state.witcherBrews[category] : {};
 
     const newState = {
         ...state, witcherBrews: {
             ...state.witcherBrews,
-            [category] : {
+            [category]: {
                 ...curCategoryState, ...action.payload.items
             }
         },
@@ -81,6 +87,30 @@ function updateSatchelWitcherBrews(state, action) {
 function removeWitcherBrewFromSatchel(state, action) {
     const newState = { ...state }
     delete newState.witcherBrews[action.payload.category][action.payload.itemKey];
+    localStorage.setItem(localStorageKey, JSON.stringify({ ...newState }));
+    return { ...newState };
+}
+
+function updateSatchelAlchemy(state, action) {
+    const category = action.payload.category;
+    const curCategoryState = state.alchemy && state.alchemy[category]
+        ? state.alchemy[category] : {};
+
+    const newState = {
+        ...state, alchemy: {
+            ...state.alchemy,
+            [category]: {
+                ...curCategoryState, ...action.payload.items
+            }
+        },
+    };
+    localStorage.setItem(localStorageKey, JSON.stringify(newState));
+    return newState;
+}
+
+function removeAlchemyFromSatchel(state, action) {
+    const newState = { ...state }
+    delete newState.alchemy[action.payload.category][action.payload.itemKey];
     localStorage.setItem(localStorageKey, JSON.stringify({ ...newState }));
     return { ...newState };
 }

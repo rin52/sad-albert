@@ -1,7 +1,7 @@
 import IngredientCategory from '../../../helper/IngredientCategory';
 
-export default [
-    {
+export default {
+    BERSERKERS_BREW: {
         name: 'Berserker\'s Brew',
         DC: 22,
         ingredients: [
@@ -17,7 +17,7 @@ export default [
             'that turn. This check must be redone at their next turn. While under the effects, the user ' +
             'benefits the effects of a Barbarian\'s rage skill. These effects last for 1d10 rounds.',
     },
-    {
+    BREDANS_FURY: {
         name: 'Bredan\'s Fury',
         DC: 22,
         ingredients: [
@@ -29,7 +29,7 @@ export default [
         effects: 'As an action, you can throw this flask up to 20 feet, shattering it on impact. ' +
             'Bredan\'s Fury explodes when exposed to air, doing 2d6 fire damage to any creature within a 5 foot radius.',
     },
-    {
+    FISSTECH: {
         name: 'Fisstech',
         DC: 18,
         hide: true,
@@ -43,7 +43,7 @@ export default [
             'state. It is often used as an anesthetic, as it numbs pain. It is highly addictive. After ' +
             'each use, make a DC 18 Con save. If you fail, you become addicted.',
     },
-    {
+    PANTAGRANS_ELIXIR: {
         name: 'Pantagran\'s Elixir',
         DC: 17,
         ingredients: [
@@ -56,7 +56,8 @@ export default [
         effects: 'Consuming a draught of Pantagran\'s elixir brings delirious happiness. This effect ' +
             'lasts for 1d6/2 hours and leaves the imbiber incredibly suceptible to Charisma based checks ' +
             '(similar to Charm Person/Friends).',
-    }, {
+    },
+    PERFUME_POTION: {
         name: 'Perfume Potion',
         DC: 18,
         ingredients: [
@@ -73,7 +74,7 @@ export default [
             everyday: 25,
         },
     },
-    {
+    TALGARS_TEARS: {
         name: 'Talgar\'s Tears',
         DC: 20,
         ingredients: [
@@ -86,7 +87,7 @@ export default [
             'liquid splatters in a 10 foot cone directly away from where it lands, freezing anything it hits.' +
             '(Restrained for 1d4 rounds, possible athletics check to escape)',
     },
-    {
+    ZERRIKANIAN_FIRE: {
         name: 'Zerrikanian Fire',
         DC: 17,
         ingredients: [
@@ -109,4 +110,4 @@ export default [
     //     ],
     //     effects: '',
     // },
-]
+}

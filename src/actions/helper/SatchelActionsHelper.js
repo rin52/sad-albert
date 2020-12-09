@@ -1,4 +1,5 @@
 export function getCategory(listName) {
+    console.log(listName);
     switch (listName) {
         case "Potions":
             return "potions";
@@ -6,6 +7,18 @@ export function getCategory(listName) {
             return "bladeOils";
         case "Decoctions":
             return "decoctions";
+        case "Novice":
+            return "novice";
+        case "Novice Formulae":
+            return "novice";
+        case "Journeyman":
+            return "journeyman";
+        case "Journeyman Formulae":
+            return "journeyman";
+        case "Master":
+            return "master";
+        case "Master Formulae":
+            return "master";
         default:
             return "";
     }

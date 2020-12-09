@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import StyledModal from '../../common/StyledModal';
 import getIngredientKey from '../../../helper/satchel/getIngredientKey';
-import { updateSatchelWitcherBrews } from '../../../actions/SatchelActions';
+import { updateSatchelWitcherBrews, updateSatchelAlchemy } from '../../../actions/SatchelActions';
 
 export default function CraftingSuccessModal(props) {
     const satchel = useSelector(state => state.satchelState);
@@ -71,7 +71,7 @@ export default function CraftingSuccessModal(props) {
         if (props.type === 'witcherBrews') {
             dispatch(updateSatchelWitcherBrews(props.category, newItem));
         } else if (props.type === 'alchemy') {
-            
+            dispatch(updateSatchelAlchemy(props.category, newItem));
         }
 
         props.close();

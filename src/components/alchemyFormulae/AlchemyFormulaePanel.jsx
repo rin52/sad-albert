@@ -24,33 +24,29 @@ class AlchemyFormulaePanel extends React.Component {
         this.tabs = ["Novice Formulae", "Journeyman Formulae", "Master Formulae"];
     }
 
+    renderRecipeItems = (recipes) => {
+        const keys = Object.keys(recipes);
+        return (
+            <div>
+                {keys.map(key => {
+                    const recipe = recipes[key];
+                    return (
+                        <RecipeItem recipe={recipe} key={recipe.name} />
+                    );
+                })}
+            </div>
+        )
+    }
+
     renderPanel = () => {
         if (this.props.selectedTab === 0) {
-            return (
-                <div>
-                    {NoviceFormulae.map(recipe => (
-                        <RecipeItem recipe={recipe} key={recipe.name} />
-                    ))}
-                </div>
-            )
+            return this.renderRecipeItems(NoviceFormulae);
         }
         if (this.props.selectedTab === 1) {
-            return (
-                <div>
-                    {JourneymanFormulae.map(recipe => (
-                        <RecipeItem recipe={recipe} key={recipe.name} />
-                    ))}
-                </div>
-            )
+            return this.renderRecipeItems(JourneymanFormulae);
         }
         if (this.props.selectedTab === 2) {
-            return (
-                <div>
-                    {MasterFormulae.map(recipe => (
-                        <RecipeItem recipe={recipe} key={recipe.name} />
-                    ))}
-                </div>
-            )
+            return this.renderRecipeItems(MasterFormulae);
         }
         return (
             <div />
