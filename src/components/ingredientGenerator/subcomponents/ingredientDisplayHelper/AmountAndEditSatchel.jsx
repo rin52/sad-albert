@@ -11,6 +11,8 @@ import {
     updateSatchelIngredients,
     removeWitcherBrewFromSatchel,
     updateSatchelWitcherBrews,
+    updateSatchelAlchemy,
+    removeAlchemyFromSatchel,
 } from '../../../../actions/SatchelActions';
 import { getCategory, getNewPotionItem } from '../../../../actions/helper/SatchelActionsHelper';
 
@@ -53,16 +55,18 @@ export default function AmountAndEditSatchel(props) {
         if (amount > 0) {
             if (props.category === 'Ingredient') {
                 dispatch(updateSatchelIngredients({ [key]: { amount: Number(amount) } }));
-            } else if (props.category === "Potions") {
-
             } else if (props.category === "Blade Oils" || props.category === "Decoctions") {
                 dispatch(updateSatchelWitcherBrews(getCategory(props.category), { [key]: { amount: Number(amount) } }));
+            } else if (props.category.includes("Formulae")) {
+                dispatch(updateSatchelAlchemy(getCategory(props.category), { [key]: { amount: Number(amount) } }))
             }
         } else {
             if (props.category === 'Ingredient') {
                 dispatch(removeIngredientFromSatchel(key));
             } else if (props.category === "Blade Oils" || props.category === "Decoctions") {
                 dispatch(removeWitcherBrewFromSatchel(getCategory(props.category), key));
+            } else if (props.category.includes("Formulae")) {
+                dispatch(removeAlchemyFromSatchel(getCategory(props.category), key));
             }
         }
 
