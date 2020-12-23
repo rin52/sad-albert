@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5fe3dacf98afc18514dcbe6f080e8720",
+    "revision": "c22c65267f357be16d5535ba6564f1e5",
     "url": "/sad-albert/index.html"
   },
   {
-    "revision": "c1b3b56b375d1b86ae47",
+    "revision": "59d28bc63cbc0636bbc6",
     "url": "/sad-albert/static/css/main.9c0588dc.chunk.css"
   },
   {
-    "revision": "14563c94c1ffcc339847",
-    "url": "/sad-albert/static/js/2.52eecf21.chunk.js"
+    "revision": "21a909957c64c449697a",
+    "url": "/sad-albert/static/js/2.779bcaf6.chunk.js"
   },
   {
-    "revision": "89b0379e7bcda1a468d8b0343aeb4e53",
-    "url": "/sad-albert/static/js/2.52eecf21.chunk.js.LICENSE.txt"
+    "revision": "3c9b25fc9b0e0db3d92d561c75adf72d",
+    "url": "/sad-albert/static/js/2.779bcaf6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c1b3b56b375d1b86ae47",
-    "url": "/sad-albert/static/js/main.36aeab24.chunk.js"
+    "revision": "59d28bc63cbc0636bbc6",
+    "url": "/sad-albert/static/js/main.2438d01b.chunk.js"
   },
   {
     "revision": "9a4bcd9e1724a49568ca",
