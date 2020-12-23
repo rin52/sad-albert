@@ -4,9 +4,9 @@ import CenteredTabs from '../common/CenteredTabs';
 import { switchSelectedAlchemyFormulaeTab } from '../../actions/SystemActions';
 import DisplayArea from '../common/DisplayArea';
 import RecipeItem from '../common/recipeItem/RecipeItem';
-import NoviceFormulae from '../../data/recipes/alchemy/NoviceFormulae';
-import JourneymanFormulae from '../../data/recipes/alchemy/JourneymanFormulae';
-import MasterFormulae from '../../data/recipes/alchemy/MasterFormulae';
+import getNoviceFormulae from '../../helper/getData/getRecipes/alchemy/getNoviceFormulae';
+import getJourneymanFormulae from '../../helper/getData/getRecipes/alchemy/getJourneymanFormulae';
+import getMasterFormulae from '../../helper/getData/getRecipes/alchemy/getMasterFormulae';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedAlchemyFormulaeTab: (selectedTab) => {
@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
     selectedTab: state.systemState.selectedAlchemyFormulaeTab,
+    chosenSetting: state.systemState.chosenSetting,
 });
 
 class AlchemyFormulaePanel extends React.Component {
@@ -40,13 +41,13 @@ class AlchemyFormulaePanel extends React.Component {
 
     renderPanel = () => {
         if (this.props.selectedTab === 0) {
-            return this.renderRecipeItems(NoviceFormulae);
+            return this.renderRecipeItems(getNoviceFormulae(this.props.chosenSetting));
         }
         if (this.props.selectedTab === 1) {
-            return this.renderRecipeItems(JourneymanFormulae);
+            return this.renderRecipeItems(getJourneymanFormulae(this.props.chosenSetting));
         }
         if (this.props.selectedTab === 2) {
-            return this.renderRecipeItems(MasterFormulae);
+            return this.renderRecipeItems(getMasterFormulae(this.props.chosenSetting));
         }
         return (
             <div />

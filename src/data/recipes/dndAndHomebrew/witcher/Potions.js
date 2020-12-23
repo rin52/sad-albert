@@ -1,4 +1,4 @@
-import IngredientCategory from '../../../helper/IngredientCategory';
+import IngredientCategory from '../../../../helper/IngredientCategory';
 
 export default {
     BINDWEED: {

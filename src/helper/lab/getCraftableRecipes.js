@@ -1,4 +1,5 @@
 import compareIngredientRequiredToAmount from './compareIngredientRequiredToAmount';
+import compareSpecificIngredientRequiredToAmount from './compareSpecificIngredientRequiredToAmount';
 
 export default function getCraftableRecipes(
     allRecipes,
@@ -14,6 +15,18 @@ export default function getCraftableRecipes(
     redMutagen,
     greenMutagen,
     blueMutagen,
+    dogTallow,
+    bottleOfSpirits,
+    arachas,
+    fiend,
+    graveHag,
+    griffin,
+    katakan,
+    nekker,
+    noonwraith,
+    troll,
+    werewolf,
+    wyvern,
 ) {
     const craftableRecipes = [];
 
@@ -29,6 +42,13 @@ export default function getCraftableRecipes(
                 craftable = compareIngredientRequiredToAmount(recipe.ingredients[i],
                     vitriol, rebis, aether, quebrith, hydragenum, sol, vermilion, caelum, fulgur,
                     redMutagen, greenMutagen, blueMutagen);
+            }
+            if (craftable && recipe.specificIngredients) {
+                for (let i = 0; i < recipe.specificIngredients.length && craftable; i += 1) {
+                    craftable = compareSpecificIngredientRequiredToAmount(recipe.specificIngredients[i],
+                        dogTallow, bottleOfSpirits, arachas, fiend, graveHag, griffin, katakan, nekker,
+                        noonwraith, troll, werewolf, wyvern);
+                }
             }
             if (craftable) {
                 craftableList.push(recipe);

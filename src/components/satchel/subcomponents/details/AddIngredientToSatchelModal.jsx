@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import StyledModal from '../../../common/StyledModal';
@@ -16,7 +17,8 @@ export default function AddIngredientToSatchelModal(props) {
     const classes = useStyles();
     const [item, setItem] = React.useState('');
     const [amount, setAmount] = React.useState(0);
-    const ingredients = getAllIngredients();
+    const chosenSetting = useSelector(state => state.systemState.chosenSetting);
+    const ingredients = getAllIngredients(chosenSetting);
 
     const onItemChange = (event) => {
         setItem(event.target.value);

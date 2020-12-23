@@ -34,7 +34,16 @@ export default function PotionHeader(props) {
             for (let i = 1; i < ingredient.amount; i++) {
                 ingredientsArray.push(ingredient.category);
             }
-        })
+        });
+
+        if (props.specificIngredients) {
+            props.specificIngredients.forEach(specificIngredient => {
+                ingredientsArray.push(specificIngredient.key);
+                for (let i = 1; i < specificIngredient.amount; i++) {
+                    ingredientsArray.push(specificIngredient.key);
+                }
+            });
+        }
 
         return (
             <div className={classes.row}>

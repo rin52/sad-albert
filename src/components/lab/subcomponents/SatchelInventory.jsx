@@ -31,10 +31,14 @@ const useStyles = makeStyles({
 });
 
 export default function SatchelInventory(props) {
-    const satchelIngredients = useSelector(state => getSatchelSummary(state.satchelState.ingredients));
+    const satchelIngredients = useSelector(state => getSatchelSummary(
+        state.satchelState.ingredients,
+        state.systemState.chosenSetting
+    ));
 
     const [selectItemsOpen, setSelectItemsOpen] = React.useState(false);
     const [recipeIngredients, setRecipeIngredients] = React.useState([]);
+    const [recipeSpecificIngredients, setSpecificIngredients] = React.useState([]);
     const [craftable, setCraftable] = React.useState([]);
     const [regenerate, setRegenerate] = React.useState(false);
     const [hasRarities, setHasRarities] = React.useState(false);
@@ -63,12 +67,28 @@ export default function SatchelInventory(props) {
             satchelIngredients.Fulgur.total,
             satchelIngredients['Red Mutagen'].total,
             satchelIngredients['Green Mutagen'].total,
-            satchelIngredients['Blue Mutagen'].total));
+            satchelIngredients['Blue Mutagen'].total,
+            satchelIngredients['DOG_TALLOW'],
+            satchelIngredients['BOTTLE_OF_SPIRITS'],
+            satchelIngredients['ARACHAS'],
+            satchelIngredients['FIEND'],
+            satchelIngredients['GRAVE_HAG'],
+            satchelIngredients['GRIFFIN'],
+            satchelIngredients['KATAKAN'],
+            satchelIngredients['NEKKER'],
+            satchelIngredients['NOONWRAITH'],
+            satchelIngredients['TROLL'],
+            satchelIngredients['WEREWOLF'],
+            satchelIngredients['WYVERN'],
+        ));
     }, [props.allRecipes, satchelIngredients]);
 
-    const craftRecipeClicked = (ingredients, hasRarities, craftDc, recipeName, category) => {
+    const craftRecipeClicked = (ingredients, specificIngredients, hasRarities, craftDc, recipeName, category) => {
         setSelectItemsOpen(true);
         setRecipeIngredients(ingredients);
+        if (specificIngredients && specificIngredients.length > 0) {
+            setSpecificIngredients(specificIngredients);
+        }
         setHasRarities(hasRarities);
         setCraftDc(craftDc);
         setRecipeName(recipeName);
@@ -78,6 +98,7 @@ export default function SatchelInventory(props) {
     const selectItemsClose = () => {
         setSelectItemsOpen(false);
         setRecipeIngredients([]);
+        setSpecificIngredients([]);
         setCraftDc(0);
     };
 
@@ -151,6 +172,7 @@ export default function SatchelInventory(props) {
                     close={selectItemsClose}
                     setRegenerate={setRegenerate}
                     recipeIngredients={recipeIngredients}
+                    recipeSpecificIngredients={recipeSpecificIngredients}
                     hasRarities={hasRarities}
                     craftDc={craftDc}
                     recipeName={recipeName}

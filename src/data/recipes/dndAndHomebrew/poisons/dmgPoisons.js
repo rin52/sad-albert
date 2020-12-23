@@ -1,4 +1,4 @@
-import PoisonTypes from "../../../helper/PoisonTypes";
+import PoisonTypes from "../../../../helper/PoisonTypes";
 
 export default [
     {

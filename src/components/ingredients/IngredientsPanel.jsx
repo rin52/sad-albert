@@ -4,8 +4,8 @@ import CenteredTabs from '../common/CenteredTabs';
 import { switchSelectedIngredientsTab } from '../../actions/SystemActions';
 import IngredientsList from './IngredientsList';
 import IngredientCategory from '../../helper/IngredientCategory';
-import Ingredients from '../../data/Ingredients';
-import Mutagens from '../../data/Mutagens';
+import getIngredients from '../../helper/getData/getIngredients';
+import getMutagens from '../../helper/getData/getMutagens';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedIngredientsTab: (selectedTab) => {
@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
     selectedTab: state.systemState.selectedIngredientsTab,
+    chosenSetting: state.systemState.chosenSetting,
 });
 
 class IngredientPanel extends React.Component {
@@ -33,30 +34,33 @@ class IngredientPanel extends React.Component {
                     switchTabs={this.props.switchSelectedIngredientsTab}
                 />
                 <div style={{ padding: '16px' }}>
-                    <IngredientsList category={IngredientCategory.VITRIOL} data={Ingredients} />
+                    <IngredientsList category={IngredientCategory.VITRIOL} data={getIngredients(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.REBIS} data={Ingredients} />
+                    <IngredientsList category={IngredientCategory.REBIS} data={getIngredients(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.AETHER} data={Ingredients} />
+                    <IngredientsList category={IngredientCategory.AETHER} data={getIngredients(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.QUEBRITH} data={Ingredients} />
+                    <IngredientsList category={IngredientCategory.QUEBRITH} data={getIngredients(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.HYDRAGENUM} data={Ingredients} />
+                    <IngredientsList category={IngredientCategory.HYDRAGENUM} data={getIngredients(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.SOL} data={Ingredients} />
+                    <IngredientsList category={IngredientCategory.SOL} data={getIngredients(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.VERMILION} data={Ingredients} />
+                    <IngredientsList category={IngredientCategory.VERMILION} data={getIngredients(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.CAELUM} data={Ingredients} />
+                    <IngredientsList category={IngredientCategory.CAELUM} data={getIngredients(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.FULGUR} data={Ingredients} />
+                    <IngredientsList category={IngredientCategory.FULGUR} data={getIngredients(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
 
-                    <IngredientsList category={IngredientCategory.RED_MUTAGEN} data={Mutagens} />
+                    <IngredientsList category={IngredientCategory.RED_MUTAGEN} data={getMutagens(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.GREEN_MUTAGEN} data={Mutagens} />
+                    <IngredientsList category={IngredientCategory.GREEN_MUTAGEN} data={getMutagens(this.props.chosenSetting)} />
                     <div style={{height: '16px', width: '16px'}} />
-                    <IngredientsList category={IngredientCategory.BLUE_MUTAGEN} data={Mutagens} />
+                    <IngredientsList category={IngredientCategory.BLUE_MUTAGEN} data={getMutagens(this.props.chosenSetting)} />
+
+                    <div style={{height: '16px', width: '16px'}} />
+                    <IngredientsList category={IngredientCategory.OTHER} data={getIngredients(this.props.chosenSetting)} />
                 </div>
             </div>
         );

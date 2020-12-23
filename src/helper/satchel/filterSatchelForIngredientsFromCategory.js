@@ -1,7 +1,7 @@
 import getSatchelDetails from "./getSatchelDetails";
 
-export default function filterSatchelForIngredientsFromCategory(ingredients, category) {
-    const satchelIngredients = getSatchelDetails(ingredients);
+export default function filterSatchelForIngredientsFromCategory(ingredients, category, chosenSetting) {
+    const satchelIngredients = getSatchelDetails(ingredients, chosenSetting);
     const keys = Object.keys(satchelIngredients);
     const filteredIngredients = [];
     keys.forEach(key => {

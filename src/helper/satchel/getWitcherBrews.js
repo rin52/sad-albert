@@ -1,15 +1,15 @@
-import Potions from '../../data/recipes/witcher/Potions';
-import BladeOils from '../../data/recipes/witcher/BladeOils';
-import Decoctions from '../../data/recipes/witcher/Decoctions';
+import getPotions from '../getData/getRecipes/witcher/getPotions';
+import getBladeOils from '../getData/getRecipes/witcher/getBladeOils';
+import getDecoctions from '../getData/getRecipes/witcher/getDecoctions';
 
-export default function getWitcherBrews(category) {
+export default function getWitcherBrews(category, chosenSetting) {
     let list = {};
     if (category === 'Potions') {
-        list = Potions;
+        list = getPotions(chosenSetting);
     } else if (category === 'Blade Oils') {
-        list = BladeOils;
+        list = getBladeOils(chosenSetting);
     } else if (category === 'Decoctions') {
-        list = Decoctions;
+        list = getDecoctions(chosenSetting);
     }
 
     const keys = Object.keys(list);

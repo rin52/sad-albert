@@ -39,6 +39,7 @@ export default function SelectIngredientsModal(props) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const satchelIngredients = useSelector(state => state.satchelState.ingredients);
+    const chosenSetting = useSelector(state => state.systemState.chosenSetting);
     const [selectedItems, setSelectedItems] = React.useState(getSelectedItemsObject(props.recipeIngredients));
     const [check, setCheck] = React.useState('');
     const [errorMsg, setErrorMsg] = React.useState('');
@@ -68,6 +69,14 @@ export default function SelectIngredientsModal(props) {
             msg = "Missing craft check";
         }
 
+        props.recipeSpecificIngredients.forEach((specificIngredient) => {
+            if (submittedItems[specificIngredient.name] && submittedItems[specificIngredient.name].amount) {
+                submittedItems[specificIngredient.name] = { amount: submittedItems[specificIngredient.name].amount + specificIngredient.amount };
+            } else {
+            submittedItems[specificIngredient.name] = {amount: specificIngredient.amount};
+            }
+        });
+
         if (msg === '') {
             const submittedItemsKeys = Object.keys(submittedItems);
 
@@ -92,7 +101,7 @@ export default function SelectIngredientsModal(props) {
                 dispatch(removeIngredientFromSatchel(ingredient));
             });
             if (check >= props.craftDc) {
-                props.craftingSuccess(props.hasRarities ? determinePotionRarity(selectedItems) : '');
+                props.craftingSuccess(props.hasRarities ? determinePotionRarity(selectedItems, chosenSetting) : '');
             } else {
                 props.craftingFail();
             }
@@ -137,7 +146,7 @@ export default function SelectIngredientsModal(props) {
                             <img className={classes.image} alt={key} src={getIngredientImage(category)} />
                             <StyledSelector
                                 name={category}
-                                options={filterSatchelForIngredientsFromCategory(satchelIngredients, category)}
+                                options={filterSatchelForIngredientsFromCategory(satchelIngredients, category, chosenSetting)}
                                 selected={selectedItems[key]}
                                 onChange={(event) => { onChange(event, key) }}
                             />
@@ -146,12 +155,29 @@ export default function SelectIngredientsModal(props) {
                                     className={classes.rarity}
                                     variant="subtitle1"
                                 >
-                                    {getIngredientRarity(selectedItems[key]).substring(0, 1)}
+                                    {getIngredientRarity(selectedItems[key], chosenSetting).substring(0, 1)}
                                 </Typography>
                             )}
                         </div>
                     );
                 })}
+                {props.recipeSpecificIngredients.map((specificIngredient) => (
+                    <div key={specificIngredient.key} className={classes.row}>
+                        <img className={classes.image} alt={specificIngredient.key} src={getIngredientImage(specificIngredient.key)} />
+                        <StyledSelector
+                            options={[specificIngredient.name]}
+                            selected={specificIngredient.name}
+                            disable
+                        />
+                        <Typography
+                            className={classes.rarity}
+                            variant="subtitle1"
+                        >
+                            {getIngredientRarity(specificIngredient.name, chosenSetting).substring(0, 1)}
+                        </Typography>
+                    </div>
+                ))}
+
                 <TextField
                     label="DC"
                     type="number"

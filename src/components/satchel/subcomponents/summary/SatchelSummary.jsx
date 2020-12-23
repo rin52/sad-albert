@@ -19,7 +19,8 @@ const useStyles = makeStyles({
 export default function SatchelSummary() {
     const classes = useStyles();
     const ingredients = useSelector(state => state.satchelState.ingredients);
-    const summary = getSatchelSummary(ingredients);
+    const chosenSetting = useSelector(state => state.systemState.chosenSetting);
+    const summary = getSatchelSummary(ingredients, chosenSetting);
 
     const renderSummary = (category) => (
         <CategorySummary category={category} summary={summary[category]} />

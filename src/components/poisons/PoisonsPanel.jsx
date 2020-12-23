@@ -2,7 +2,7 @@ import React from 'react';
 import CenteredTabs from '../common/CenteredTabs';
 import DisplayArea from '../common/DisplayArea';
 import PoisonItem from '../common/poisonItem/PoisonItem';
-import Poisons from '../../data/recipes/poisons/dmgPoisons';
+import Poisons from '../../data/recipes/dndAndHomebrew/poisons/dmgPoisons';
 
 export default function PoisonsPanel(props) {
     return (

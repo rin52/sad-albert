@@ -1,10 +1,21 @@
-import getRandomInt from './getRandomInt';
+import generateDropsWhenAllItemsHaveDC from './generator/generateDropsWhenAllItemsHaveDC';
+import generateDropsWhenNoItemsHaveDC from './generator/generateDropsWhenNoItemsHaveDC';
 
 export default function generateIngredientDrops(ingredientList, key, check) {
     const possibleDrops = [];
+    let missingDC = false;
+    let hasDC = false;
     ingredientList[key].forEach((item) => {
         if (item.DC <= check) {
             possibleDrops.push(item);
+        } else if (!item.DC) {
+            possibleDrops.push(item);
+        }
+
+        if (item.DC && !hasDC) {
+            hasDC = true;
+        } else if (!item.DC && !missingDC) {
+            missingDC = true;
         }
     });
 
@@ -12,30 +23,14 @@ export default function generateIngredientDrops(ingredientList, key, check) {
         return [];
     }
 
-    const numDropped = getRandomInt(possibleDrops.length) + 1;
-    let newDrops = [];
-
-    if (numDropped === possibleDrops.length) {
-        newDrops = possibleDrops;
-        newDrops.forEach((item) => {
-            item.amount = getRandomInt(item.maxAmount) + 1;
-        })
-    } else {
-        let counter = 0;
-        let selectedArray = [];
-
-        while (counter < numDropped) {
-            let index = getRandomInt(possibleDrops.length);
-
-            if (selectedArray.indexOf(index) === -1) {
-                const droppedItem = possibleDrops[index];
-                droppedItem.amount = getRandomInt(droppedItem.maxAmount) + 1;
-                newDrops.push(droppedItem);
-                selectedArray.push(index);
-                counter++;
-            }
-        }
+    if (hasDC && !missingDC) {
+        return generateDropsWhenAllItemsHaveDC(possibleDrops);
+    } else if (!hasDC && missingDC) {
+        return generateDropsWhenNoItemsHaveDC(possibleDrops);
+    } else if (hasDC && missingDC) {
+        //use same as when no items have DC as the possible drops list has been filtered for the DC already.
+        return generateDropsWhenNoItemsHaveDC(possibleDrops);
     }
 
-    return newDrops;
+    return [];
 }

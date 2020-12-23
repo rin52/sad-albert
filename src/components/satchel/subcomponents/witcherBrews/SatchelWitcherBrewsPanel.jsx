@@ -24,8 +24,13 @@ const useStyles = makeStyles({
 export default function SatchelWitcherBrewsPanel() {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const witcherBrews = useSelector(state => (getSatchelWitcherBrewDetails(state.satchelState.witcherBrews)));
-    const witcherPotions = useSelector(state => state.satchelState.witcherBrews.potions);
+    const witcherBrews = useSelector(state => (getSatchelWitcherBrewDetails(
+        state.satchelState.witcherBrews,
+        state.systemState.chosenSetting,
+    )));
+
+    const witcherPotions = useSelector(state => ((state.satchelState.witcherBrews && state.satchelState.witcherBrews.potions)
+        ? state.satchelState.witcherBrews.potions : {}));
     const [isAddOpen, setIsAddOpen] = React.useState(false);
 
     const addClicked = () => {
@@ -75,7 +80,7 @@ export default function SatchelWitcherBrewsPanel() {
 
             </div>
             {isAddOpen && (
-                <AddWitcherBrewToSatchelModal open={isAddOpen} close={closeAdd} submit={submitAdd}/>
+                <AddWitcherBrewToSatchelModal open={isAddOpen} close={closeAdd} submit={submitAdd} />
             )}
         </div>
     );

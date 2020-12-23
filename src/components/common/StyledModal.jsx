@@ -42,7 +42,7 @@ export default function StyledModal(props) {
             onBackdropClick={props.close}
             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', outline: 'none' }}
         >
-            <Paper className={classes.root}>
+            <Paper className={classes.root} style={props.width ? {width: props.width} : {}}>
                 <div className={classes.title}>
                     <Typography color="inherit">{props.title}</Typography>
                 </div>

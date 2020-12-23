@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -19,6 +20,8 @@ export default function AddAlchemyToSatchelModal(props) {
     const [item, setItem] = React.useState('');
     const [amount, setAmount] = React.useState(0);
     const [errorMsg, setErrorMessage] = React.useState('');
+
+    const chosenSetting = useSelector(state => state.systemState.chosenSetting);
 
     const onCategoryChange = (event) => {
         setCategory(event.target.value);
@@ -74,7 +77,7 @@ export default function AddAlchemyToSatchelModal(props) {
                 />
                 <StyledSelector
                     name="Formulae"
-                    options={getAlchemy(category)}
+                    options={getAlchemy(category, chosenSetting)}
                     selected={item}
                     onChange={onItemChange}
                     customStyle={classes.root}

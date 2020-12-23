@@ -1,4 +1,5 @@
 import {
+    CHANGE_SETTING,
     SWITCH_APP,
     SWITCH_SELECTED_INGREDIENTS_TAB,
     SWITCH_SELECTED_RECIPES_TAB,
@@ -9,6 +10,9 @@ import {
 } from '../actions/SystemActions';
 import Constants from '../helper/Constants';
 
+const localStorageKey = "SAD_ALBERT_DATA_SOURCE_SETTING";
+const chosenSetting = localStorage.getItem(localStorageKey);
+
 const initialState = {
     app: Constants.INGREDIENT_GENERATOR,
     selectedIngredientsGeneratorTab: 0,
@@ -17,10 +21,14 @@ const initialState = {
     selectedAlchemyFormulaeTab: 0,
     selectedLabTab: 0,
     selectedSatchelTab: 0,
+    chosenSetting: chosenSetting === null ? Constants.WITCHER : chosenSetting,
 };
 
 export default function SystemReducer(state = initialState, action) {
     switch (action.type) {
+        case CHANGE_SETTING:
+            localStorage.setItem(localStorageKey, action.payload);
+            return { ...state, chosenSetting: action.payload };
         case SWITCH_APP:
             return { ...state, app: action.payload };
         case SWITCH_SELECTED_INGREDIENTS_GENERATOR_TAB:

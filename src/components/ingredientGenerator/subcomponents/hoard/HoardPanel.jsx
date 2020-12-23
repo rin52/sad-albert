@@ -8,6 +8,7 @@ import HoardItemSelector from './HoardItemSelector';
 import generateIngredientDrops from '../../../../helper/generateIngredientDrops';
 import IngredientDisplay from '../IngredientDisplay';
 import AddToSatchelButton from '../AddToSatchelButton';
+import determineHasDC from '../../../../helper/generator/determineHasDC';
 
 const useStyles = makeStyles((theme) => ({
     grid: {
@@ -24,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
 export default function HoardPanel(props) {
     const classes = useStyles();
     const defaultMsg = 'Select ' + props.title.toLowerCase() + ', enter checks, and click \'Generate\' to generate item drops.'
-    const [items, setItems] = React.useState([{ id: 1, item: '', check: '' }]);
+    const [items, setItems] = React.useState([{ id: 1, item: '', check: '', hasDC: false }]);
     const [disabled, setDisabled] = React.useState(true);
     const [message, setMessage] = React.useState(defaultMsg);
     const [drops, setDrops] = React.useState([]);
     React.useEffect(() => {
-        setItems([{ id: 1, item: '', check: '' }]);
+        setItems([{ id: 1, item: '', check: '', hasDC: false }]);
         setDisabled(true);
         setMessage('Select ' + props.title.toLowerCase() + ', enter checks, and click \'Generate\' to generate item drops.');
         setDrops([]);
@@ -39,7 +40,7 @@ export default function HoardPanel(props) {
 
     const addItem = () => {
         const maxId = items.length > 0 ? Math.max.apply(Math.max, items.map(item => item.id)) : 0;
-        setItems([...items, { id: maxId + 1, item: '', check: '' }]);
+        setItems([...items, { id: maxId + 1, item: '', check: '', hasDC: false }]);
         setDisabled(true);
     }
 
@@ -52,10 +53,11 @@ export default function HoardPanel(props) {
     const onItemChange = (id, item, check) => {
         const index = findIndex(id);
         if (index !== -1) {
-            const newItems = items;
+            const newItems = [ ...items ];
             newItems[index].id = id;
             newItems[index].item = item;
             newItems[index].check = check;
+            newItems[index].hasDC = determineHasDC(props.list, item);
             setItems(newItems);
         }
         setDisabled(generateDisabled());
@@ -63,7 +65,7 @@ export default function HoardPanel(props) {
 
     const generateDisabled = () => {
         for (let i = 0; i < items.length; i += 1) {
-            if (items[i].check === '' || items[i].item === '') {
+            if ((items[i].check === '' && items[i].hasDC) || items[i].item === '') {
                 return true;
             }
         }
@@ -98,6 +100,7 @@ export default function HoardPanel(props) {
                                     item={item.item}
                                     check={item.check}
                                     id={item.id}
+                                    hasDC={item.hasDC}
                                     onItemChange={onItemChange}
                                     removeItem={removeItem}
                                     type={props.title}

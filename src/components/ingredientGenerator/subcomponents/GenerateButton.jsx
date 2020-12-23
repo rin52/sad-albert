@@ -2,22 +2,15 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Colors from '../../../helper/Colors';
-
 
 const useStyles = makeStyles((theme) => ({
-    area: {
-        border: '3px',
-        borderStyle: 'double',
-        borderColor: Colors.text,
-    },
     buttonArea: {
         display: 'flex',
         justifyContent: 'center',
         padding: '16px',
     },
     separator: {
-        width: '16px',
+        paddingRight: '16px',
     },
 }));
 
@@ -36,14 +29,16 @@ export default function GenerateButton(props) {
 
     return (
         <div className={classes.buttonArea}>
-            <TextField
+            {props.hasDC && (
+                <TextField
                 label="DC"
                 type="number"
                 value={check}
                 onChange={onChange}
+                className={classes.separator}
             />
-            <div className={classes.separator} />
-            <Button onClick={submit} disabled={check === ''}>Generate</Button>
+            )}
+            <Button onClick={submit} disabled={check === '' && props.hasDC}>Generate</Button>
         </div>
     );
 }

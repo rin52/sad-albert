@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyItems: 'center',
         alignItems: 'center',
-    }
+    },
 }));
 
 export default function RecipeItem(props) {
@@ -23,7 +23,13 @@ export default function RecipeItem(props) {
 
     const onCraftClick = () => {
         const hasRarities = (props.recipe.duration && typeof props.recipe.duration === 'object');
-        props.craftRecipeClicked(props.recipe.ingredients, hasRarities, props.recipe.DC, props.recipe.name, props.category);
+        props.craftRecipeClicked(props.recipe.ingredients,
+            props.recipe.specificIngredients,
+            hasRarities,
+            props.recipe.DC,
+            props.recipe.name,
+            props.category,
+        );
     };
 
     const getAmounts = () => {
@@ -41,6 +47,20 @@ export default function RecipeItem(props) {
         return 0;
     };
 
+    const renderSpecificIngredientsText = () => {
+        let ingredientString = 'Specific Ingredient(s): ';
+        props.recipe.specificIngredients.forEach((specificIngredient, index) => {
+            const endingStr = index !== props.recipe.specificIngredients.length - 1 ? ', ' : '.';
+            const string = `${specificIngredient.name} x${specificIngredient.amount}${endingStr}`;
+            ingredientString += string
+        });
+        return (
+            <Typography>
+                {ingredientString}
+            </Typography>
+        )
+    };
+
     if (props.recipe.hide) {
         return null;
     }
@@ -52,6 +72,7 @@ export default function RecipeItem(props) {
                         <RecipeHeader
                             name={props.recipe.name}
                             ingredients={props.recipe.ingredients}
+                            specificIngredients={props.recipe.specificIngredients}
                             DC={props.recipe.DC}
                             category={props.category}
                             amount={props.displayAmount ? getAmounts() : 0}
@@ -60,7 +81,16 @@ export default function RecipeItem(props) {
                             hasRarities={props.hasRarities}
                             witcherPotions={props.witcherPotions}
                         />
+                        {props.recipe.craftTime && (
+                            <Typography variant="subtitle1">
+                                Craft Time: {props.recipe.craftTime}
+                            </Typography>
+                        )}
+                        {props.recipe.specificIngredients && renderSpecificIngredientsText()}
                         <Typography>{props.recipe.effects}</Typography>
+                        {props.recipe.notes && (
+                            <Typography>{props.recipe.notes}</Typography>
+                        )}
                     </div>
                     <DurationAndToxicityChart
                         duration={props.recipe.duration}

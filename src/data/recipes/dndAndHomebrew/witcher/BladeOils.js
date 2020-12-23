@@ -1,4 +1,4 @@
-import IngredientCategory from '../../../helper/IngredientCategory';
+import IngredientCategory from '../../../../helper/IngredientCategory';
 
 const creatures = 'Increased damage (+5) to creatures of this type';
 

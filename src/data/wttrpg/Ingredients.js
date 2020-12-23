@@ -1,11 +1,10 @@
-import Rarity from "../helper/Rarity";
-import IngredientCategory from "../helper/IngredientCategory";
+import Rarity from "../../helper/Rarity";
+import IngredientCategory from "../../helper/IngredientCategory";
 
 export default {
     ABOMINATION_LYMPH: {
         item: 'Abomination Lymph',
         category: IngredientCategory.QUEBRITH,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     ALLSPICE_ROOT: {
@@ -15,28 +14,29 @@ export default {
         maxAmount: 6,
         rarity: Rarity.UNCOMMON,
     },
+    ARACHAS_CHITIN: {
+        item: 'Arachas Chitin',
+        category: IngredientCategory.VERMILION,
+        rarity: Rarity.RARE,
+    },
     ARACHAS_EYES: {
         item: 'Arachas Eyes',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     ARACHAS_VENOM: {
         item: 'Arachas Venom',
         category: IngredientCategory.CAELUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     ARCHESPORE_JUICE: {
         item: 'Archespore Juice',
         category: IngredientCategory.VITRIOL,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     ARCHESPORE_TENDRILS: {
         item: 'Archespore Tendrils',
         category: IngredientCategory.QUEBRITH,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
 
@@ -59,13 +59,11 @@ export default {
     BARBEGAZI_FUR: {
         item: 'Barbegazi Fur',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     BARGHEST_ESSENCE: {
         item: 'Barghest Essence',
         category: IngredientCategory.VERMILION,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     BARLEY: {
@@ -78,7 +76,6 @@ export default {
     BEAR_FAT: {
         item: 'Bear Fat',
         category: IngredientCategory.REBIS,
-        DC: 12,
         rarity: Rarity.COMMON,
     },
     BERBERCANE_FRUIT: {
@@ -91,43 +88,41 @@ export default {
     BOAR_TUSKS: {
         item: 'Boar Tusks',
         category: IngredientCategory.VITRIOL,
-        DC: 12,
         rarity: Rarity.COMMON,
     },
     BOHUN_UPAS_POISON: {
         item: 'Bohun Upas Poison',
         category: IngredientCategory.VERMILION,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     BOTCHLING_BLOOD: {
         item: 'Botchling Blood',
         category: IngredientCategory.VITRIOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     BOTCHLING_BONES: {
         item: 'Botchling Bones',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     BOTCHLING_BRAIN: {
         item: 'Botchling Brain',
         category: IngredientCategory.CAELUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     BOTCHLING_EAR: {
         item: 'Botching Ear',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
+    },
+    BOTTLE_OF_SPIRITS: {
+        item: 'Bottle Of Spirits',
+        category: IngredientCategory.OTHER,
+        rarity: Rarity.EVERYDAY,
     },
     BRUXA_BLOOD: {
         item: 'Bruxa Blood',
         category: IngredientCategory.VITRIOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     BRYONIA: {
@@ -140,19 +135,16 @@ export default {
     BULLVORE_BLOOD: {
         item: 'Bullvore Blood',
         category: IngredientCategory.REBIS,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     BULLVORE_BRAIN: {
         item: 'Bullvore Brain',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     BULLVORE_EYES: {
         item: 'Bullvore Eyes',
         category: IngredientCategory.VITRIOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     BURDOK_ROOT: {
@@ -178,28 +170,19 @@ export default {
         maxAmount: 10,
         rarity: Rarity.COMMON,
     },
-    CHITIN: {
-        item: 'Chitin',
-        category: IngredientCategory.VERMILION,
-        DC: 18,
-        rarity: Rarity.RARE,
-    },
     COCKATRICE_CARAPACE: {
         item: 'Cockatrice Carapace',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     COCKATRICE_STOMACH: {
         item: 'Cockatrice Stomach',
         category: IngredientCategory.VERMILION,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     COCKATRICE_TAIL_FEATHERS: {
         item: 'Cockatrice Tail Feathers',
         category: IngredientCategory.AETHER,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     CORTINARIUS: {
@@ -219,31 +202,26 @@ export default {
     CRYSTALLIZED_ESSENCE: {
         item: 'Crystallized Essence',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     CYCLOPS_BONES: {
         item: 'Cyclops\' Bones',
         category: IngredientCategory.AETHER,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     CYCLOPS_BRAIN: {
         item: 'Cyclops\' Brain',
         category: IngredientCategory.REBIS,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     CYCLOPS_EYE: {
         item: 'Cyclops\' Eye',
         category: IngredientCategory.VERMILION,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     CYCLOPS_TONGUE: {
         item: 'Cyclops Tongue',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
     },
 
@@ -252,43 +230,36 @@ export default {
     DOG_TALLOW: {
         item: 'Dog Tallow',
         category: IngredientCategory.FULGUR,
-        DC: 10,
         rarity: Rarity.COMMON,
     },
     DRAGON_BLOOD: {
         item: 'Dragon Blood',
         category: IngredientCategory.REBIS,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     DRAGON_TAIL: {
         item: 'Dragon Tail',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     DRAGON_TEARS: {
         item: 'Dragon Tears',
         category: IngredientCategory.SOL,
-        DC: 20,
         rarity: Rarity.RARE,
     },
     DRAGON_TEETH: {
         item: 'Dragon Teeth',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     DROWNER_BRAIN: {
         item: 'Drowner Brain',
         category: IngredientCategory.REBIS,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     DROWNER_TONGUE: {
         item: 'Drowner Tongue',
         category: IngredientCategory.CAELUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     DUCAL_WATER: {
@@ -311,31 +282,31 @@ export default {
     ELEMENTAL_STONE: {
         item: 'Elemental Stone',
         category: IngredientCategory.QUEBRITH,
-        DC: 18,
+        rarity: Rarity.RARE,
+    },
+    ENDREGA_EMBRYO: {
+        item: 'Endrega Embryo',
+        category: IngredientCategory.FULGUR,
         rarity: Rarity.RARE,
     },
     ENDREGA_SALIVA: {
         item: 'Endrega Saliva',
         category: IngredientCategory.VERMILION,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     ESSENCE_OF_FIRE: {
         item: 'Essence of Fire',
         category: IngredientCategory.SOL,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     ESSENCE_OF_WATER: {
         item: 'Essence of Water',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     ESSENCE_OF_WRAITH: {
         item: 'Essence of Wraith',
         category: IngredientCategory.AETHER,
-        DC: 18,
         rarity: Rarity.RARE,
     },
 
@@ -344,25 +315,21 @@ export default {
     FIEND_DUNG: {
         item: 'Fiend Dung',
         category: IngredientCategory.CAELUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     FIEND_EYE: {
         item: 'Fiend\'s Eye',
         category: IngredientCategory.SOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     FOGLET_ESSENCE: {
         item: 'Foglet Essence',
         category: IngredientCategory.AETHER,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     FOGLET_TEETH: {
         item: 'Foglet Teeth',
         category: IngredientCategory.REBIS,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     FOOLS_PARSLEY: {
@@ -375,13 +342,11 @@ export default {
     FRIGHTENER_CLAWS: {
         item: 'Frightener Claws',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     FRIGHTENER_EYES: {
         item: 'Frightener Eyes',
         category: IngredientCategory.SOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
 
@@ -390,31 +355,26 @@ export default {
     GARKIN_SALIVA: {
         item: 'Garkin Saliva',
         category: IngredientCategory.QUEBRITH,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     GHOUL_CLAWS: {
         item: 'Ghoul Claws',
         category: IngredientCategory.VITRIOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     GHOUL_MARROW: {
         item: 'Ghoul Marrow',
         category: IngredientCategory.QUEBRITH,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     GIANT_CENTIPEDE_DISCHARGE: {
         item: 'Giant Centipede Discharge',
         category: IngredientCategory.CAELUM,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     GIANT_CENTIPEDE_MANDIBLES: {
         item: 'Giant Centipede Mandibles',
         category: IngredientCategory.VITRIOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     GINATIA_PETALS: {
@@ -427,19 +387,21 @@ export default {
     GODLING_EYES: {
         item: 'Godling Eyes',
         category: IngredientCategory.AETHER,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     GOLEM_HEART: {
         item: 'Golem Heart',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     GRAVE_HAG_EAR: {
         item: 'Grave Hag Ear',
         category: IngredientCategory.FULGUR,
-        DC: 18,
+        rarity: Rarity.RARE,
+    },
+    GRAVE_HAG_TONGUE: {
+        item: 'Grave Hag Tongue',
+        category: IngredientCategory.CAELUM,
         rarity: Rarity.RARE,
     },
     GREEN_MOLD: {
@@ -452,13 +414,11 @@ export default {
     GRIFFIN_EGG: {
         item: 'Griffin Egg',
         category: IngredientCategory.VERMILION,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     GRIFFIN_FEATHER: {
         item: 'Griffin Feather',
         category: IngredientCategory.VERMILION,
-        DC: 18,
         rarity: Rarity.RARE,
     },
 
@@ -467,7 +427,6 @@ export default {
     HAG_TEETH: {
         item: 'Hag Teeth',
         category: IngredientCategory.REBIS,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     HAN_FIBER: {
@@ -480,19 +439,16 @@ export default {
     HARPY_EGGS: {
         item: 'Harpy Eggs',
         category: IngredientCategory.QUEBRITH,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     HARPY_FEATHERS: {
         item: 'Harpy Feathers',
         category: IngredientCategory.VERMILION,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     HARPY_TALONS: {
         item: 'Harpy Talons',
         category: IngredientCategory.CAELUM,
-        DC: 18,
         rarity: Rarity.UNCOMMON,
     },
     HELLEBORE_PETALS: {
@@ -521,7 +477,6 @@ export default {
     INFUSED_DUST: {
         item: 'Infused Dust',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
 
@@ -530,19 +485,16 @@ export default {
     KNOCKER_HAIR: {
         item: 'Knocker Hair',
         category: IngredientCategory.QUEBRITH,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     KNOCKER_TEETH: {
         item: 'Knocker Teeth',
         category: IngredientCategory.VERMILION,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     KNOCKER_TOES: {
         item: 'Knocker Toes',
         category: IngredientCategory.REBIS,
-        DC: 18,
         rarity: Rarity.RARE,
     },
 
@@ -551,25 +503,21 @@ export default {
     LESHEN_BONE: {
         item: 'Leshen Bone',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     LESHEN_FIBER: {
         item: 'Leshen Fiber',
         category: IngredientCategory.VERMILION,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     LESHEN_RESIN: {
         item: 'Leshen Resin',
         category: IngredientCategory.VITRIOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     LIGHT_ESSENCE: {
         item: 'Light Essence',
         category: IngredientCategory.SOL,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     LUNAR_SHARDS: {
@@ -592,25 +540,21 @@ export default {
     MANTICORE_FANGS: {
         item: 'Manticore Fangs',
         category: IngredientCategory.VITRIOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     MANTICORE_HORN: {
         item: 'Manticore Horn',
         category: IngredientCategory.SOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     MANTICORE_STOMACH: {
         item: 'Manticore Stomach',
         category: IngredientCategory.QUEBRITH,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     MANTICORE_WING_MEMBRANES: {
         item: 'Manticore Wing Membranes',
         category: IngredientCategory.SOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     MISTLETOE: {
@@ -626,25 +570,21 @@ export default {
     NAEZAN_SALTS: {
         item: 'Naezan Salts',
         category: IngredientCategory.AETHER,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     NEKKER_CLAW: {
         item: 'Nekker Claw',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     NEKKER_HEART: {
         item: 'Nekker Heart',
         category: IngredientCategory.REBIS,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     NEKKER_TEETH: {
         item: 'Nekker Teeth',
         category: IngredientCategory.VITRIOL,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
 
@@ -670,26 +610,22 @@ export default {
     PHOENIX_ASH: {
         item: 'Phoenix Ash',
         category: IngredientCategory.SOL,
-        DC: 20,
         rarity: Rarity.RARE,
     },
     PHOENIX_FEATHERS: {
         item: 'Phoenix Feathers',
         category: IngredientCategory.SOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     PHOSPHORUS: {
         item: 'Phosphorus',
         category: IngredientCategory.VERMILION,
-        DC: 15,
         maxAmount: 6,
         rarity: Rarity.UNCOMMON,
     },
     PLUMARD_STOMACH: {
         item: 'Plumard Stomach',
         category: IngredientCategory.AETHER,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
 
@@ -708,13 +644,11 @@ export default {
     ROTFIEND_BLOOD: {
         item: 'Rotfiend Blood',
         category: IngredientCategory.REBIS,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     ROTFIEND_LIVER: {
         item: 'Rotfiend Liver',
         category: IngredientCategory.CAELUM,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
 
@@ -737,55 +671,46 @@ export default {
     SHAELMAAR_DUST: {
         item: 'Shaelmaar Dust',
         category: IngredientCategory.REBIS,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     SHAELMAAR_HAIR: {
         item: 'Shaelmaar Hair',
         category: IngredientCategory.CAELUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     SIREN_VOCAL_CHORD: {
         item: 'Siren Vocal Chord',
         category: IngredientCategory.SOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     SLYZARD_SCALES: {
         item: 'Slyzard Scales',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     SLYZARD_TALONS: {
         item: 'Slyzard Talons',
         category: IngredientCategory.CAELUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     SLYZARD_VOCAL_CORDS: {
         item: 'Slyzard Vocal Cords',
         category: IngredientCategory.VITRIOL,
-        DC: 20,
         rarity: Rarity.RARE,
     },
     SPECTER_DUST: {
         item: 'Specter Dust',
         category: IngredientCategory.FULGUR,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     SUCCUBUS_HEART: {
         item: 'Succubus Heart',
         category: IngredientCategory.VERMILION,
-        DC: 20,
         rarity: Rarity.RARE,
     },
     SUCCUBUS_HORN: {
         item: 'Succubus Horn',
         category: IngredientCategory.CAELUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     SULFUR: {
@@ -801,19 +726,16 @@ export default {
     TROLL_HIDE: {
         item: 'Troll Hide',
         category: IngredientCategory.VITRIOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     TROLL_LIVER: {
         item: 'Troll Liver',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     TROLL_TONGUE: {
         item: 'Troll Tongue',
         category: IngredientCategory.AETHER,
-        DC: 18,
         rarity: Rarity.RARE,
     },
 
@@ -822,31 +744,26 @@ export default {
     VAMPIRE_FANGS: {
         item: 'Vampire Fangs',
         category: IngredientCategory.CAELUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     VAMPIRE_SALIVA: {
         item: 'Vampire Saliva',
         category: IngredientCategory.SOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     VENDIGO_FUR: {
         item: 'Vendigo Fur',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     VENDIGO_HEART: {
         item: 'Vendigo Heart',
         category: IngredientCategory.AETHER,
-        DC: 20,
         rarity: Rarity.RARE,
     },
     VENOM_EXTRACT: {
         item: 'Venom Extract',
         category: IngredientCategory.CAELUM,
-        DC: 15,
         rarity: Rarity.UNCOMMON,
     },
     VERBENA: {
@@ -862,7 +779,6 @@ export default {
     WEREWOLF_SALIVA: {
         item: 'Werewolf Saliva',
         category: IngredientCategory.HYDRAGENUM,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     WHITE_MYRTLE_PETALS: {
@@ -882,7 +798,6 @@ export default {
     WING_MEMBRANE: {
         item: 'Wing Membrane',
         category: IngredientCategory.REBIS,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     WOLFS_ALOE_LEAVES: {
@@ -902,13 +817,11 @@ export default {
     WYVERN_EGG: {
         item: 'Wyvern Egg',
         category: IngredientCategory.FULGUR,
-        DC: 18,
         rarity: Rarity.RARE,
     },
     WYVERN_EYE: {
         item: 'Wyvern Eye',
         category: IngredientCategory.SOL,
-        DC: 18,
         rarity: Rarity.RARE,
     },
 }

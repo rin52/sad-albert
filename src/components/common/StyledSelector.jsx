@@ -47,7 +47,9 @@ class StyledSelector extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-            <FormControl className={this.props.customStyle ? this.props.customStyle : undefined}>
+            <FormControl className={this.props.customStyle ? this.props.customStyle : undefined}
+            disabled={this.props.disable}
+            >
                 <InputLabel>{this.props.name}</InputLabel>
                 <Select
                     value={this.props.selected}

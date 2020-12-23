@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import CenteredTabs from '../common/CenteredTabs';
 import { switchSelectedLabTab } from '../../actions/SystemActions';
 import InventoryPanel from './InventoryPanel';
-import Potions from '../../data/recipes/witcher/Potions';
-import BladeOils from '../../data/recipes/witcher/BladeOils';
-import Decoctions from '../../data/recipes/witcher/Decoctions';
-import NoviceFormulae from '../../data/recipes/alchemy/NoviceFormulae';
-import JourneymanFormulae from '../../data/recipes/alchemy/JourneymanFormulae';
-import MasterFormulae from '../../data/recipes/alchemy/MasterFormulae';
+import getNoviceFormulae from '../../helper/getData/getRecipes/alchemy/getNoviceFormulae';
+import getJourneymanFormulae from '../../helper/getData/getRecipes/alchemy/getJourneymanFormulae';
+import getMasterFormulae from '../../helper/getData/getRecipes/alchemy/getMasterFormulae';
+import getPotions from '../../helper/getData/getRecipes/witcher/getPotions';
+import getBladeOils from '../../helper/getData/getRecipes/witcher/getBladeOils';
+import getDecoctions from '../../helper/getData/getRecipes/witcher/getDecoctions';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedLabTab: (selectedTab) => {
@@ -18,6 +18,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
     selectedTab: state.systemState.selectedLabTab,
+    chosenSetting: state.systemState.chosenSetting,
 });
 
 class LabPanel extends React.Component {
@@ -34,15 +35,15 @@ class LabPanel extends React.Component {
                     allRecipes={[
                         {
                             name: 'Potions',
-                            recipes: Potions,
+                            recipes: getPotions(this.props.chosenSetting),
                         },
                         {
                             name: 'Blade Oils',
-                            recipes: BladeOils,
+                            recipes: getBladeOils(this.props.chosenSetting),
                         },
                         {
                             name: 'Decoctions',
-                            recipes: Decoctions,
+                            recipes: getDecoctions(this.props.chosenSetting),
                         },
                     ]}
                     type="witcherBrews"
@@ -56,15 +57,15 @@ class LabPanel extends React.Component {
                     allRecipes={[
                         {
                             name: 'Novice Formulae',
-                            recipes: NoviceFormulae,
+                            recipes: getNoviceFormulae(this.props.chosenSetting),
                         },
                         {
                             name: 'Journeyman Formulae',
-                            recipes: JourneymanFormulae,
+                            recipes: getJourneymanFormulae(this.props.chosenSetting),
                         },
                         {
                             name: 'Master Formulae',
-                            recipes: MasterFormulae,
+                            recipes: getMasterFormulae(this.props.chosenSetting),
                         },
                     ]}
                 />

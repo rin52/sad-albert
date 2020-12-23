@@ -1,10 +1,10 @@
-import Ingredients from "../../data/Ingredients";
-import Mutagens from '../../data/Mutagens';
+import getIngredients from "../../helper/getData/getIngredients";
+import getMutagens from '../../helper/getData/getMutagens';
 import getRandomInt from "../getRandomInt";
 import Rarity from "../Rarity";
 import getIngredientKey from '../satchel/getIngredientKey';
 
-function getCounts(ingredients) {
+function getCounts(ingredients, IngredientList, MutagenList) {
     const counts = {
         rareCount: 0,
         uncommonCount: 0,
@@ -27,9 +27,9 @@ function getCounts(ingredients) {
         let rarity = '';
 
         if (ingredient.includes('Mutagen')) {
-            rarity = Mutagens[ingredientKey].rarity;
+            rarity = MutagenList[ingredientKey].rarity;
         } else {
-            rarity = Ingredients[ingredientKey].rarity;
+            rarity = IngredientList[ingredientKey].rarity;
         }
 
         switch (rarity) {
@@ -49,8 +49,10 @@ function getCounts(ingredients) {
     return counts;
 }
 
-export default function determinePotionRarity(ingredients) {
-    const counts = getCounts(ingredients);
+export default function determinePotionRarity(ingredients, chosenSetting) {
+    const IngredientList = getIngredients(chosenSetting);
+    const MutagenList = getMutagens(chosenSetting);
+    const counts = getCounts(ingredients, IngredientList, MutagenList);
     const countKeys = Object.keys(counts);
     if (counts.unknownCount === 1) {
         return '';

@@ -44,6 +44,7 @@ export default function AppsButton() {
     const dispatch = useDispatch();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const curApp = useSelector(state => state.systemState.app);
+    const chosenSetting = useSelector(state => state.systemState.chosenSetting);
     const options = [
         Constants.INGREDIENT_GENERATOR,
         Constants.INGREDIENTS,
@@ -52,7 +53,12 @@ export default function AppsButton() {
         Constants.LAB,
         Constants.DMG_POISONS,
         Constants.SATCHEL,
+        Constants.SETTINGS,
     ];
+
+    if (chosenSetting !== Constants.DND_HOMEBREW) {
+        options.splice(options.indexOf(Constants.DMG_POISONS), 1);
+    }
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);

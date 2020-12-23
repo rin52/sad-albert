@@ -1,8 +1,8 @@
-import Ingredients from '../../data/Ingredients';
-import Mutagens from '../../data/Mutagens';
+import getIngredients from '../../helper/getData/getIngredients';
+import getMutagens from '../../helper/getData/getMutagens';
 
-export default function getAllIngredients() {
-    const ingredients = {...Ingredients, ...Mutagens};
+export default function getAllIngredients(chosenSetting) {
+    const ingredients = {...getIngredients(chosenSetting), ...getMutagens(chosenSetting)};
     const keys = Object.keys(ingredients);
     const allIngredients = [];
 

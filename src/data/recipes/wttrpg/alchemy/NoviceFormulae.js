@@ -1,9 +1,10 @@
-import IngredientCategory from '../../../helper/IngredientCategory';
+import IngredientCategory from '../../../../helper/IngredientCategory';
 
 export default {
     ADDAS_TOMB: {
         name: 'Adda\'s Tomb',
         DC: 13,
+        craftTime: '5 Rounds',
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 2 },
             { category: IngredientCategory.HYDRAGENUM, amount: 1 },
@@ -16,16 +17,18 @@ export default {
     BASE_POWDER: {
         name: 'Base Powder',
         DC: 12,
+        craftTime: '5 Rounds',
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
         ],
-        effects: 'Counteracts the effects of acid, eliminating lingering acid damage per dose of base ' +
-            'powder used.',
+        effects: 'Base powder counteracts the effects of acid, negating one dose of acid solution per '
+            + 'dose of base powder used. Base powder can also negate damage from a torn stomach critical wound.',
     },
     CLOTTING_POWDER: {
         name: 'Clotting Powder',
         DC: 12,
+        craftTime: '5 Rounds',
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -36,28 +39,30 @@ export default {
     HALLUCINOGEN: {
         name: 'Hallucinogen',
         DC: 12,
+        craftTime: '5 Rounds',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
         ],
-        effects: 'Hallucinogen can be thrown on a target within 10 feet or slipped into a drink. If ' +
-            'the target fails a DC 15 Con save, they start hallucinating. these hallucinations last for ' +
+        effects: 'Hallucinogen can be thrown on a target within 3m or slipped into a drink. If ' +
+            'the target fails a DC:15 Endurance check, they start hallucinating. These hallucinations last for ' +
             '1d10 rounds.',
     },
     INVISIBLE_INK: {
         name: 'Invisible Ink',
         DC: 11,
+        craftTime: '5 Rounds',
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 1 },
         ],
         effects: 'Invisible ink allows you to write messages that can only be read when exposed to ' +
-            'heat for 1 round.',
+            'heat for 1 turn.',
     },
     NUMBING_HERBS: {
         name: 'Numbing Herbs',
         DC: 12,
-        hide: true,
+        craftTime: '5 Rounds',
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.VERMILION, amount: 1 },
@@ -69,6 +74,7 @@ export default {
     POISONERS_FRIEND: {
         name: 'Poisoner\'s Friend',
         DC: 14,
+        craftTime: '10 Minutes',
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 2 },
             { category: IngredientCategory.VITRIOL, amount: 1 },
@@ -80,18 +86,19 @@ export default {
     SMELLING_SALTS: {
         name: 'Smelling Salts',
         DC: 14,
+        craftTime: '10 Minutes',
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
             { category: IngredientCategory.CAELUM, amount: 2 },
         ],
-        effects: 'Smelling salts can be placed under an unconscious (but not mortally wounded) or stunned person, or creature\'s ' +
+        effects: 'Smelling salts can be placed under an unconscious or stunned person, or creature\'s ' +
             'nose to immediately bring them out of their stunned state. Smelling salts can be used 25 times.',
     },
     STERLIZING_FLUID: {
         name: 'Sterlizing Fluid',
         DC: 12,
-        hide: true,
+        craftTime: '5 Rounds',
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.CAELUM, amount: 1 },
@@ -103,35 +110,39 @@ export default {
     SUCCUBUS_BREATH: {
         name: 'Succubus\' Breath',
         DC: 14,
+        craftTime: '10 Minutes',
         ingredients: [
             { category: IngredientCategory.SOL, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 2 },
             { category: IngredientCategory.CAELUM, amount: 1 },
         ],
         effects: 'A dose of succubus\' breath can be used to aid seduction. Used on the skin, it ' +
-            'gives you a +5 to persuasion. If poured into someone\'s drink, it gives them a -5 to ' +
-            'resistance anothers charms. It takes a DC 16 Perception check to realize there ' +
+            'gives you a +2 to Seduction. If poured into someone\'s drink, it gives them a -5 to ' +
+            'Seduction Resistance. Like black venom, tt takes a DC:16 Awareness check to realize there ' +
             'is succubus\' breath in a drink.',
     },
     SUMMER_OINTMENT: {
         name: 'Summer Ointment',
         DC: 12,
+        craftTime: '5 Rounds',
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 1 },
         ],
-        effects: 'Gain advantage on a Con save made to negate exhaustion caused by extreme weather. ' +
-            'The ointment loses it\'s effects after this save is made.'
+        effects: 'When rubbed on the neck and wrists, Summer Ointment doubles the number of hours you '
+            + 'can survive in extreme cold and lowers the penalty to STA from extreme heat to 1/4 your total STA.'
     },
     WIVES_TEARS_POTION: {
         name: 'Wives\' Tears Potion',
         DC: 14,
+        craftTime: '10 Minutes',
         ingredients: [
             { category: IngredientCategory.HYDRAGENUM, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 2 },
             { category: IngredientCategory.VITRIOL, amount: 1 },
         ],
-        effects: 'Immediately after drinking a dose of wives\' tears potion the imbiber sobers up.',
+        effects: 'Imbibing wives\' tears potion negates the effects of intoxication. Immediate after '
+            + 'drinking a dose of wives\' tears potion the imbiber sobers up.',
     },
 
     // {

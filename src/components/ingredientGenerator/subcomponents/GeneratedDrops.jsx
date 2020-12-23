@@ -6,6 +6,7 @@ import GenerateButton from './GenerateButton';
 import generateIngredientDrops from '../../../helper/generateIngredientDrops';
 import DisplayArea from '../../common/DisplayArea';
 import AddToSatchelButton from './AddToSatchelButton';
+import determineHasDC from '../../../helper/generator/determineHasDC';
 
 const useStyles = makeStyles((theme) => ({
     messageArea: {
@@ -17,11 +18,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GeneratedDrops(props) {
     const classes = useStyles();
+    const [hasDC, setHasDC] = React.useState(determineHasDC(props.list, props.selected));
     const [drops, setDrops] = React.useState([]);
     const [message, setMessage] = React.useState('');
     React.useEffect(() => {
         setDrops([]);
         setMessage('');
+        setHasDC(determineHasDC(props.list, props.selected));
     }, [props]);
 
     const generate = (check) => {
@@ -41,7 +44,7 @@ export default function GeneratedDrops(props) {
                 <Typography>Item Drops</Typography>
                 <DisplayArea>
                     {(drops.length === 0 && message === '') && (
-                        <GenerateButton generate={generate} />
+                        <GenerateButton generate={generate} hasDC={hasDC} />
                     )}
 
                     {message !== '' && (
@@ -56,7 +59,7 @@ export default function GeneratedDrops(props) {
                     <AddToSatchelButton drops={drops} />
                 </DisplayArea>
                 {(drops.length > 0 || message !== '') && (
-                    <GenerateButton generate={generate} />
+                    <GenerateButton generate={generate} hasDC={hasDC} />
                 )}
             </div>
         );

@@ -1,5 +1,5 @@
-import Rarity from "../helper/Rarity";
-import IngredientCategory from "../helper/IngredientCategory";
+import Rarity from "../../helper/Rarity";
+import IngredientCategory from "../../helper/IngredientCategory";
 
 export default {
     ARACHAS: {

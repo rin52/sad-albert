@@ -12,6 +12,7 @@ import LabPanel from '../lab/LabPanel';
 import IngredientsPanel from '../ingredients/IngredientsPanel';
 import PoisonsPanel from '../poisons/PoisonsPanel';
 import SatchelPanel from '../satchel/SatchelPanel';
+import SettingsPanel from '../setting/SettingsPanel';
 
 const useStyles = makeStyles({
     root: {
@@ -46,6 +47,9 @@ export default function AppsButton() {
         }
         if (curApp === Constants.SATCHEL) {
             return <SatchelPanel/>;
+        }
+        if (curApp === Constants.SETTINGS) {
+            return <SettingsPanel/>;
         }
 
         return <div />;

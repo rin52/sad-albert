@@ -51,12 +51,17 @@ export default function HoardItemSelector(props) {
                     onChange={onItemChange}
                 />
                 <div />
-                <TextField
+                {props.hasDC ? (
+                    <TextField
                     label="DC"
                     type="number"
                     value={check}
                     onChange={onCheckChange}
                 />
+                ) : (
+                    <div/>
+                )}
+                
                 <IconButton onClick={onRemoveClicked} className={classes.shift}>
                     <Remove color="secondary"/>
                 </IconButton>

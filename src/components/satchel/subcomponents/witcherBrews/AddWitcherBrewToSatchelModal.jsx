@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -7,6 +8,7 @@ import StyledSelector from '../../../common/StyledSelector';
 import getWitcherBrews from '../../../../helper/satchel/getWitcherBrews';
 import getIngredientKey from '../../../../helper/satchel/getIngredientKey';
 import Rarity from '../../../../helper/Rarity';
+import Constants from '../../../../helper/Constants';
 
 const useStyles = makeStyles({
     root: {
@@ -21,6 +23,8 @@ export default function AddWitcherBrewToSatchelModal(props) {
     const [rarity, setRarity] = React.useState('');
     const [amount, setAmount] = React.useState(0);
     const [errorMsg, setErrorMessage] = React.useState('');
+
+    const chosenSetting = useSelector(state => state.systemState.chosenSetting);
 
     const onCategoryChange = (event) => {
         setCategory(event.target.value);
@@ -44,7 +48,7 @@ export default function AddWitcherBrewToSatchelModal(props) {
     };
 
     const isValid = () => {
-        if (category === 'Potions') {
+        if (category === 'Potions' && chosenSetting === Constants.DND_HOMEBREW) {
             return category !== '' && item !== '' && rarity !== '' && amount > 0;
         }
         return category !== '' && item !== '' && amount > 0;
@@ -91,12 +95,12 @@ export default function AddWitcherBrewToSatchelModal(props) {
                 />
                 <StyledSelector
                     name="Brew"
-                    options={getWitcherBrews(category)}
+                    options={getWitcherBrews(category, chosenSetting)}
                     selected={item}
                     onChange={onItemChange}
                     customStyle={classes.root}
                 />
-                {category === "Potions" && (
+                {(category === "Potions" && chosenSetting === Constants.DND_HOMEBREW) && (
                     <StyledSelector
                         name="Rarity"
                         options={[Rarity.RARE, Rarity.UNCOMMON, Rarity.COMMON, Rarity.EVERYDAY]}

@@ -1,4 +1,4 @@
-import IngredientCategory from '../../../helper/IngredientCategory';
+import IngredientCategory from '../../../../helper/IngredientCategory';
 
 export default {
     BERSERKERS_BREW: {
@@ -70,9 +70,7 @@ export default {
         effects: 'Someone who consumes a draught of perfume potion must make a DC 16 Con save. Failure ' +
             'causes intoxication for 1d10 hours. This intoxication can only be undone by magic or wives\' ' +
             'tears potion.',
-        toxicity: {
-            everyday: 25,
-        },
+        toxicity: '25',
     },
     TALGARS_TEARS: {
         name: 'Talgar\'s Tears',

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import CenteredTabs from '../common/CenteredTabs';
 import GeneratorPanel from './subcomponents/GeneratorPanel';
 import HoardPanel from './subcomponents/hoard/HoardPanel';
-import Monsters from '../../data/Monsters';
-import Foraging from '../../data/Foraging';
+import getMonsters from '../../helper/getData/getMonsters';
+import getForaging from '../../helper/getData/getForaging';
 import { switchSelectedIngredientsGeneratorTab } from '../../actions/SystemActions';
 
 const mapDispatchToProps = dispatch => ({
@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
     selectedTab: state.systemState.selectedIngredientsGeneratorTab,
+    chosenSetting: state.systemState.chosenSetting,
 });
 
 class IngredientGeneratorPanel extends React.Component {
@@ -26,22 +27,22 @@ class IngredientGeneratorPanel extends React.Component {
     renderPanel = () => {
         if (this.props.selectedTab === 0) {
             return (
-                <GeneratorPanel title="Monster" list={Monsters} />
+                <GeneratorPanel title="Monster" list={getMonsters(this.props.chosenSetting)} />
             )
         }
         if (this.props.selectedTab === 1) {
             return (
-                <GeneratorPanel title="Location" list={Foraging} />
+                <GeneratorPanel title="Location" list={getForaging(this.props.chosenSetting)} />
             )
         }
         if (this.props.selectedTab === 2) {
             return (
-                <HoardPanel title="Monster" list={Monsters} />
+                <HoardPanel title="Monster" list={getMonsters(this.props.chosenSetting)} />
             )
         }
         if (this.props.selectedTab === 3) {
             return (
-                <HoardPanel title="Location" list={Foraging} />
+                <HoardPanel title="Location" list={getForaging(this.props.chosenSetting)} />
             )
         }
         return (

@@ -5,6 +5,8 @@ import getIngredientImage from '../../../helper/getIngredientImage';
 import DisplayItem from '../../common/DisplayItem';
 import DisplayMaxAmount from './ingredientDisplayHelper/DisplayMaxAmount';
 import AmountAndEditSatchel from './ingredientDisplayHelper/AmountAndEditSatchel';
+import IngredientCategory from '../../../helper/IngredientCategory';
+import getIngredientKey from '../../../helper/satchel/getIngredientKey';
 
 const useStyles = makeStyles(() => ({
     header: {
@@ -28,9 +30,10 @@ const useStyles = makeStyles(() => ({
 export default function IngredientDisplay(props) {
     const classes = useStyles();
 
-    const image = getIngredientImage(props.item.category);
+    const image = getIngredientImage(props.item.category !== IngredientCategory.OTHER ? props.item.category : getIngredientKey(props.item.item));
+    const dcString = props.item.DC ? ', DC: ' + props.item.DC : '';
     const subtitle = props.displayMaxAmount
-        ? props.item.rarity + ', DC: ' + props.item.DC
+        ? props.item.rarity + dcString
         : props.item.rarity;
 
     return (

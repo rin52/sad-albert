@@ -1,6 +1,6 @@
-import Potions from '../../data/recipes/witcher/Potions';
-import BladeOils from '../../data/recipes/witcher/BladeOils';
-import Decoctions from '../../data/recipes/witcher/Decoctions';
+import getPotions from '../getData/getRecipes/witcher/getPotions';
+import getBladeOils from '../getData/getRecipes/witcher/getBladeOils';
+import getDecoctions from '../getData/getRecipes/witcher/getDecoctions';
 
 function getDetails(brew, list) {
     let details = {};
@@ -20,10 +20,17 @@ function getDetails(brew, list) {
     return details;
 }
 
-export default function getSatchelWitcherBrewDetails(witcherBrews) {
+export default function getSatchelWitcherBrewDetails(witcherBrews, chosenSetting) {
+    if (witcherBrews) {
+        return {
+            potions: getDetails(witcherBrews.potions, getPotions(chosenSetting)),
+            bladeOils: getDetails(witcherBrews.bladeOils, getBladeOils(chosenSetting)),
+            decoctions: getDetails(witcherBrews.decoctions, getDecoctions(chosenSetting)),
+        };
+    }
     return {
-        potions: getDetails(witcherBrews.potions, Potions),
-        bladeOils: getDetails(witcherBrews.bladeOils, BladeOils),
-        decoctions: getDetails(witcherBrews.decoctions, Decoctions),
+        potions: {},
+        bladeOils: {},
+        decoctions: {},
     };
 }

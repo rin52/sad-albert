@@ -1,3 +1,4 @@
+export const CHANGE_SETTING = 'changeSetting';
 export const SWITCH_APP = 'switchApp';
 export const SWITCH_SELECTED_INGREDIENTS_TAB = 'switchSelectedIngredientsTab';
 export const SWITCH_SELECTED_RECIPES_TAB = 'switchSelectedRecipesTab';
@@ -9,6 +10,11 @@ export const SWITCH_SELECTED_SATCHEL_TAB = 'switchSelectedSatchelTab';
 export const switchApp = newApp => ({
     type: SWITCH_APP,
     payload: newApp,
+});
+
+export const changeSetting = newSetting => ({
+    type: CHANGE_SETTING,
+    payload: newSetting,
 });
 
 export const switchSelectedIngredientsTab = newTab => ({

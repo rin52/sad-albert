@@ -24,7 +24,10 @@ const useStyles = makeStyles({
 export default function SatchelSummary() {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const summary = useSelector(state => getSatchelDetails(state.satchelState.ingredients));
+    const summary = useSelector(state => getSatchelDetails(
+        state.satchelState.ingredients,
+        state.systemState.chosenSetting
+    ));
     const [isAddOpen, setIsAddOpen] = React.useState(false);
 
     const addClicked = () => {
@@ -73,6 +76,9 @@ export default function SatchelSummary() {
                 <IngredientsList category={IngredientCategory.GREEN_MUTAGEN} data={summary} displayAmount editable />
                 <div style={{ height: '16px', width: '16px' }} />
                 <IngredientsList category={IngredientCategory.BLUE_MUTAGEN} data={summary} displayAmount editable />
+
+                <div style={{ height: '16px', width: '16px' }} />
+                <IngredientsList category={IngredientCategory.OTHER} data={summary} displayAmount editable />
             </div>
             {isAddOpen && (
                 <AddIngredientToSatchelModal

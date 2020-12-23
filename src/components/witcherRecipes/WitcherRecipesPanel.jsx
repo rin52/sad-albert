@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import CenteredTabs from '../common/CenteredTabs';
 import { switchSelectedRecipesTab } from '../../actions/SystemActions';
 import DisplayArea from '../common/DisplayArea';
-import Potions from '../../data/recipes/witcher/Potions';
-import BladeOils from '../../data/recipes/witcher/BladeOils';
-import Decoctions from '../../data/recipes/witcher/Decoctions';
 import RecipeItem from '../common/recipeItem/RecipeItem';
+import getBladeOils from '../../helper/getData/getRecipes/witcher/getBladeOils';
+import getDecoctions from '../../helper/getData/getRecipes/witcher/getDecoctions';
+import getPotions from '../../helper/getData/getRecipes/witcher/getPotions';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedRecipesTab: (selectedTab) => {
@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
     selectedTab: state.systemState.selectedRecipesTab,
+    chosenSetting: state.systemState.chosenSetting,
 });
 
 class WitcherRecipesPanel extends React.Component {
@@ -40,13 +41,13 @@ class WitcherRecipesPanel extends React.Component {
 
     renderPanel = () => {
         if (this.props.selectedTab === 0) {
-            return this.renderRecipeItems(Potions);
+            return this.renderRecipeItems(getPotions(this.props.chosenSetting));
         }
         if (this.props.selectedTab === 1) {
-            return this.renderRecipeItems(BladeOils);
+            return this.renderRecipeItems(getBladeOils(this.props.chosenSetting));
         }
         if (this.props.selectedTab === 2) {
-            return this.renderRecipeItems(Decoctions);
+            return this.renderRecipeItems(getDecoctions(this.props.chosenSetting));
         }
         return (
             <div />

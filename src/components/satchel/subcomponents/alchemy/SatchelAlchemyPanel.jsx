@@ -24,7 +24,10 @@ const useStyles = makeStyles({
 export default function SatchelAlchemyPanel() {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const alchemy = useSelector(state => (getSatchelAlchemyDetails(state.satchelState.alchemy)));
+    const alchemy = useSelector(state => (getSatchelAlchemyDetails(
+        state.satchelState.alchemy,
+        state.systemState.chosenSetting,
+    )));
     const [isAddOpen, setIsAddOpen] = React.useState(false);
 
     const addClicked = () => {
@@ -72,7 +75,7 @@ export default function SatchelAlchemyPanel() {
 
             </div>
             {isAddOpen && (
-                <AddAlchemyToSatchelModal open={isAddOpen} close={closeAdd} submit={submitAdd}/>
+                <AddAlchemyToSatchelModal open={isAddOpen} close={closeAdd} submit={submitAdd} />
             )}
         </div>
     );

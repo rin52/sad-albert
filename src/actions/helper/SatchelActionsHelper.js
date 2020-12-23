@@ -1,5 +1,4 @@
 export function getCategory(listName) {
-    console.log(listName);
     switch (listName) {
         case "Potions":
             return "potions";

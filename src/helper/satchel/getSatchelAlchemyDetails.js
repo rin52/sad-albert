@@ -1,6 +1,6 @@
-import NoviceFormulae from '../../data/recipes/alchemy/NoviceFormulae';
-import JourneymanFormulae from '../../data/recipes/alchemy/JourneymanFormulae';
-import MasterFormulae from '../../data/recipes/alchemy/MasterFormulae';
+import getNoviceFormulae from '../getData/getRecipes/alchemy/getNoviceFormulae';
+import getJourneymanFormulae from '../getData/getRecipes/alchemy/getJourneymanFormulae';
+import getMasterFormulae from '../getData/getRecipes/alchemy/getMasterFormulae';
 
 function getDetails(brew, list) {
     let details = {};
@@ -20,10 +20,17 @@ function getDetails(brew, list) {
     return details;
 }
 
-export default function getSatchelAlchemyDetails(alchemy) {
+export default function getSatchelAlchemyDetails(alchemy, chosenSetting) {
+    if (alchemy) {
+        return {
+            novice: getDetails(alchemy.novice, getNoviceFormulae(chosenSetting)),
+            journeyman: getDetails(alchemy.journeyman, getJourneymanFormulae(chosenSetting)),
+            master: getDetails(alchemy.master, getMasterFormulae(chosenSetting)),
+        };
+    }
     return {
-        novice: getDetails(alchemy.novice, NoviceFormulae),
-        journeyman: getDetails(alchemy.journeyman, JourneymanFormulae),
-        master: getDetails(alchemy.master, MasterFormulae),
+        novice: {},
+        journeyman: {},
+        master: {},
     };
 }

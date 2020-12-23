@@ -32,8 +32,16 @@ const initialState = satchel === null
 export default function SatchelReducer(state = initialState, action) {
     switch (action.type) {
         case CLEAR_SATCHEL:
-            localStorage.setItem(localStorageKey, JSON.stringify({ ingredients: {} }));
-            return { ingredients: {} };
+            localStorage.setItem(localStorageKey, JSON.stringify({
+                ingredients: {},
+                witcherBrews: { potions: {}, bladeOils: {}, decoctions: {} },
+                alchemy: { novice: {}, journeyman: {}, master: {} }
+            }));
+            return {
+                ingredients: {},
+                witcherBrews: { potions: {}, bladeOils: {}, decoctions: {} },
+                alchemy: { novice: {}, journeyman: {}, master: {} }
+            };
         case OVERWRITE_SATCHEL:
             localStorage.setItem(localStorageKey, JSON.stringify({ ...action.payload }));
             return { ...action.payload };

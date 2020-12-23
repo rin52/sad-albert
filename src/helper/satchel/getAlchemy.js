@@ -1,15 +1,15 @@
-import NoviceFormulae from '../../data/recipes/alchemy/NoviceFormulae';
-import JourneymanFormulae from '../../data/recipes/alchemy/JourneymanFormulae';
-import MasterFormulae from '../../data/recipes/alchemy/MasterFormulae';
+import getNoviceFormulae from '../getData/getRecipes/alchemy/getNoviceFormulae';
+import getJourneymanFormulae from '../getData/getRecipes/alchemy/getJourneymanFormulae';
+import getMasterFormulae from '../getData/getRecipes/alchemy/getMasterFormulae';
 
-export default function getAlchemy(category) {
+export default function getAlchemy(category, chosenSetting) {
     let list = {};
     if (category === 'Novice Formulae') {
-        list = NoviceFormulae;
+        list = getNoviceFormulae(chosenSetting);
     } else if (category === 'Journeyman Formulae') {
-        list = JourneymanFormulae;
+        list = getJourneymanFormulae(chosenSetting);
     } else if (category === 'Master Formulae') {
-        list = MasterFormulae;
+        list = getMasterFormulae(chosenSetting);
     }
 
     const keys = Object.keys(list);

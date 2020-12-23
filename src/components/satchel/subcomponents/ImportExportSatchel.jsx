@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ImportSatchelModal from './ImportSatchelModal';
 import ClearSatchelModal from './ClearSatchelModal';
+import ImportButton from './ImportButton';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -35,10 +36,6 @@ export default function ImportExportSatchel(props) {
             JSON.stringify(satchel, null, 4));
     };
 
-    const importFile = () => {
-        setImportIsOpen(true);
-    };
-
     const closeImport = () => {
         setImportIsOpen(false);
     };
@@ -55,7 +52,7 @@ export default function ImportExportSatchel(props) {
         <div className={classes.root}>
             <Button onClick={exportFile}>Export</Button>
             <div style={{ width: '16px' }} />
-            <Button onClick={importFile}> Import</Button>
+            <ImportButton/>
             <div style={{ width: '16px' }} />
             <Button onClick={clear}>Clear All</Button>
             {importIsOpen && (
