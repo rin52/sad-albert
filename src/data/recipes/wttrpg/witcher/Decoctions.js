@@ -17,7 +17,7 @@ export default {
             { name: 'Bottle of Spirits', key: 'BOTTLE_OF_SPIRITS', amount: 1 },
         ],
         effects: 'For every 10 points of ENC you have free you gain +2 SP to all locations.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
     FIEND: {
@@ -35,7 +35,7 @@ export default {
             { name: 'Bottle of Spirits', key: 'BOTTLE_OF_SPIRITS', amount: 1 },
         ],
         effects: 'Your ENC is doubled.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
     GRAVE_HAG: {
@@ -54,7 +54,7 @@ export default {
         ],
         effects: '+2 HP regeneration for every enemy slain during combat. This '
             + 'health bonus lasts until the end of combat.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
     GRIFFIN: {
@@ -73,7 +73,7 @@ export default {
         ],
         effects: 'Every time you take more than 5 points of damage you gain +2 '
             + 'SP. This SP stacks with itself.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
     KATAKAN: {
@@ -92,7 +92,7 @@ export default {
         ],
         effects: 'You gain a +3 to your roll when determining the location of a '
             + 'critical wound.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
     NEKKER: {
@@ -110,7 +110,7 @@ export default {
         ],
         effects: 'Your mount never panics and you gain a +3 to all Ride and '
             + 'Athletics checks.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
     NOONWRAITH: {
@@ -129,7 +129,7 @@ export default {
         ],
         effects: 'You gain immunity to Stun & Blindness and cannot be knocked '
             + 'prone.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
     TROLL: {
@@ -147,7 +147,7 @@ export default {
             {name: 'Bottle of Spirits', key: 'BOTTLE_OF_SPIRITS', amount: 1 },
         ],
         effects: 'You regenerate 5 Health Points per round.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
     WEREWOLF: {
@@ -165,7 +165,7 @@ export default {
             {name: 'Bottle of Spirits', key: 'BOTTLE_OF_SPIRITS', amount: 1 },
         ],
         effects: 'Running for long periods of time takes no stamina.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
     WYVERN: {
@@ -185,7 +185,7 @@ export default {
         effects: 'You gain +1 damage to your next strike after a successful '
             + 'strike. This +1 is cumulative, and goes up with each hit until '
             + 'the combat ends or you take damage.',
-        duration: '30 Minutes',
+        duration: '1/2 Hour',
         toxicity: '75%',
     },
 

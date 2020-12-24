@@ -461,7 +461,6 @@ export default {
     HIGHER_VAMPIRE_FANGS: {
         item: 'Higher Vampire Fangs',
         category: IngredientCategory.FULGUR,
-        DC: 20,
         rarity: Rarity.RARE,
     },
     HONEYSUCKLE: {

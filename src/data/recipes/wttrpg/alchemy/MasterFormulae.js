@@ -12,7 +12,7 @@ export default {
             { category: IngredientCategory.FULGUR, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
         ],
-        effects: 'When consumed, the imbiber must make an Endurance check at DC:16. If they fail, they must use ' +
+        effects: 'When consumed, a target must make an Endurance check at DC:16. If they fail, they must use ' +
             'their turn to attack the closest person. Each round at the beginning of their turn, the ' +
             'imbiber can attempt another Endurance check DC:16. If they suceed, the frenzy subsides until ' +
             'their next turn, at which point they must make the Endurance check again or fall back into ' +
@@ -58,7 +58,7 @@ export default {
         ],
         effects: 'Consuming a draught of Pantagran\'s elixir brings delirious happiness. This effect ' +
             'lasts for 1d6/2 hours and leaves the imbiber incredibly suceptible to Persuasion, Charisma, ' +
-            'and Seduction giving them a -2 to Resist Coercion.',
+            'and Seduction, giving them a -2 to Resist Coercion.',
     },
     PERFUME_POTION: {
         name: 'Perfume Potion',

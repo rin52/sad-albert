@@ -118,7 +118,7 @@ export default {
         ],
         effects: 'A dose of succubus\' breath can be used to aid seduction. Used on the skin, it ' +
             'gives you a +2 to Seduction. If poured into someone\'s drink, it gives them a -5 to ' +
-            'Seduction Resistance. Like black venom, tt takes a DC:16 Awareness check to realize there ' +
+            'Seduction Resistance. Like black venom, it takes a DC:16 Awareness check to realize there ' +
             'is succubus\' breath in a drink.',
     },
     SUMMER_OINTMENT: {
@@ -141,7 +141,7 @@ export default {
             { category: IngredientCategory.AETHER, amount: 2 },
             { category: IngredientCategory.VITRIOL, amount: 1 },
         ],
-        effects: 'Imbibing wives\' tears potion negates the effects of intoxication. Immediate after '
+        effects: 'Imbibing wives\' tears potion negates the effects of intoxication. Immediately after '
             + 'drinking a dose of wives\' tears potion the imbiber sobers up.',
     },
 

@@ -9,11 +9,11 @@ export default {
         },
         {
             ...Ingredients.ARACHAS_VENOM,
-            maxAmount: 3,
+            maxAmount: 6,
         },
         {
             ...Ingredients.ARACHAS_CHITIN,
-            maxAmount: 3,
+            maxAmount: 6,
         },
         {
             ...Ingredients.VENOM_EXTRACT,
@@ -263,7 +263,7 @@ export default {
         },
         Mutagens.FRIGTHENER,
     ],
-    
+
     Garkain: [
         {
             ...Ingredients.ABOMINATION_LYMPH,
@@ -331,7 +331,7 @@ export default {
         },
         {
             ...Ingredients.VENOM_EXTRACT,
-            maxAmount: 3,
+            maxAmount: 6,
         },
         Mutagens.GRAVE_HAG,
     ],
@@ -494,11 +494,11 @@ export default {
     Noonwraith: [
         {
             ...Ingredients.ESSENCE_OF_WRAITH,
-            maxAmount: 3,
+            maxAmount: 63,
         },
         {
             ...Ingredients.INFUSED_DUST,
-            maxAmount: 3,
+            maxAmount: 6,
         },
         {
             ...Ingredients.LIGHT_ESSENCE,
@@ -506,7 +506,7 @@ export default {
         },
         {
             ...Ingredients.SPECTER_DUST,
-            maxAmount: 3,
+            maxAmount: 6,
         },
         Mutagens.NOONWRAITH,
     ],
@@ -555,6 +555,17 @@ export default {
         },
     ],
 
+    'Rock Troll': [
+        {
+            ...Ingredients.TROLL_HIDE,
+            maxAmount: 6,
+        },
+        {
+            ...Ingredients.TROLL_LIVER,
+            maxAmount: 1,
+        },
+        Mutagens.ROCK_TROLL,
+    ],
     Rotfiend: [
         {
             ...Ingredients.ROTFIEND_BLOOD,
@@ -688,7 +699,7 @@ export default {
         },
         {
             ...Ingredients.WYVERN_EYE,
-            maxAmount: 2,
+            maxAmount: 3,
         },
         Mutagens.WYVERN,
     ],
