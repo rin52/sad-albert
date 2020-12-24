@@ -22,7 +22,7 @@ export default function Footer(props) {
         :
         'This is a non-profit fan made homebrew project for managing alchemy ingredients from the Witcher RPG tabletop game ' +
         ' (owned by R. TALSORIAN GAMES). Images are the property of NETFLIX, ' +
-        'CD PROJECKT RED, and TALSORIAN GAMES and used without permission. Excerpts of ' +
+        'CD PROJECKT RED, and R. TALSORIAN GAMES and used without permission. Excerpts of ' +
         'text are taken from The WITCHER RPG books without permission. ' +
         'The Witcher and The Witcher series is owned by Andrzej Sapkowski.';
     
