@@ -89,6 +89,7 @@ export default function RecipeItem(props) {
                             editable={props.editable}
                             hasRarities={props.hasRarities}
                             witcherPotions={props.witcherPotions}
+                            deleteKnownRecipe={props.deleteKnownRecipe}
                         />
                         {props.recipe.craftTime && (
                             <Typography variant="subtitle1">

@@ -6,6 +6,8 @@ export const UPDATE_SATCHEL_WITCHER_BREWS = 'updateSatchelWitcherBrews';
 export const REMOVE_WITCHER_BREW_FROM_SATCHEL = 'removeWitcherBrewFromSatchel';
 export const UPDATE_SATCHEL_ALCHEMY = 'updateSatchelAlchemy';
 export const REMOVE_ALCHEMY_FROM_SATCHEL = 'removeAlchemyFromSatchel';
+export const ADD_KNOWN_RECIPE = 'addKnownRecipe';
+export const REMOVE_KNOWN_RECIPE = 'removeKnownRecipe';
 
 export const updateSatchelIngredients = newItems => ({
     type: UPDATE_SATCHEL_INGREDIENTS,
@@ -56,4 +58,22 @@ export const clearSatchel = () => ({
 export const overwriteSatchel = newSatchel => ({
     type: OVERWRITE_SATCHEL,
     payload: newSatchel,
+});
+
+export const addKnownRecipe = (type, category, itemKey) => ({
+    type: ADD_KNOWN_RECIPE,
+    payload: {
+        type,
+        category,
+        itemKey,
+    },
+});
+
+export const removeKnownRecipe = (type, category, itemKey) => ({
+    type: REMOVE_KNOWN_RECIPE,
+    payload: {
+        type,
+        category,
+        itemKey,
+    },
 });

@@ -1,6 +1,8 @@
 import {
     CLEAR_SATCHEL,
     OVERWRITE_SATCHEL,
+    ADD_KNOWN_RECIPE,
+    REMOVE_KNOWN_RECIPE,
     REMOVE_INGREDIENT_FROM_SATCHEL,
     REMOVE_WITCHER_BREW_FROM_SATCHEL,
     REMOVE_ALCHEMY_FROM_SATCHEL,
@@ -16,7 +18,19 @@ const initialState = satchel === null
     ? {
         ingredients: {},
         witcherBrews: { potions: {}, bladeOils: {}, decoctions: {} },
-        alchemy: { novice: {}, journeyman: {}, master: {} }
+        alchemy: { novice: {}, journeyman: {}, master: {} },
+        knownRecipes: {
+            witcherBrews: {
+                potions: [],
+                bladeOils: [],
+                decoctions: [],
+            },
+            alchemy: {
+                novice: [],
+                journeyman: [],
+                master: [],
+            },
+        },
     }
     : satchel;
 
@@ -32,16 +46,17 @@ const initialState = satchel === null
 export default function SatchelReducer(state = initialState, action) {
     switch (action.type) {
         case CLEAR_SATCHEL:
-            localStorage.setItem(localStorageKey, JSON.stringify({
+            const clearedState = {
                 ingredients: {},
                 witcherBrews: { potions: {}, bladeOils: {}, decoctions: {} },
-                alchemy: { novice: {}, journeyman: {}, master: {} }
-            }));
-            return {
-                ingredients: {},
-                witcherBrews: { potions: {}, bladeOils: {}, decoctions: {} },
-                alchemy: { novice: {}, journeyman: {}, master: {} }
-            };
+                alchemy: { novice: {}, journeyman: {}, master: {} },
+                knownRecipes: {
+                    witcherBrews: { potions: [], bladeOils: [], decoctions: [] },
+                    alchemy: { novice: [], journeyman: [], master: [] },
+                },
+            }
+            localStorage.setItem(localStorageKey, JSON.stringify(clearedState));
+            return clearedState;
         case OVERWRITE_SATCHEL:
             localStorage.setItem(localStorageKey, JSON.stringify({ ...action.payload }));
             return { ...action.payload };
@@ -57,6 +72,10 @@ export default function SatchelReducer(state = initialState, action) {
             return updateSatchelAlchemy(state, action);
         case REMOVE_ALCHEMY_FROM_SATCHEL:
             return removeAlchemyFromSatchel(state, action);
+        case ADD_KNOWN_RECIPE:
+            return AddKnownRecipeToSatchel(state, action);
+        case REMOVE_KNOWN_RECIPE:
+            return RemoveKnownRecipeFromSatchel(state, action);
         default:
             return { ...state };
     }
@@ -121,4 +140,73 @@ function removeAlchemyFromSatchel(state, action) {
     delete newState.alchemy[action.payload.category][action.payload.itemKey];
     localStorage.setItem(localStorageKey, JSON.stringify({ ...newState }));
     return { ...newState };
+}
+
+function AddKnownRecipeToSatchel(state, action) {
+    const curTypeState = state.knownRecipes && state.knownRecipes[action.payload.type]
+        ? state.knownRecipes[action.payload.type] : getDefaultKnownRecipes(action.payload.type);
+
+    const curCategoryState = state.knownRecipes
+        && state.knownRecipes[action.payload.type]
+        && state.knownRecipes[action.payload.type][action.payload.category]
+        ? state.knownRecipes[action.payload.type][action.payload.category] : [];
+
+    const newCategoryState = [...new Set([...curCategoryState, action.payload.itemKey])];
+
+    const newState = {
+        ...state,
+        knownRecipes: {
+            ...state.knownRecipes,
+            [action.payload.type]: {
+                ...curTypeState,
+                [action.payload.category]: newCategoryState,
+            },
+        },
+    };
+
+    localStorage.setItem(localStorageKey, JSON.stringify(newState));
+    return newState;
+}
+
+function RemoveKnownRecipeFromSatchel(state, action) {
+    const curTypeState = state.knownRecipes && state.knownRecipes[action.payload.type]
+        ? state.knownRecipes[action.payload.type] : getDefaultKnownRecipes(action.payload.type);
+
+    const curCategoryState = state.knownRecipes
+        && state.knownRecipes[action.payload.type]
+        && state.knownRecipes[action.payload.type][action.payload.category]
+        ? state.knownRecipes[action.payload.type][action.payload.category] : [];
+
+    curCategoryState.splice(action.payload.itemKey, 1);
+
+    const newState = {
+        ...state,
+        knownRecipes: {
+            ...state.knownRecipes,
+            [action.payload.type]: {
+                ...curTypeState,
+                [action.payload.category]: curCategoryState,
+            },
+        },
+    };
+
+    localStorage.setItem(localStorageKey, JSON.stringify(newState));
+    return newState;
+}
+
+function getDefaultKnownRecipes(knownRecipeType) {
+    if (knownRecipeType === 'witcherBrews') {
+        return {
+            potions: [],
+            bladeOils: [],
+            decoctions: [],
+        };
+    } else if (knownRecipeType === 'alchemy') {
+        return {
+            novice: [],
+            journeyman: [],
+            master: [],
+        };
+    }
+    return {};
 }

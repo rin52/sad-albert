@@ -16,7 +16,7 @@ export default function ClearSatchelModal(props) {
         <StyledModal
             open={props.open}
             onClose={props.close}
-            title="Import Satchel"
+            title="Clear Satchel"
             buttons={[
                 {
                     text: 'Cancel',

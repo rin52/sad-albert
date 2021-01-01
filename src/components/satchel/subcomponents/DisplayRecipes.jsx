@@ -23,6 +23,7 @@ export default function DisplayRecipes(props) {
                                     hasRarities={props.hasRarities}
                                     category={props.category}
                                     witcherPotions={props.witcherPotions}
+                                    deleteKnownRecipe={props.deleteKnownRecipe}
                                 />
                             );
                         }) :

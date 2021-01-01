@@ -55,9 +55,56 @@ export default {
                     type: 'object',
                     additionalProperties: false,
                     properties: { ...getPropertiesSchemaForAmountObjects(MasterFormulae) },
-                }
+                },
+            },
+        },
+        knownRecipes: {
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                witcherBrews: {
+                    type: 'object',
+                    additionalProperties: false,
+                    properties: {
+                        potions: {
+                            type: 'array',
+                            items: [
+                                {
+                                    type: 'string',
+                                    enum: Object.keys(Potions),
+                                },
+                            ],
+                        },
+                        bladeOils: {
+                            type: 'array',
+                            enum: Object.keys(BladeOils),
+                        },
+                        decoctions: {
+                            type: 'array',
+                            enum: Object.keys(Decoctions),
+                        },
+                    },
+                },
+                alchemy: {
+                    type: 'object',
+                    additionalProperties: false,
+                    properties: {
+                        novice: {
+                            type: 'array',
+                            enum: Object.keys(NoviceFormulae),
+                        },
+                        journeyman: {
+                            type: 'array',
+                            enum: Object.keys(JourneymanFormulae),
+                        },
+                        master: {
+                            type: 'array',
+                            enum: Object.keys(MasterFormulae),
+                        },
+                    },
+                },
             }
-        }
+        },
     },
 };
 

@@ -1,23 +1,29 @@
+import Constants from '../../helper/Constants';
+
 export function getCategory(listName) {
     switch (listName) {
-        case "Potions":
+        case Constants.POTIONS:
             return "potions";
-        case "Blade Oils":
+        case Constants.BLADE_OILS:
             return "bladeOils";
-        case "Decoctions":
+        case Constants.DECOCTIONS:
             return "decoctions";
         case "Novice":
             return "novice";
-        case "Novice Formulae":
+        case Constants.NOVICE_FORMULAE:
             return "novice";
         case "Journeyman":
             return "journeyman";
-        case "Journeyman Formulae":
+        case Constants.JOURNEYMAN_FORMULAE:
             return "journeyman";
         case "Master":
             return "master";
-        case "Master Formulae":
+        case Constants.MASTER_FORMULAE:
             return "master";
+        case Constants.WITCHER_BREWS:
+            return "witcherBrews"
+        case Constants.ALCHEMY_FORMULAE:
+            return "alchemy";
         default:
             return "";
     }

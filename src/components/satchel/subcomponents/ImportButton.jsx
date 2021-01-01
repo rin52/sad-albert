@@ -8,6 +8,7 @@ import validateJson from '../../../jsonSchemas/ValidateJson';
 
 export default function ImportExportSatchel() {
     const [errorMsg, setErrorMsg] = React.useState('');
+    const [errorList, setErrorList] = React.useState([]);
     const [successMsg, setSuccessMsg] = React.useState('');
     const dispatch = useDispatch();
     const chosenSetting = useSelector(state => state.systemState.chosenSetting);
@@ -24,6 +25,7 @@ export default function ImportExportSatchel() {
         fileReader.onloadend = handleFileRead;
         fileReader.readAsText(file);
         setErrorMsg('');
+        setErrorList([]);
     };
 
     const handleFileRead = () => {
@@ -40,6 +42,10 @@ export default function ImportExportSatchel() {
                 if (isValid.errors[0].params && isValid.errors[0].params.additionalProperty) {
                     msg += ': ' + isValid.errors[0].params.additionalProperty;
                 }
+                if (isValid.errors[0].params && isValid.errors[0].params.allowedValues) {
+                    setErrorList(isValid.errors[0].params.allowedValues);
+                    msg += ':';
+                }
                 setErrorMsg(msg);
             }
         }
@@ -47,6 +53,7 @@ export default function ImportExportSatchel() {
 
     const clearError = () => {
         setErrorMsg('');
+        setErrorList([]);
     };
 
     const clearSuccess = () => {
@@ -76,7 +83,18 @@ export default function ImportExportSatchel() {
                         }
                     ]}
                 >
-                    <Typography color="error">{errorMsg}</Typography>
+                    <div style={{overflow: 'auto', maxHeight: '300px'}}>
+                        <Typography color="error">{errorMsg}</Typography>
+                        {errorList.map(error => (
+                            <Typography
+                                color="error"
+                                key={error}
+                                style={{ paddingLeft: '16px' }}
+                            >
+                                {error}
+                            </Typography>
+                        ))}
+                    </div>
                 </StyledModal>
             )}
             {successMsg !== '' && (
