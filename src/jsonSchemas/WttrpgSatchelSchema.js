@@ -77,11 +77,21 @@ export default {
                         },
                         bladeOils: {
                             type: 'array',
-                            enum: Object.keys(BladeOils),
+                            items: [
+                                {
+                                    type: 'string',
+                                    enum: Object.keys(BladeOils),
+                                },
+                            ],
                         },
                         decoctions: {
                             type: 'array',
-                            enum: Object.keys(Decoctions),
+                            items: [
+                                {
+                                    type: 'string',
+                                    enum: Object.keys(Decoctions),
+                                },
+                            ],
                         },
                     },
                 },
@@ -91,15 +101,30 @@ export default {
                     properties: {
                         novice: {
                             type: 'array',
-                            enum: Object.keys(NoviceFormulae),
+                            items: [
+                                {
+                                    type: 'string',
+                                    enum: Object.keys(NoviceFormulae),
+                                },
+                            ],
                         },
                         journeyman: {
                             type: 'array',
-                            enum: Object.keys(JourneymanFormulae),
+                            items: [
+                                {
+                                    type: 'string',
+                                    enum: Object.keys(JourneymanFormulae),
+                                },
+                            ],
                         },
                         master: {
                             type: 'array',
-                            enum: Object.keys(MasterFormulae),
+                            items: [
+                                {
+                                    type: 'string',
+                                    enum: Object.keys(MasterFormulae),
+                                },
+                            ],
                         },
                     },
                 },
