@@ -5,6 +5,9 @@ export default {
         name: 'Adda\'s Tomb',
         DC: 13,
         craftTime: '5 Rounds',
+        formulaeCost: 27,
+        cost: 18,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 2 },
             { category: IngredientCategory.HYDRAGENUM, amount: 1 },
@@ -18,6 +21,9 @@ export default {
         name: 'Base Powder',
         DC: 12,
         craftTime: '5 Rounds',
+        formulaeCost: 27,
+        cost: 18,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -29,6 +35,9 @@ export default {
         name: 'Clotting Powder',
         DC: 12,
         craftTime: '5 Rounds',
+        formulaeCost: 30,
+        cost: 20,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -40,6 +49,9 @@ export default {
         name: 'Hallucinogen',
         DC: 12,
         craftTime: '5 Rounds',
+        formulaeCost: 47,
+        cost: 25,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -52,6 +64,9 @@ export default {
         name: 'Invisible Ink',
         DC: 11,
         craftTime: '5 Rounds',
+        formulaeCost: 22,
+        cost: 15,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 1 },
@@ -63,6 +78,9 @@ export default {
         name: 'Numbing Herbs',
         DC: 12,
         craftTime: '5 Rounds',
+        formulaeCost: 18,
+        cost: 12,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.VERMILION, amount: 1 },
@@ -75,6 +93,9 @@ export default {
         name: 'Poisoner\'s Friend',
         DC: 14,
         craftTime: '10 Minutes',
+        formulaeCost: 24,
+        cost: 16,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 2 },
             { category: IngredientCategory.VITRIOL, amount: 1 },
@@ -87,6 +108,9 @@ export default {
         name: 'Smelling Salts',
         DC: 14,
         craftTime: '10 Minutes',
+        formulaeCost: 37,
+        cost: 25,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -99,6 +123,9 @@ export default {
         name: 'Sterlizing Fluid',
         DC: 12,
         craftTime: '5 Rounds',
+        formulaeCost: 33,
+        cost: 22,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.CAELUM, amount: 1 },
@@ -111,6 +138,9 @@ export default {
         name: 'Succubus\' Breath',
         DC: 14,
         craftTime: '10 Minutes',
+        formulaeCost: 30,
+        cost: 20,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.SOL, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -125,6 +155,9 @@ export default {
         name: 'Summer Ointment',
         DC: 12,
         craftTime: '5 Rounds',
+        formulaeCost: 33,
+        cost: 22,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 1 },
@@ -136,6 +169,9 @@ export default {
         name: 'Wives\' Tears Potion',
         DC: 14,
         craftTime: '10 Minutes',
+        formulaeCost: 28,
+        cost: 56,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.HYDRAGENUM, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 2 },

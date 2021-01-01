@@ -5,6 +5,9 @@ export default {
         name: 'Berserker\'s Brew',
         DC: 22,
         craftTime: '1/2 Hour',
+        formulaeCost: 157,
+        cost: 105,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.REBIS, amount: 3 },
             { category: IngredientCategory.SOL, amount: 1 },
@@ -22,6 +25,9 @@ export default {
         name: 'Bredan\'s Fury',
         DC: 22,
         craftTime: '1/2 Hour',
+        formulaeCost: 142,
+        cost: 95,
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.SOL, amount: 3 },
             { category: IngredientCategory.FULGUR, amount: 3 },
@@ -35,6 +41,9 @@ export default {
         name: 'Fisstech',
         DC: 18,
         craftTime: '1/2 Hour',
+        formulaeCost: 120,
+        cost: 80,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.REBIS, amount: 3 },
             { category: IngredientCategory.HYDRAGENUM, amount: 2 },
@@ -49,6 +58,9 @@ export default {
         name: 'Pantagran\'s Elixir',
         DC: 17,
         craftTime: '15 Minutes',
+        formulaeCost: 100,
+        cost: 67,
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -64,6 +76,9 @@ export default {
         name: 'Perfume Potion',
         DC: 18,
         craftTime: '1/2 Hour',
+        formulaeCost: 114,
+        cost: 76,
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 1 },
@@ -80,6 +95,9 @@ export default {
         name: 'Talgar\'s Tears',
         DC: 20,
         craftTime: '1/2 Hour',
+        formulaeCost: 118,
+        cost: 79,
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.HYDRAGENUM, amount: 3 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -95,6 +113,9 @@ export default {
         name: 'Zerrikanian Fire',
         DC: 17,
         craftTime: '15 Minutes',
+        formulaeCost: 97,
+        cost: 65,
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.SOL, amount: 2 },
             { category: IngredientCategory.REBIS, amount: 3 },

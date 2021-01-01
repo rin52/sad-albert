@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button';
 import DisplayItem from '../DisplayItem';
 import RecipeHeader from './RecipeHeader';
 import DurationAndToxicityChart from './DurationAndToxicityChart';
+import DisplayCost from '../../ingredientGenerator/subcomponents/ingredientDisplayHelper/DisplayCost';
+import DisplayWeight from '../../ingredientGenerator/subcomponents/ingredientDisplayHelper/DisplayWeight';
 
 const useStyles = makeStyles((theme) => ({
     grid: {
@@ -15,6 +17,13 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyItems: 'center',
         alignItems: 'center',
+    },
+    row: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    separator: {
+        width: '16px',
     },
 }));
 
@@ -86,6 +95,14 @@ export default function RecipeItem(props) {
                                 Craft Time: {props.recipe.craftTime}
                             </Typography>
                         )}
+                        {props.recipe.formulaeCost && (
+                            <div className={classes.row}>
+                                <Typography variant="subtitle1">
+                                    {`Formulae Cost: ${props.recipe.formulaeCost}`}
+                                </Typography>
+                                <DisplayCost />
+                            </div>
+                        )}
                         {props.recipe.specificIngredients && renderSpecificIngredientsText()}
                         <Typography>{props.recipe.effects}</Typography>
                         {props.recipe.notes && (
@@ -96,6 +113,15 @@ export default function RecipeItem(props) {
                         duration={props.recipe.duration}
                         toxicity={props.recipe.toxicity}
                     />
+                    <div className={classes.row}>
+                        {props.recipe.weight !== undefined && (
+                            <DisplayWeight weight={props.recipe.weight} />
+                        )}
+                        <div className={classes.separator} />
+                        {props.recipe.cost !== undefined && (
+                            <DisplayCost cost={props.recipe.cost} />
+                        )}
+                    </div>
                 </div>
                 {props.showCraft && (
                     <div />

@@ -7,6 +7,8 @@ import DisplayMaxAmount from './ingredientDisplayHelper/DisplayMaxAmount';
 import AmountAndEditSatchel from './ingredientDisplayHelper/AmountAndEditSatchel';
 import IngredientCategory from '../../../helper/IngredientCategory';
 import getIngredientKey from '../../../helper/satchel/getIngredientKey';
+import DisplayWeight from './ingredientDisplayHelper/DisplayWeight';
+import DisplayCost from './ingredientDisplayHelper/DisplayCost';
 
 const useStyles = makeStyles(() => ({
     header: {
@@ -24,6 +26,13 @@ const useStyles = makeStyles(() => ({
     rarity: {
         fontStyle: 'italic',
         paddingRight: '4px',
+    },
+    row: {
+        display: 'flex',
+        paddingLeft: '36px',
+    },
+    separator: {
+        width: '16px',
     },
 }));
 
@@ -70,6 +79,17 @@ export default function IngredientDisplay(props) {
             {props.displayMaxAmount && (
                 <DisplayMaxAmount maxAmount={props.item.maxAmount} />
             )}
+
+            <div className={classes.row}>
+                {props.item.weight !== undefined && (
+                    <DisplayWeight weight={props.item.weight} />
+                )}
+                <div className={classes.separator} />
+                {props.item.cost !== undefined && (
+                    <DisplayCost cost={props.item.cost} />
+                )}
+            </div>
+
         </DisplayItem>
     );
 }

@@ -5,6 +5,9 @@ export default {
         name: 'Acid Solution',
         DC: 16,
         craftTime: '15 Minutes',
+        formulaeCost: 84,
+        cost: 56,
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -20,6 +23,9 @@ export default {
         name: 'Alchemical Adhesive',
         DC: 15,
         craftTime: '10 Minutes',
+        formulaeCost: 52,
+        cost: 28,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.HYDRAGENUM, amount: 1 },
@@ -35,6 +41,9 @@ export default {
         name: 'Black Venom',
         DC: 15,
         craftTime: '10 Minutes',
+        formulaeCost: 67,
+        cost: 45,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -50,6 +59,9 @@ export default {
         name: 'Cadaverine Solution',
         DC: 16,
         craftTime: '15 Minutes',
+        formulaeCost: 114,
+        cost: 76,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 4 },
             { category: IngredientCategory.FULGUR, amount: 1 },
@@ -63,6 +75,9 @@ export default {
         name: 'Celestine',
         DC: 16,
         craftTime: '15 Minutes',
+        formulaeCost: 93,
+        cost: 62,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.HYDRAGENUM, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -77,6 +92,9 @@ export default {
         name: 'Chloroform',
         DC: 16,
         craftTime: '15 Minutes',
+        formulaeCost: 54,
+        cost: 36,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 2 },
             { category: IngredientCategory.VERMILION, amount: 2 },
@@ -91,6 +109,9 @@ export default {
         name: 'Quick Fire',
         DC: 16,
         craftTime: '15 Minutes',
+        formulaeCost: 67,
+        cost: 45,
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 2 },
