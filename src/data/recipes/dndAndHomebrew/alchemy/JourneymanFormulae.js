@@ -4,6 +4,9 @@ export default {
     ACID_SOLUTION: {
         name: 'Acid Solution',
         DC: 16,
+        formulaeCost: '50 gp',
+        cost: '33 gp',
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -18,6 +21,9 @@ export default {
     ALCHEMICAL_ADHESIVE: {
         name: 'Alchemical Adhesive',
         DC: 15,
+        formulaeCost: '30 gp',
+        cost: '16 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.HYDRAGENUM, amount: 1 },
@@ -32,6 +38,9 @@ export default {
     BLACK_VENOM: {
         name: 'Black Venom',
         DC: 15,
+        formulaeCost: '40 gp',
+        cost: '27 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -45,6 +54,9 @@ export default {
     CADAVERINE_SOLUTION: {
         name: 'Cadaverine Solution',
         DC: 16,
+        formulaeCost: '67 gp',
+        cost: '45 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 4 },
             { category: IngredientCategory.FULGUR, amount: 1 },
@@ -57,6 +69,9 @@ export default {
     CELESTINE: {
         name: 'Celestine',
         DC: 16,
+        formulaeCost: '55 gp',
+        cost: '35 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.HYDRAGENUM, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -70,6 +85,9 @@ export default {
     CHLOROFORM: {
         name: 'Chloroform',
         DC: 16,
+        formulaeCost: '32 gp',
+        cost: '22 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 2 },
             { category: IngredientCategory.VERMILION, amount: 2 },
@@ -83,6 +101,9 @@ export default {
     QUICK_FIRE: {
         name: 'Quick Fire',
         DC: 16,
+        formulaeCost: '40 gp',
+        cost: '27 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 2 },

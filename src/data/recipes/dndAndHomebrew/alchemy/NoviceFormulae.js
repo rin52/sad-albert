@@ -4,6 +4,9 @@ export default {
     ADDAS_TOMB: {
         name: 'Adda\'s Tomb',
         DC: 13,
+        formulaeCost: '16 gp',
+        cost: '11 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 2 },
             { category: IngredientCategory.HYDRAGENUM, amount: 1 },
@@ -16,6 +19,9 @@ export default {
     BASE_POWDER: {
         name: 'Base Powder',
         DC: 12,
+        formulaeCost: '16 gp',
+        cost: '11 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -26,6 +32,9 @@ export default {
     CLOTTING_POWDER: {
         name: 'Clotting Powder',
         DC: 12,
+        formulaeCost: '18 gp',
+        cost: '12 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -36,6 +45,9 @@ export default {
     HALLUCINOGEN: {
         name: 'Hallucinogen',
         DC: 12,
+        formulaeCost: '28 gp',
+        cost: '15 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -47,6 +59,9 @@ export default {
     INVISIBLE_INK: {
         name: 'Invisible Ink',
         DC: 11,
+        formulaeCost: '13 gp',
+        cost: '9 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 1 },
@@ -58,6 +73,9 @@ export default {
         name: 'Numbing Herbs',
         DC: 12,
         hide: true,
+        formulaeCost: '11 gp',
+        cost: '7 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.VERMILION, amount: 1 },
@@ -69,6 +87,9 @@ export default {
     POISONERS_FRIEND: {
         name: 'Poisoner\'s Friend',
         DC: 14,
+        formulaeCost: '14 gp',
+        cost: '9 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 2 },
             { category: IngredientCategory.VITRIOL, amount: 1 },
@@ -80,6 +101,9 @@ export default {
     SMELLING_SALTS: {
         name: 'Smelling Salts',
         DC: 14,
+        formulaeCost: '22 gp',
+        cost: '15 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -92,6 +116,9 @@ export default {
         name: 'Sterlizing Fluid',
         DC: 12,
         hide: true,
+        formulaeCost: '20 gp',
+        cost: '13 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.CAELUM, amount: 1 },
@@ -103,6 +130,9 @@ export default {
     SUCCUBUS_BREATH: {
         name: 'Succubus\' Breath',
         DC: 14,
+        formulaeCost: '18 gp',
+        cost: '12 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.SOL, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -116,6 +146,9 @@ export default {
     SUMMER_OINTMENT: {
         name: 'Summer Ointment',
         DC: 12,
+        formulaeCost: '20 gp',
+        cost: '13 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 1 },
@@ -126,6 +159,9 @@ export default {
     WIVES_TEARS_POTION: {
         name: 'Wives\' Tears Potion',
         DC: 14,
+        formulaeCost: '16 gp',
+        cost: '33 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.HYDRAGENUM, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 2 },

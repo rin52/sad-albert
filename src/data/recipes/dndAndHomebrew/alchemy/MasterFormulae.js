@@ -4,6 +4,9 @@ export default {
     BERSERKERS_BREW: {
         name: 'Berserker\'s Brew',
         DC: 22,
+        formulaeCost: '93 gp',
+        cost: '62 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.REBIS, amount: 3 },
             { category: IngredientCategory.SOL, amount: 1 },
@@ -20,6 +23,9 @@ export default {
     BREDANS_FURY: {
         name: 'Bredan\'s Fury',
         DC: 22,
+        formulaeCost: '84 gp',
+        cost: '55 gp',
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.SOL, amount: 3 },
             { category: IngredientCategory.FULGUR, amount: 3 },
@@ -33,6 +39,9 @@ export default {
         name: 'Fisstech',
         DC: 18,
         hide: true,
+        formulaeCost: '70 gp',
+        cost: '47 gp',
+        weight: 0.1,
         ingredients: [
             { category: IngredientCategory.REBIS, amount: 3 },
             { category: IngredientCategory.HYDRAGENUM, amount: 2 },
@@ -46,6 +55,9 @@ export default {
     PANTAGRANS_ELIXIR: {
         name: 'Pantagran\'s Elixir',
         DC: 17,
+        formulaeCost: '60 gp',
+        cost: '40 gp',
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.VERMILION, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -60,6 +72,9 @@ export default {
     PERFUME_POTION: {
         name: 'Perfume Potion',
         DC: 18,
+        formulaeCost: '67 gp',
+        cost: '45 gp',
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 1 },
@@ -75,6 +90,9 @@ export default {
     TALGARS_TEARS: {
         name: 'Talgar\'s Tears',
         DC: 20,
+        formulaeCost: '70 gp',
+        cost: '47 gp',
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.HYDRAGENUM, amount: 3 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -88,6 +106,9 @@ export default {
     ZERRIKANIAN_FIRE: {
         name: 'Zerrikanian Fire',
         DC: 17,
+        formulaeCost: '57 gp',
+        cost: '38 gp',
+        weight: 0.5,
         ingredients: [
             { category: IngredientCategory.SOL, amount: 2 },
             { category: IngredientCategory.REBIS, amount: 3 },
