@@ -2,13 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CenteredTabs from '../common/CenteredTabs';
 import { switchSelectedSatchelTab } from '../../actions/SystemActions';
-import DisplayArea from '../common/DisplayArea';
-import SatchelSummary from './subcomponents/summary/SatchelSummary';
-import SatchelDetailsPanel from './subcomponents/details/SatchelDetailsPanel';
 import ImportExportSatchel from './subcomponents/ImportExportSatchel';
-import SatchelWitcherBrewsPanel from './subcomponents/witcherBrews/SatchelWitcherBrewsPanel';
-import SatchelAlchemyPanel from './subcomponents/alchemy/SatchelAlchemyPanel';
-import KnownRecipesPanel from './subcomponents/knownRecipes/KnownRecipesPanel';
+import SatchelIngredientsPanel from './subcategories/SatchelIngredientsPanel';
+import SatchelCraftedRecipesPanel from './subcategories/SatchelCraftedRecipesPanel';
+import SatchelFormulaePanel from './subcategories/SatchelFormulaePanel';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedSatchelTab: (selectedTab) => {
@@ -23,35 +20,26 @@ const mapStateToProps = state => ({
 class SatchelPanel extends React.Component {
     constructor() {
         super();
-        this.tabs = ["Summary", "Details", "Witcher Brews", "Alchemy", "Known Recipes"];
+        this.tabs = ["Ingredients", "Crafted Recipes", "Formulae"];
     }
 
     renderPanel = () => {
         if (this.props.selectedTab === 0) {
             return (
-                <SatchelSummary />
+                <SatchelIngredientsPanel />
             );
         }
         if (this.props.selectedTab === 1) {
             return (
-                <SatchelDetailsPanel />
+                <SatchelCraftedRecipesPanel />
             )
         }
         if (this.props.selectedTab === 2) {
             return (
-                <SatchelWitcherBrewsPanel/>
+                <SatchelFormulaePanel />
             );
         }
-        if (this.props.selectedTab === 3) {
-            return (
-                <SatchelAlchemyPanel/>
-            );
-        }
-        if (this.props.selectedTab === 4) {
-            return (
-                <KnownRecipesPanel/>
-            );
-        }
+        
         return (
             <div />
         );
@@ -65,12 +53,8 @@ class SatchelPanel extends React.Component {
                     selectedTab={this.props.selectedTab}
                     switchTabs={this.props.switchSelectedSatchelTab}
                 />
-                <div style={{ padding: '16px' }}>
-                    <DisplayArea>
-                        {this.renderPanel()}
-                    </DisplayArea>
-                    <ImportExportSatchel/>
-                </div>
+                {this.renderPanel()}
+                <ImportExportSatchel />
             </div>
         );
     }

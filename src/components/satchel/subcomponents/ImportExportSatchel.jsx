@@ -8,7 +8,6 @@ import ImportButton from './ImportButton';
 
 const useStyles = makeStyles(() => ({
     root: {
-        paddingTop: '16px',
         display: 'flex',
         justifyContent: 'center'
     },

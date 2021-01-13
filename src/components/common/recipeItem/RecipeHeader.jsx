@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import getIngredientImage from '../../../helper/getIngredientImage';
 import AmountAndEditSatchel from '../../ingredientGenerator/subcomponents/ingredientDisplayHelper/AmountAndEditSatchel';
-import DeleteKnownRecipe from './DeleteKnownRecipe';
+import DeleteKnownRecipe from './deleteKnownItem/DeleteKnownRecipe';
+import DeleteAcquiredFormulae from './deleteAcquiredFormulae/DeleteAcquiredFormulae';
 
 const useStyles = makeStyles((theme) => ({
     row: {
@@ -106,7 +107,13 @@ export default function PotionHeader(props) {
                     <DeleteKnownRecipe
                         category={props.category}
                         itemName={props.name}
-                        />
+                    />
+                )}
+                {props.deleteAcquiredFormulae && (
+                    <DeleteAcquiredFormulae
+                        category={props.category}
+                        itemName={props.name}
+                    />
                 )}
             </div>
             {typeof props.amount === "object" && (

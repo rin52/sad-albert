@@ -1,18 +1,18 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import StyledModal from '../../common/StyledModal';
-import { removeKnownRecipe } from '../../../actions/SatchelActions';
+import StyledModal from '../../../common/StyledModal';
 import { Typography } from '@material-ui/core';
-import Constants from '../../../helper/Constants';
-import { getCategory } from '../../../actions/helper/SatchelActionsHelper';
-import getIngredientKey from '../../../helper/satchel/getIngredientKey';
+import Constants from '../../../../helper/Constants';
+import { getCategory } from '../../../../actions/helper/SatchelActionsHelper';
+import getIngredientKey from '../../../../helper/satchel/getIngredientKey';
+import { removeAcquiredFormulae } from '../../../../actions/SatchelActions';
 
-export default function DeleteKnownRecipeModal(props) {
+export default function DeleteAcquiredFormulaeModal(props) {
     const dispatch = useDispatch();
 
     const submit = () => {
         console.log(props);
-        dispatch(removeKnownRecipe(getCategory(getType()), getCategory(props.category), getIngredientKey(props.itemName)));
+        dispatch(removeAcquiredFormulae(getCategory(getType()), getCategory(props.category), getIngredientKey(props.itemName)));
         props.close();
     };
 
@@ -33,7 +33,7 @@ export default function DeleteKnownRecipeModal(props) {
         <StyledModal
             open={props.open}
             onClose={props.close}
-            title="Remove Known Recipe"
+            title="Remove Acquired Formulae"
             buttons={[
                 {
                     text: 'Cancel',
@@ -46,7 +46,7 @@ export default function DeleteKnownRecipeModal(props) {
             ]}
         >
             <div>
-                <Typography>{`Are you sure you would like to remove ${props.itemName} from known recipes?`}</Typography>
+                <Typography>{`Are you sure you would like to remove ${props.itemName} from acquired formulae?`}</Typography>
             </div>
         </StyledModal>
     );

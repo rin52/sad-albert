@@ -24,6 +24,7 @@ export default function DisplayRecipes(props) {
                                     category={props.category}
                                     witcherPotions={props.witcherPotions}
                                     deleteKnownRecipe={props.deleteKnownRecipe}
+                                    deleteAcquiredFormulae={props.deleteAcquiredFormulae}
                                 />
                             );
                         }) :

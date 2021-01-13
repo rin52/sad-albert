@@ -90,6 +90,7 @@ export default function RecipeItem(props) {
                             hasRarities={props.hasRarities}
                             witcherPotions={props.witcherPotions}
                             deleteKnownRecipe={props.deleteKnownRecipe}
+                            deleteAcquiredFormulae={props.deleteAcquiredFormulae}
                         />
                         {props.recipe.craftTime && (
                             <Typography variant="subtitle1">

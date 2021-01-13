@@ -58,78 +58,8 @@ export default {
                 },
             },
         },
-        knownRecipes: {
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-                witcherBrews: {
-                    type: 'object',
-                    additionalProperties: false,
-                    properties: {
-                        potions: {
-                            type: 'array',
-                            items: [
-                                {
-                                    type: 'string',
-                                    enum: Object.keys(Potions),
-                                },
-                            ],
-                        },
-                        bladeOils: {
-                            type: 'array',
-                            items: [
-                                {
-                                    type: 'string',
-                                    enum: Object.keys(BladeOils),
-                                },
-                            ],
-                        },
-                        decoctions: {
-                            type: 'array',
-                            items: [
-                                {
-                                    type: 'string',
-                                    enum: Object.keys(Decoctions),
-                                },
-                            ],
-                        },
-                    },
-                },
-                alchemy: {
-                    type: 'object',
-                    additionalProperties: false,
-                    properties: {
-                        novice: {
-                            type: 'array',
-                            items: [
-                                {
-                                    type: 'string',
-                                    enum: Object.keys(NoviceFormulae),
-                                },
-                            ],
-                        },
-                        journeyman: {
-                            type: 'array',
-                            items: [
-                                {
-                                    type: 'string',
-                                    enum: Object.keys(JourneymanFormulae),
-                                },
-                            ],
-                        },
-                        master: {
-                            type: 'array',
-                            items: [
-                                {
-                                    type: 'string',
-                                    enum: Object.keys(MasterFormulae),
-                                },
-                            ],
-                        },
-                    },
-                },
-            }
-        },
+        knownRecipes: getSchemaForRecipes(),
+        acquiredFormulae: getSchemaForRecipes(),
     },
 };
 
@@ -151,4 +81,79 @@ function getPropertiesSchemaForAmountObjects(dataSource) {
     });
 
     return properties;
+}
+
+function getSchemaForRecipes() {
+    return {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+            witcherBrews: {
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    potions: {
+                        type: 'array',
+                        items: [
+                            {
+                                type: 'string',
+                                enum: Object.keys(Potions),
+                            },
+                        ],
+                    },
+                    bladeOils: {
+                        type: 'array',
+                        items: [
+                            {
+                                type: 'string',
+                                enum: Object.keys(BladeOils),
+                            },
+                        ],
+                    },
+                    decoctions: {
+                        type: 'array',
+                        items: [
+                            {
+                                type: 'string',
+                                enum: Object.keys(Decoctions),
+                            },
+                        ],
+                    },
+                },
+            },
+            alchemy: {
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    novice: {
+                        type: 'array',
+                        items: [
+                            {
+                                type: 'string',
+                                enum: Object.keys(NoviceFormulae),
+                            },
+                        ],
+                    },
+                    journeyman: {
+                        type: 'array',
+                        items: [
+                            {
+                                type: 'string',
+                                enum: Object.keys(JourneymanFormulae),
+                            },
+                        ],
+                    },
+                    master: {
+                        type: 'array',
+                        items: [
+                            {
+                                type: 'string',
+                                enum: Object.keys(MasterFormulae),
+                            },
+                        ],
+                    },
+                },
+            },
+        }
+    };
 }

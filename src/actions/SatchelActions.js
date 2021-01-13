@@ -8,6 +8,8 @@ export const UPDATE_SATCHEL_ALCHEMY = 'updateSatchelAlchemy';
 export const REMOVE_ALCHEMY_FROM_SATCHEL = 'removeAlchemyFromSatchel';
 export const ADD_KNOWN_RECIPE = 'addKnownRecipe';
 export const REMOVE_KNOWN_RECIPE = 'removeKnownRecipe';
+export const ADD_ACQUIRED_FORMULAE = 'addAcquiredFormulae';
+export const REMOVE_ACQUIRED_FORMULAE = 'removeAcquiredFormulae';
 
 export const updateSatchelIngredients = newItems => ({
     type: UPDATE_SATCHEL_INGREDIENTS,
@@ -71,6 +73,24 @@ export const addKnownRecipe = (type, category, itemKey) => ({
 
 export const removeKnownRecipe = (type, category, itemKey) => ({
     type: REMOVE_KNOWN_RECIPE,
+    payload: {
+        type,
+        category,
+        itemKey,
+    },
+});
+
+export const addAcquiredFormulae = (type, category, itemKey) => ({
+    type: ADD_ACQUIRED_FORMULAE,
+    payload: {
+        type,
+        category,
+        itemKey,
+    },
+});
+
+export const removeAcquiredFormulae = (type, category, itemKey) => ({
+    type: REMOVE_ACQUIRED_FORMULAE,
     payload: {
         type,
         category,

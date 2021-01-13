@@ -1,6 +1,8 @@
 import {
     CLEAR_SATCHEL,
     OVERWRITE_SATCHEL,
+    ADD_ACQUIRED_FORMULAE,
+    REMOVE_ACQUIRED_FORMULAE,
     ADD_KNOWN_RECIPE,
     REMOVE_KNOWN_RECIPE,
     REMOVE_INGREDIENT_FROM_SATCHEL,
@@ -20,6 +22,18 @@ const initialState = satchel === null
         witcherBrews: { potions: {}, bladeOils: {}, decoctions: {} },
         alchemy: { novice: {}, journeyman: {}, master: {} },
         knownRecipes: {
+            witcherBrews: {
+                potions: [],
+                bladeOils: [],
+                decoctions: [],
+            },
+            alchemy: {
+                novice: [],
+                journeyman: [],
+                master: [],
+            },
+        },
+        acquiredFormulae: {
             witcherBrews: {
                 potions: [],
                 bladeOils: [],
@@ -54,6 +68,10 @@ export default function SatchelReducer(state = initialState, action) {
                     witcherBrews: { potions: [], bladeOils: [], decoctions: [] },
                     alchemy: { novice: [], journeyman: [], master: [] },
                 },
+                acquiredFormulae: {
+                    witcherBrews: { potions: [], bladeOils: [], decoctions: [] },
+                    alchemy: { novice: [], journeyman: [], master: [] },
+                },
             }
             localStorage.setItem(localStorageKey, JSON.stringify(clearedState));
             return clearedState;
@@ -73,9 +91,13 @@ export default function SatchelReducer(state = initialState, action) {
         case REMOVE_ALCHEMY_FROM_SATCHEL:
             return removeAlchemyFromSatchel(state, action);
         case ADD_KNOWN_RECIPE:
-            return AddKnownRecipeToSatchel(state, action);
+            return AddRecipeToSatchel('knownRecipes', state, action);
         case REMOVE_KNOWN_RECIPE:
-            return RemoveKnownRecipeFromSatchel(state, action);
+            return RemoveRecipeFromSatchel('knownRecipes', state, action);
+        case ADD_ACQUIRED_FORMULAE:
+            return AddRecipeToSatchel('acquiredFormulae', state, action);
+        case REMOVE_ACQUIRED_FORMULAE:
+            return RemoveRecipeFromSatchel('acquiredFormulae', state, action);
         default:
             return { ...state };
     }
@@ -142,21 +164,21 @@ function removeAlchemyFromSatchel(state, action) {
     return { ...newState };
 }
 
-function AddKnownRecipeToSatchel(state, action) {
-    const curTypeState = state.knownRecipes && state.knownRecipes[action.payload.type]
-        ? state.knownRecipes[action.payload.type] : getDefaultKnownRecipes(action.payload.type);
+function AddRecipeToSatchel(key, state, action) {
+    const curTypeState = state[key] && state[key][action.payload.type]
+        ? state[key][action.payload.type] : getDefaultRecipeObj(action.payload.type);
 
-    const curCategoryState = state.knownRecipes
-        && state.knownRecipes[action.payload.type]
-        && state.knownRecipes[action.payload.type][action.payload.category]
-        ? state.knownRecipes[action.payload.type][action.payload.category] : [];
+    const curCategoryState = state[key]
+        && state[key][action.payload.type]
+        && state[key][action.payload.type][action.payload.category]
+        ? state[key][action.payload.type][action.payload.category] : [];
 
     const newCategoryState = [...new Set([...curCategoryState, action.payload.itemKey])];
 
     const newState = {
         ...state,
-        knownRecipes: {
-            ...state.knownRecipes,
+        [key]: {
+            ...state[key],
             [action.payload.type]: {
                 ...curTypeState,
                 [action.payload.category]: newCategoryState,
@@ -168,21 +190,21 @@ function AddKnownRecipeToSatchel(state, action) {
     return newState;
 }
 
-function RemoveKnownRecipeFromSatchel(state, action) {
-    const curTypeState = state.knownRecipes && state.knownRecipes[action.payload.type]
-        ? state.knownRecipes[action.payload.type] : getDefaultKnownRecipes(action.payload.type);
+function RemoveRecipeFromSatchel(key, state, action) {
+    const curTypeState = state[key] && state[key][action.payload.type]
+        ? state[key][action.payload.type] : getDefaultRecipeObj(action.payload.type);
 
-    const curCategoryState = state.knownRecipes
-        && state.knownRecipes[action.payload.type]
-        && state.knownRecipes[action.payload.type][action.payload.category]
-        ? state.knownRecipes[action.payload.type][action.payload.category] : [];
+    const curCategoryState = state[key]
+        && state[key][action.payload.type]
+        && state[key][action.payload.type][action.payload.category]
+        ? state[key][action.payload.type][action.payload.category] : [];
 
     curCategoryState.splice(action.payload.itemKey, 1);
 
     const newState = {
         ...state,
-        knownRecipes: {
-            ...state.knownRecipes,
+        [key]: {
+            ...state[key],
             [action.payload.type]: {
                 ...curTypeState,
                 [action.payload.category]: curCategoryState,
@@ -194,7 +216,7 @@ function RemoveKnownRecipeFromSatchel(state, action) {
     return newState;
 }
 
-function getDefaultKnownRecipes(knownRecipeType) {
+function getDefaultRecipeObj(knownRecipeType) {
     if (knownRecipeType === 'witcherBrews') {
         return {
             potions: [],
