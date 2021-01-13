@@ -11,7 +11,6 @@ export default function DeleteAcquiredFormulaeModal(props) {
     const dispatch = useDispatch();
 
     const submit = () => {
-        console.log(props);
         dispatch(removeAcquiredFormulae(getCategory(getType()), getCategory(props.category), getIngredientKey(props.itemName)));
         props.close();
     };

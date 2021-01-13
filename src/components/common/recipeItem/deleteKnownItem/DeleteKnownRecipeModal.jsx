@@ -11,7 +11,6 @@ export default function DeleteKnownRecipeModal(props) {
     const dispatch = useDispatch();
 
     const submit = () => {
-        console.log(props);
         dispatch(removeKnownRecipe(getCategory(getType()), getCategory(props.category), getIngredientKey(props.itemName)));
         props.close();
     };

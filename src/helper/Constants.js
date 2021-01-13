@@ -1,5 +1,7 @@
 export default {
+    ACQUIRED_FORMULAE: 'Acquired Formulae',
     ALCHEMY_FORMULAE: 'Alchemy Formulae',
+    ALL_FORMULAE: 'All Formulae',
 
     BLADE_OILS: 'Blade Oils',
 
@@ -15,6 +17,7 @@ export default {
     LAB: 'Lab',
 
     MASTER_FORMULAE: 'Master Formulae',
+    MEMORIZED_FORMULAE: 'Memorized Formulae',
 
     NOVICE_FORMULAE: 'Novice Formulae',
 

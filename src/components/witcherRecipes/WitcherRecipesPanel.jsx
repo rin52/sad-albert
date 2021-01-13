@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Typography from '@material-ui/core/Typography';
 import CenteredTabs from '../common/CenteredTabs';
 import { switchSelectedRecipesTab } from '../../actions/SystemActions';
 import DisplayArea from '../common/DisplayArea';
@@ -7,6 +8,9 @@ import RecipeItem from '../common/recipeItem/RecipeItem';
 import getBladeOils from '../../helper/getData/getRecipes/witcher/getBladeOils';
 import getDecoctions from '../../helper/getData/getRecipes/witcher/getDecoctions';
 import getPotions from '../../helper/getData/getRecipes/witcher/getPotions';
+import Constants from '../../helper/Constants';
+import RecipeFilter from '../common/RecipeFilter';
+import DisplayItem from '../common/DisplayItem';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedRecipesTab: (selectedTab) => {
@@ -17,37 +21,93 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
     selectedTab: state.systemState.selectedRecipesTab,
     chosenSetting: state.systemState.chosenSetting,
+    knownRecipes: state.satchelState.knownRecipes,
+    acquiredFormulae: state.satchelState.acquiredFormulae,
 });
 
 class WitcherRecipesPanel extends React.Component {
     constructor() {
         super();
-        this.tabs = ["Potions", "Blade Oils", "Decoctions"];
+        this.state = {
+            filter: [Constants.ALL_FORMULAE],
+        };
+        this.tabs = [Constants.POTIONS, Constants.BLADE_OILS, Constants.DECOCTIONS];
     }
 
-    renderRecipeItems = (recipes) => {
-        const keys = Object.keys(recipes);
+    filterUpdated = (newFilter) => {
+        this.setState({
+            filter: newFilter,
+        });
+    };
+
+    filterRecipes = (recipes, knownRecipes, acquiredFormulae) => {
+        let allowedRecipes = [];
+        if (this.state.filter.indexOf(Constants.MEMORIZED_FORMULAE) > -1 && knownRecipes) {
+            allowedRecipes = [...allowedRecipes, ...knownRecipes];
+        }
+        if (this.state.filter.indexOf(Constants.ACQUIRED_FORMULAE) > -1 && acquiredFormulae) {
+            allowedRecipes = [...allowedRecipes, ...acquiredFormulae];
+        }
+        allowedRecipes.sort();
+
+        const filteredRecipes = {};
+        allowedRecipes.forEach((allowedRecipe) => {
+            if (recipes[allowedRecipe]) {
+                filteredRecipes[allowedRecipe] = recipes[allowedRecipe];
+            }
+        })
+
+        return filteredRecipes;
+    };
+
+    renderRecipeItems = (recipes, knownRecipes, acquiredFormulae) => {
+        const displayRecipes = this.state.filter.indexOf(Constants.ALL_FORMULAE) === -1
+            ? this.filterRecipes(recipes, knownRecipes, acquiredFormulae) : recipes;
+        const keys = Object.keys(displayRecipes);
+
         return (
             <div>
+                <RecipeFilter filterUpdated={this.filterUpdated} />
                 {keys.map(key => {
-                    const recipe = recipes[key];
+                    const recipe = displayRecipes[key];
                     return (
                         <RecipeItem recipe={recipe} key={recipe.name} />
                     );
                 })}
+                {keys.length === 0 && (
+                    <DisplayItem>
+                        <Typography>No formulae found.</Typography>
+                    </DisplayItem>
+                )}
             </div>
         )
     }
 
+    getRecipeSatchelData = (satchelKey, category) => {
+        if (this.props[satchelKey] && this.props[satchelKey].witcherBrews && this.props[satchelKey].witcherBrews[category]) {
+            return this.props[satchelKey].witcherBrews[category];
+        }
+        return [];
+    }
+
     renderPanel = () => {
         if (this.props.selectedTab === 0) {
-            return this.renderRecipeItems(getPotions(this.props.chosenSetting));
+            return this.renderRecipeItems(getPotions(this.props.chosenSetting),
+                this.getRecipeSatchelData('knownRecipes', 'potions'),
+                this.getRecipeSatchelData('acquiredFormulae', 'potions'),
+            );
         }
         if (this.props.selectedTab === 1) {
-            return this.renderRecipeItems(getBladeOils(this.props.chosenSetting));
+            return this.renderRecipeItems(getBladeOils(this.props.chosenSetting),
+                this.getRecipeSatchelData('knownRecipes', 'bladeOils'),
+                this.getRecipeSatchelData('acquiredFormulae', 'bladeOils'),
+            );
         }
         if (this.props.selectedTab === 2) {
-            return this.renderRecipeItems(getDecoctions(this.props.chosenSetting));
+            return this.renderRecipeItems(getDecoctions(this.props.chosenSetting),
+            this.getRecipeSatchelData('knownRecipes', 'decoctions'),
+            this.getRecipeSatchelData('acquiredFormulae', 'decoctions'),
+        );
         }
         return (
             <div />

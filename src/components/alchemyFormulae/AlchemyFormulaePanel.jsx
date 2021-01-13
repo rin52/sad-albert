@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Typography from '@material-ui/core/Typography';
 import CenteredTabs from '../common/CenteredTabs';
 import { switchSelectedAlchemyFormulaeTab } from '../../actions/SystemActions';
 import DisplayArea from '../common/DisplayArea';
@@ -7,6 +8,9 @@ import RecipeItem from '../common/recipeItem/RecipeItem';
 import getNoviceFormulae from '../../helper/getData/getRecipes/alchemy/getNoviceFormulae';
 import getJourneymanFormulae from '../../helper/getData/getRecipes/alchemy/getJourneymanFormulae';
 import getMasterFormulae from '../../helper/getData/getRecipes/alchemy/getMasterFormulae';
+import RecipeFilter from '../common/RecipeFilter';
+import Constants from '../../helper/Constants';
+import DisplayItem from '../common/DisplayItem';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedAlchemyFormulaeTab: (selectedTab) => {
@@ -17,37 +21,95 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
     selectedTab: state.systemState.selectedAlchemyFormulaeTab,
     chosenSetting: state.systemState.chosenSetting,
+    knownRecipes: state.satchelState.knownRecipes,
+    acquiredFormulae: state.satchelState.acquiredFormulae,
 });
 
 class AlchemyFormulaePanel extends React.Component {
     constructor() {
         super();
-        this.tabs = ["Novice Formulae", "Journeyman Formulae", "Master Formulae"];
+        this.state = {
+            filter: [Constants.ALL_FORMULAE],
+        };
+        this.tabs = [Constants.NOVICE_FORMULAE, Constants.JOURNEYMAN_FORMULAE, Constants.MASTER_FORMULAE];
     }
 
-    renderRecipeItems = (recipes) => {
-        const keys = Object.keys(recipes);
+    filterUpdated = (newFilter) => {
+        this.setState({
+            filter: newFilter,
+        });
+    };
+
+    filterRecipes = (recipes, knownRecipes, acquiredFormulae) => {
+        let allowedRecipes = [];
+        if (this.state.filter.indexOf(Constants.MEMORIZED_FORMULAE) > -1 && knownRecipes) {
+            allowedRecipes = [...allowedRecipes, ...knownRecipes];
+        }
+        if (this.state.filter.indexOf(Constants.ACQUIRED_FORMULAE) > -1 && acquiredFormulae) {
+            allowedRecipes = [...allowedRecipes, ...acquiredFormulae];
+        }
+        allowedRecipes.sort();
+
+        const filteredRecipes = {};
+
+        allowedRecipes.forEach((allowedRecipe) => {
+            if (recipes[allowedRecipe]) {
+                filteredRecipes[allowedRecipe] = recipes[allowedRecipe];
+            }
+        })
+
+        return filteredRecipes;
+    };
+
+    renderRecipeItems = (recipes, knownRecipes, acquiredFormulae) => {
+        const displayRecipes = this.state.filter.indexOf(Constants.ALL_FORMULAE) === -1
+            ? this.filterRecipes(recipes, knownRecipes, acquiredFormulae) : recipes;
+        const keys = Object.keys(displayRecipes);
+
         return (
             <div>
+                <RecipeFilter filterUpdated={this.filterUpdated} />
                 {keys.map(key => {
-                    const recipe = recipes[key];
+                    const recipe = displayRecipes[key];
                     return (
                         <RecipeItem recipe={recipe} key={recipe.name} />
                     );
                 })}
+                {keys.length === 0 && (
+                    <DisplayItem>
+                        <Typography>No formulae found.</Typography>
+                    </DisplayItem>
+                )}
             </div>
         )
     }
 
+    getRecipeSatchelData = (satchelKey, category) => {
+        if (this.props[satchelKey] && this.props[satchelKey].alchemy && this.props[satchelKey].alchemy[category]) {
+            return this.props[satchelKey].alchemy[category];
+        }
+        return [];
+    }
+
     renderPanel = () => {
         if (this.props.selectedTab === 0) {
-            return this.renderRecipeItems(getNoviceFormulae(this.props.chosenSetting));
+            return this.renderRecipeItems(getNoviceFormulae(
+                this.props.chosenSetting),
+                this.getRecipeSatchelData('knownRecipes', 'novice'),
+                this.getRecipeSatchelData('acquiredFormulae', 'novice'),
+            );
         }
         if (this.props.selectedTab === 1) {
-            return this.renderRecipeItems(getJourneymanFormulae(this.props.chosenSetting));
+            return this.renderRecipeItems(getJourneymanFormulae(this.props.chosenSetting),
+                this.getRecipeSatchelData('knownRecipes', 'journeyman'),
+                this.getRecipeSatchelData('acquiredFormulae', 'journeyman'),
+            );
         }
         if (this.props.selectedTab === 2) {
-            return this.renderRecipeItems(getMasterFormulae(this.props.chosenSetting));
+            return this.renderRecipeItems(getMasterFormulae(this.props.chosenSetting),
+                this.getRecipeSatchelData('knownRecipes', 'master'),
+                this.getRecipeSatchelData('acquiredFormulae', 'master'),
+            );
         }
         return (
             <div />

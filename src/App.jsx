@@ -87,6 +87,11 @@ const themeColors = {
                 backgroundColor: Colors.accent,
             },
         },
+        MuiCheckbox: {
+            root: {
+                color: Colors.button,
+            }
+        }
     }
 };
 
