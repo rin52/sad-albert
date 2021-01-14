@@ -49,8 +49,8 @@ class LabPanel extends React.Component {
                         },
                     ]}
                     type="witcherBrews"
-                    knownRecipes={this.props.knownRecipes.witcherBrews}
-                    acquiredFormulae={this.props.acquiredFormulae.witcherBrews}
+                    knownRecipes={this.props.knownRecipes && this.props.knownRecipes.witcherBrews}
+                    acquiredFormulae={this.props.acquiredFormulae && this.props.acquiredFormulae.witcherBrews}
                 />
             )
         }
@@ -73,8 +73,8 @@ class LabPanel extends React.Component {
                         },
                     ]}
 
-                    knownRecipes={this.props.knownRecipes.alchemy}
-                    acquiredFormulae={this.props.acquiredFormulae.alchemy}
+                    knownRecipes={this.props.knownRecipes && this.props.knownRecipes.alchemy}
+                    acquiredFormulae={this.props.acquiredFormulae && this.props.acquiredFormulae.alchemy}
                 />
             )
         }
