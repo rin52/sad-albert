@@ -65,7 +65,7 @@ export default function SatchelInventory(props) {
         props.allRecipes.forEach((recipeList) => {
             const name = recipeList.name;
             const knownRecipes = props.knownRecipes && props.knownRecipes[getCategory(name)];
-            const acquiredFormulae = props.acquiredRecipes && props.acquiredFormulae[getCategory(name)];
+            const acquiredFormulae = props.acquiredFormulae && props.acquiredFormulae[getCategory(name)];
             const newRecipeList = {
                 name,
                 recipes: filterRecipes(
@@ -157,6 +157,9 @@ export default function SatchelInventory(props) {
 
     const filterUpdated = (newFilter) => {
         setFilter(newFilter);
+        if (craftable.length !== 0) {
+            setRegenerate(true);
+        }
     };
 
     const classes = useStyles();
