@@ -11,6 +11,7 @@ import getMasterFormulae from '../../helper/getData/getRecipes/alchemy/getMaster
 import RecipeFilter from '../common/RecipeFilter';
 import Constants from '../../helper/Constants';
 import DisplayItem from '../common/DisplayItem';
+import filterRecipes from '../../helper/filterRecipes/filterRecipes';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedAlchemyFormulaeTab: (selectedTab) => {
@@ -40,30 +41,8 @@ class AlchemyFormulaePanel extends React.Component {
         });
     };
 
-    filterRecipes = (recipes, knownRecipes, acquiredFormulae) => {
-        let allowedRecipes = [];
-        if (this.state.filter.indexOf(Constants.MEMORIZED_FORMULAE) > -1 && knownRecipes) {
-            allowedRecipes = [...allowedRecipes, ...knownRecipes];
-        }
-        if (this.state.filter.indexOf(Constants.ACQUIRED_FORMULAE) > -1 && acquiredFormulae) {
-            allowedRecipes = [...allowedRecipes, ...acquiredFormulae];
-        }
-        allowedRecipes.sort();
-
-        const filteredRecipes = {};
-
-        allowedRecipes.forEach((allowedRecipe) => {
-            if (recipes[allowedRecipe]) {
-                filteredRecipes[allowedRecipe] = recipes[allowedRecipe];
-            }
-        })
-
-        return filteredRecipes;
-    };
-
     renderRecipeItems = (recipes, knownRecipes, acquiredFormulae) => {
-        const displayRecipes = this.state.filter.indexOf(Constants.ALL_FORMULAE) === -1
-            ? this.filterRecipes(recipes, knownRecipes, acquiredFormulae) : recipes;
+        const displayRecipes = filterRecipes(this.state.filter, recipes, knownRecipes, acquiredFormulae);
         const keys = Object.keys(displayRecipes);
 
         return (

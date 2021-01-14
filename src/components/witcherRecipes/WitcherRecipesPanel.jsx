@@ -11,6 +11,7 @@ import getPotions from '../../helper/getData/getRecipes/witcher/getPotions';
 import Constants from '../../helper/Constants';
 import RecipeFilter from '../common/RecipeFilter';
 import DisplayItem from '../common/DisplayItem';
+import filterRecipes from '../../helper/filterRecipes/filterRecipes';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedRecipesTab: (selectedTab) => {
@@ -40,29 +41,8 @@ class WitcherRecipesPanel extends React.Component {
         });
     };
 
-    filterRecipes = (recipes, knownRecipes, acquiredFormulae) => {
-        let allowedRecipes = [];
-        if (this.state.filter.indexOf(Constants.MEMORIZED_FORMULAE) > -1 && knownRecipes) {
-            allowedRecipes = [...allowedRecipes, ...knownRecipes];
-        }
-        if (this.state.filter.indexOf(Constants.ACQUIRED_FORMULAE) > -1 && acquiredFormulae) {
-            allowedRecipes = [...allowedRecipes, ...acquiredFormulae];
-        }
-        allowedRecipes.sort();
-
-        const filteredRecipes = {};
-        allowedRecipes.forEach((allowedRecipe) => {
-            if (recipes[allowedRecipe]) {
-                filteredRecipes[allowedRecipe] = recipes[allowedRecipe];
-            }
-        })
-
-        return filteredRecipes;
-    };
-
     renderRecipeItems = (recipes, knownRecipes, acquiredFormulae) => {
-        const displayRecipes = this.state.filter.indexOf(Constants.ALL_FORMULAE) === -1
-            ? this.filterRecipes(recipes, knownRecipes, acquiredFormulae) : recipes;
+        const displayRecipes = filterRecipes(this.state.filter, recipes, knownRecipes, acquiredFormulae);
         const keys = Object.keys(displayRecipes);
 
         return (

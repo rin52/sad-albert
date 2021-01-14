@@ -19,6 +19,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
     selectedTab: state.systemState.selectedLabTab,
     chosenSetting: state.systemState.chosenSetting,
+    knownRecipes: state.satchelState.knownRecipes,
+    acquiredFormulae: state.satchelState.acquiredFormulae,
 });
 
 class LabPanel extends React.Component {
@@ -47,6 +49,8 @@ class LabPanel extends React.Component {
                         },
                     ]}
                     type="witcherBrews"
+                    knownRecipes={this.props.knownRecipes.witcherBrews}
+                    acquiredFormulae={this.props.acquiredFormulae.witcherBrews}
                 />
             )
         }
@@ -68,6 +72,9 @@ class LabPanel extends React.Component {
                             recipes: getMasterFormulae(this.props.chosenSetting),
                         },
                     ]}
+
+                    knownRecipes={this.props.knownRecipes.alchemy}
+                    acquiredFormulae={this.props.acquiredFormulae.alchemy}
                 />
             )
         }

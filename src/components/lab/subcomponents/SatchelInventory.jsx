@@ -11,6 +11,10 @@ import getSatchelSummary from '../../../helper/satchel/getSatchelSummary';
 import SelectIngredientsModal from './SelectIngredientsModal';
 import CraftingFailedModal from './CraftingFailedModal';
 import CraftingSuccessModal from './CraftingSuccessModal';
+import RecipeFilter from '../../common/RecipeFilter';
+import Constants from '../../../helper/Constants';
+import { getCategory } from '../../../actions/helper/SatchelActionsHelper';
+import filterRecipes from '../../../helper/filterRecipes/filterRecipes';
 
 const useStyles = makeStyles({
     root: {
@@ -46,6 +50,7 @@ export default function SatchelInventory(props) {
     const [recipeName, setRecipeName] = React.useState('');
     const [potionRarity, setPotionRarity] = React.useState('');
     const [category, setCategory] = React.useState('');
+    const [filter, setFilter] = React.useState(Constants.ALL_FORMULAE);
 
     const [craftingFailedOpen, setCraftingFailedOpen] = React.useState(false);
     const [craftingSuccessOpen, setCraftingSuccessOpen] = React.useState(false);
@@ -55,7 +60,25 @@ export default function SatchelInventory(props) {
     }, [props]);
 
     const determineRecipes = useCallback(() => {
-        setCraftable(getCraftableRecipes(props.allRecipes,
+        const filteredAllRecipes = [];
+
+        props.allRecipes.forEach((recipeList) => {
+            const name = recipeList.name;
+            const knownRecipes = props.knownRecipes && props.knownRecipes[getCategory(name)];
+            const acquiredFormulae = props.acquiredRecipes && props.acquiredFormulae[getCategory(name)];
+            const newRecipeList = {
+                name,
+                recipes: filterRecipes(
+                    filter,
+                    recipeList.recipes,
+                    knownRecipes ? knownRecipes : [],
+                    acquiredFormulae ? acquiredFormulae : [],
+                ),
+            };
+            filteredAllRecipes.push(newRecipeList);
+        });
+
+        setCraftable(getCraftableRecipes(filteredAllRecipes,
             satchelIngredients.Vitriol.total,
             satchelIngredients.Rebis.total,
             satchelIngredients.Aether.total,
@@ -81,7 +104,7 @@ export default function SatchelInventory(props) {
             satchelIngredients['WEREWOLF'],
             satchelIngredients['WYVERN'],
         ));
-    }, [props.allRecipes, satchelIngredients]);
+    }, [props.allRecipes, props.knownRecipes, props.acquiredFormulae, satchelIngredients, filter]);
 
     const craftRecipeClicked = (ingredients, specificIngredients, hasRarities, craftDc, recipeName, category) => {
         setSelectItemsOpen(true);
@@ -132,6 +155,10 @@ export default function SatchelInventory(props) {
         }
     }, [regenerate, determineRecipes]);
 
+    const filterUpdated = (newFilter) => {
+        setFilter(newFilter);
+    };
+
     const classes = useStyles();
     return (
         <div>
@@ -156,6 +183,7 @@ export default function SatchelInventory(props) {
                             <InventoryItem category={IngredientCategory.BLUE_MUTAGEN} value={satchelIngredients['Blue Mutagen'].total} readOnly />
                         </div>
                     )}
+                    <RecipeFilter filterUpdated={filterUpdated} />
                     <div className={classes.buttonRow}>
                         <Button onClick={determineRecipes}>Generate</Button>
                     </div>
