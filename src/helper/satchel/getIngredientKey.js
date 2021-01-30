@@ -6,6 +6,9 @@ export default function getIngredientKey(ingredient) {
     while (result.includes('\'')) {
         result = result.replace('\'', '');
     }
+    while (result.includes(',')) {
+        result = result.replace(',', '');
+    }
     result = result.toUpperCase();
     while (result.includes(' ')) {
         result = result.replace(' ', '_');

@@ -1,0 +1,81 @@
+import Crafting from '../../../../wttrpg/Crafting';
+
+export default {
+    GNOMISH_CHAIN: {
+        name: 'Gnomish Chain',
+        DC: 24,
+        craftTime: '24 Hours',
+        ingredients: [
+            { component: Crafting.DARK_STEEL.item, amount: 8 },
+            { component: Crafting.LEATHER.item, amount: 2 },
+            { component: Crafting.DARKENING_OIL.item, amount: 1 },
+        ],
+        investment: 736,
+        cost: 1462,
+    },
+    GNOMISH_DRAGOON_ARMOR: {
+        name: 'Gnomish Dragoon Armor',
+        DC: 25,
+        craftTime: '25 Hours',
+        ingredients: [
+            { component: Crafting.DARK_STEEL.item, amount: 12 },
+            { component: Crafting.MAHAKAMAN_DIMERITIUM.item, amount: 2 },
+            { component: Crafting.ESTER_GREASE.item, amount: 8 },
+            { component: Crafting.ETCHING_ACID.item, amount: 12 },
+            { component: Crafting.DOUBLE_WOVEN_LINEN.item, amount: 5 },
+            { component: Crafting.DARKENING_OIL.item, amount: 4 },
+            { component: Crafting.DRAKE_OIL.item, amount: 1 },
+            { component: Crafting.METEORITE.item, amount: 1 },
+            { component: Crafting.THREAD.item, amount: 15 },
+        ],
+        investment: 2131,
+        cost: 4272,
+    },
+    MAHAKAMAN_PAVISE: {
+        name: 'Mahakaman Pavise',
+        DC: 26,
+        craftTime: '7 Hours',
+        ingredients: [
+            { component: Crafting.HARDENED_TIMBER.item, amount: 10 },
+            { component: Crafting.HARDENED_LEATHER.item, amount: 5 },
+            { component: Crafting.OGRE_WAX.item, amount: 3 },
+            { component: Crafting.MAHAKAMAN_STEEL.item, amount: 2 },
+            { component: Crafting.ESTER_GREASE.item, amount: 2 },
+            { component: Crafting.ETCHING_ACID.item, amount: 2 },
+            { component: Crafting.LEATHER.item, amount: 1 },
+        ],
+        investment: 788,
+        cost: 1574,
+    },
+    MAHAKAMAN_PLATE_ARMOR: {
+        name: 'Mahakaman Plate Armor',
+        DC: 28,
+        craftTime: '28 Hours',
+        ingredients: [
+            { component: Crafting.MAHAKAMAN_STEEL.item, amount: 12 },
+            { component: Crafting.MAHAKAMAN_DIMERITIUM.item, amount: 2 },
+            { component: Crafting.ESTER_GREASE.item, amount: 8 },
+            { component: Crafting.ETCHING_ACID.item, amount: 12 },
+            { component: Crafting.HARDENED_LEATHER.item, amount: 5 },
+            { component: Crafting.DARKENING_OIL.item, amount: 2 },
+            { component: Crafting.DRAKE_OIL.item, amount: 1 },
+            { component: Crafting.METEORITE.item, amount: 2 },
+            { component: Crafting.OGRE_WAX.item, amount: 3 },
+            { component: Crafting.THREAD.item, amount: 10 },
+        ],
+        investment: 2645,
+        cost: 5286,
+    },
+}
+
+// {
+//     name: '',
+//     DC: 24,
+//     craftTime: '5 Hours',
+//     ingredients: [
+//         { component: Crafting..item, amount: 1 },
+//         { component: Crafting..item, amount: 2 },
+//     ],
+//     investment: ,
+//     cost: ,
+// },

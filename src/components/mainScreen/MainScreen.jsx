@@ -13,6 +13,9 @@ import IngredientsPanel from '../ingredients/IngredientsPanel';
 import PoisonsPanel from '../poisons/PoisonsPanel';
 import SatchelPanel from '../satchel/SatchelPanel';
 import SettingsPanel from '../setting/SettingsPanel';
+import CraftingMaterialsPanel from '../craftingMaterialsList/CraftingMaterialsPanel';
+import CraftingDiagramsPanel from '../craftingDiagrams/CraftingDiagramsPanel';
+import ElderfolkCraftingDiagramsPanel from '../elderfolkCraftingDiagrams/ElderfolkCraftingDiagramsPanel';
 
 const useStyles = makeStyles({
     root: {
@@ -47,6 +50,15 @@ export default function AppsButton() {
         }
         if (curApp === Constants.SATCHEL) {
             return <SatchelPanel/>;
+        }
+        if (curApp === Constants.CRAFTING_COMPONENTS) {
+            return <CraftingMaterialsPanel />;
+        }
+        if (curApp === Constants.CRAFTING_DIAGRAMS) {
+            return <CraftingDiagramsPanel/>;
+        }
+        if (curApp === Constants.ELDERFOLK_CRAFTING_DIAGRAMS) {
+            return <ElderfolkCraftingDiagramsPanel/>;
         }
         if (curApp === Constants.SETTINGS) {
             return <SettingsPanel/>;

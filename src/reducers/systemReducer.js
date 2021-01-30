@@ -7,6 +7,7 @@ import {
     SWITCH_SELECTED_LAB_TAB,
     SWITCH_SELECTED_INGREDIENTS_GENERATOR_TAB,
     SWITCH_SELECTED_SATCHEL_TAB,
+    SWITCH_SELECTED_CRAFTING_DIAGRAMS_TAB,
 } from '../actions/SystemActions';
 import Constants from '../helper/Constants';
 
@@ -21,6 +22,7 @@ const initialState = {
     selectedAlchemyFormulaeTab: 0,
     selectedLabTab: 0,
     selectedSatchelTab: 0,
+    selectedCraftingDiagramsTab: 0,
     chosenSetting: chosenSetting === null ? Constants.WITCHER : chosenSetting,
 };
 
@@ -43,6 +45,8 @@ export default function SystemReducer(state = initialState, action) {
             return { ...state, selectedLabTab: action.payload };
         case SWITCH_SELECTED_SATCHEL_TAB:
             return { ...state, selectedSatchelTab: action.payload };
+        case SWITCH_SELECTED_CRAFTING_DIAGRAMS_TAB:
+            return { ...state, selectedCraftingDiagramsTab: action.payload };
         default:
             return { ...state };
     }

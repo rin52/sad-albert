@@ -1,0 +1,160 @@
+import Crafting from '../../../../wttrpg/Crafting';
+
+export default {
+    AEDIRNIAN_GAMBESON: {
+        name: 'Aedirnian Gambeson',
+        DC: 12,
+        craftTime: '6 Hours',
+        ingredients: [
+            { component: Crafting.LINEN.item, amount: 6 },
+            { component: Crafting.THREAD.item, amount: 6 },
+            { component: Crafting.LEATHER.item, amount: 2 },
+        ],
+        investment: 131,
+        cost: 362,
+    },
+    CAVALRY_TROUSERS: {
+        name: 'Cavalry Trousers',
+        DC: 13,
+        craftTime: '7 Hours',
+        ingredients: [
+            { component: Crafting.LINEN.item, amount: 5 },
+            { component: Crafting.THREAD.item, amount: 4 },
+        ],
+        investment: 57,
+        cost: 112,
+    },
+    DOUBLE_WOVEN_GAMBESON: {
+        name: 'Double Woven Gambeson',
+        DC: 15,
+        craftTime: '8 Hours',
+        ingredients: [
+            { component: Crafting.DOUBLE_WOVEN_LINEN.item, amount: 5 },
+            { component: Crafting.THREAD.item, amount: 6 },
+        ],
+        investment: 187,
+        cost: 374,
+    },
+    DOUBLE_WOVEN_HOOD: {
+        name: 'Double Woven Hood',
+        DC: 13,
+        craftTime: '4 Hours',
+        ingredients: [
+            { component: Crafting.DOUBLE_WOVEN_LINEN.item, amount: 3 },
+            { component: Crafting.LEATHER.item, amount: 2 },
+            { component: Crafting.THREAD.item, amount: 7 },
+            { component: Crafting.WAX.item, amount: 3 },
+        ],
+        investment: 129,
+        cost: 262,
+    },
+    DOUBLE_WOVEN_TROUSERS: {
+        name: 'Double Woven Trousers',
+        DC: 15,
+        craftTime: '8 Hours',
+        ingredients: [
+            { component: Crafting.DOUBLE_WOVEN_LINEN.item, amount: 4 },
+            { component: Crafting.THREAD.item, amount: 6 },
+        ],
+        investment: 165,
+        cost: 336,
+    },
+    GAMBESON: {
+        name: 'Gambeson',
+        DC: 10,
+        craftTime: '5 Hours',
+        ingredients: [
+            { component: Crafting.LINEN.item, amount: 6 },
+            { component: Crafting.THREAD.item, amount: 6 },
+        ],
+        investment: 75,
+        cost: 150,
+    },
+    LEATHER_SHIELD: {
+        name: 'Leather Shield',
+        DC: 12,
+        craftTime: '3 Hours',
+        ingredients: [
+            { component: Crafting.LEATHER.item, amount: 1 },
+            { component: Crafting.TIMBER.item, amount: 2 },
+            { component: Crafting.TANNING_HERB.item, amount: 1 },
+        ],
+        investment: 37,
+        cost: 74,
+    },
+    PADDED_TROUSERS: {
+        name: 'Padded Trousers',
+        DC: 14,
+        craftTime: '7 Hours',
+        ingredients: [
+            { component: Crafting.LINEN.item, amount: 5 },
+            { component: Crafting.THREAD.item, amount: 4 },
+            { component: Crafting.COTTON.item, amount: 10 },
+            { component: Crafting.LEATHER.item, amount: 1 },
+        ],
+        investment: 94,
+        cost: 186,
+    },
+    SPECTACLE_HELM: {
+        name: 'Spectacle Helm',
+        DC: 15,
+        craftTime: '4 Hours',
+        ingredients: [
+            { component: Crafting.STEEL.item, amount: 3 },
+            { component: Crafting.BEAST_BONES.item, amount: 1 },
+        ],
+        investment: 152,
+        cost: 300,
+    },
+    STEEL_BUCKLER: {
+        name: 'Steel Buckler',
+        DC: 15,
+        craftTime: '4 Hours',
+        ingredients: [
+            { component: Crafting.STEEL.item, amount: 1 },
+            { component: Crafting.HARDENED_TIMBER.item, amount: 1 },
+            { component: Crafting.HARDENED_LEATHER.item, amount: 1 },
+            { component: Crafting.OGRE_WAX.item, amount: 2 },
+        ],
+        investment: 112,
+        cost: 224,
+    },
+    TEMERIAN_SHIELD: {
+        name: 'Temerian Shield',
+        DC: 16,
+        craftTime: '4 Hours',
+        ingredients: [
+            { component: Crafting.HARDENED_TIMBER.item, amount: 3 },
+            { component: Crafting.IRON.item, amount: 1 },
+            { component: Crafting.HARDENED_LEATHER.item, amount: 3 },
+            { component: Crafting.OGRE_WAX.item, amount: 1 },
+        ],
+        investment: 172,
+        cost: 342,
+    },
+    VERDEN_ARCHERS_HOOD: {
+        name: 'Verden Archer\'s Hood',
+        DC: 10,
+        craftTime: '3 Hours',
+        ingredients: [
+            { component: Crafting.LINEN.item, amount: 2 },
+            { component: Crafting.LEATHER.item, amount: 1 },
+            { component: Crafting.THREAD.item, amount: 6 },
+            { component: Crafting.WAX.item, amount: 3 },
+        ],
+        investment: 70,
+        cost: 150,
+    },
+}
+
+// {
+//     name: '',
+//     DC: 14,
+//     craftTime: '7 Hours',
+//     ingredients: [
+//         { component: Crafting..item, amount: 1 },
+//         { component: Crafting..item, amount: 2 },
+//     ],
+//     investment: ,
+//     cost: ,
+// },

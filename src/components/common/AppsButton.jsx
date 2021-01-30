@@ -45,7 +45,8 @@ export default function AppsButton() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const curApp = useSelector(state => state.systemState.app);
     const chosenSetting = useSelector(state => state.systemState.chosenSetting);
-    const options = [
+    const options = chosenSetting === Constants.DND_HOMEBREW ?
+    [
         Constants.INGREDIENT_GENERATOR,
         Constants.INGREDIENTS,
         Constants.WITCHER_RECIPES,
@@ -53,6 +54,18 @@ export default function AppsButton() {
         Constants.LAB,
         Constants.DMG_POISONS,
         Constants.SATCHEL,
+        Constants.SETTINGS,
+    ] : [
+        Constants.INGREDIENT_GENERATOR,
+        Constants.INGREDIENTS,
+        Constants.WITCHER_RECIPES,
+        Constants.ALCHEMY_FORMULAE,
+        Constants.LAB,
+        Constants.DMG_POISONS,
+        Constants.SATCHEL,
+        Constants.CRAFTING_COMPONENTS,
+        Constants.CRAFTING_DIAGRAMS,
+        Constants.ELDERFOLK_CRAFTING_DIAGRAMS,
         Constants.SETTINGS,
     ];
 

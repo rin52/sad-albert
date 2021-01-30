@@ -6,6 +6,7 @@ export const SWITCH_SELECTED_ALCHEMY_FORMULAE_TAB = 'switchSelectedAlchemyFormul
 export const SWITCH_SELECTED_LAB_TAB = 'switchSelectedLabTab';
 export const SWITCH_SELECTED_INGREDIENTS_GENERATOR_TAB = 'switchSelectedIngredientsGeneratorTab';
 export const SWITCH_SELECTED_SATCHEL_TAB = 'switchSelectedSatchelTab';
+export const SWITCH_SELECTED_CRAFTING_DIAGRAMS_TAB = 'switchSelectedCraftingDiagramsTab';
 
 export const switchApp = newApp => ({
     type: SWITCH_APP,
@@ -44,5 +45,10 @@ export const switchSelectedIngredientsGeneratorTab = newTab => ({
 
 export const switchSelectedSatchelTab = newTab => ({
     type: SWITCH_SELECTED_SATCHEL_TAB,
+    payload: newTab,
+});
+
+export const switchSelectedCraftingDiagramsTab = newTab => ({
+    type: SWITCH_SELECTED_CRAFTING_DIAGRAMS_TAB,
     payload: newTab,
 });
