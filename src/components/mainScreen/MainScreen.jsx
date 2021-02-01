@@ -29,6 +29,13 @@ export default function AppsButton() {
     const classes = useStyles();
     const curApp = useSelector(state => state.systemState.app);
 
+    React.useEffect(() => {
+        console.log(process.env.REACT_APP_SIM);
+        if (process.env.REACT_APP_SIM === undefined) {
+            window.gtag('config', 'G-QY4K1FJZTN', { 'page_title': document.title, page_path: window.location.pathname + window.location.search });
+        }
+    }, []);
+
     const renderPanels = () => {
         if (curApp === Constants.INGREDIENT_GENERATOR) {
             return <IngredientGeneratorPanel />;
@@ -46,22 +53,22 @@ export default function AppsButton() {
             return <LabPanel />;
         }
         if (curApp === Constants.DMG_POISONS) {
-            return <PoisonsPanel/>;
+            return <PoisonsPanel />;
         }
         if (curApp === Constants.SATCHEL) {
-            return <SatchelPanel/>;
+            return <SatchelPanel />;
         }
         if (curApp === Constants.CRAFTING_COMPONENTS) {
             return <CraftingMaterialsPanel />;
         }
         if (curApp === Constants.CRAFTING_DIAGRAMS) {
-            return <CraftingDiagramsPanel/>;
+            return <CraftingDiagramsPanel />;
         }
         if (curApp === Constants.ELDERFOLK_CRAFTING_DIAGRAMS) {
-            return <ElderfolkCraftingDiagramsPanel/>;
+            return <ElderfolkCraftingDiagramsPanel />;
         }
         if (curApp === Constants.SETTINGS) {
-            return <SettingsPanel/>;
+            return <SettingsPanel />;
         }
 
         return <div />;

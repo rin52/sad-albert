@@ -5,10 +5,6 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import store from './store/store';
-import ReactGA from 'react-ga';
-
-ReactGA.initialize('G-QY4K1FJZTN');
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 ReactDOM.render(
   <Provider store={store}>
