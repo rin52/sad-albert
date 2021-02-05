@@ -12,6 +12,7 @@ import Constants from '../../helper/Constants';
 import RecipeFilter from '../common/RecipeFilter';
 import DisplayItem from '../common/DisplayItem';
 import filterRecipes from '../../helper/filterRecipes/filterRecipes';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedRecipesTab: (selectedTab) => {
@@ -33,6 +34,10 @@ class WitcherRecipesPanel extends React.Component {
             filter: [Constants.ALL_FORMULAE],
         };
         this.tabs = [Constants.POTIONS, Constants.BLADE_OILS, Constants.DECOCTIONS];
+    }
+
+    componentDidMount() {
+        runAnalytics('witcher-recipes');
     }
 
     filterUpdated = (newFilter) => {

@@ -4,6 +4,7 @@ import CenteredTabs from '../common/CenteredTabs';
 import IngredientsList from '../ingredients/IngredientsList';
 import CraftingCategory from '../../helper/CraftingCategory';
 import getCraftingComponents from '../../helper/getData/getCraftingComponents';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapStateToProps = state => ({
     chosenSetting: state.systemState.chosenSetting,
@@ -15,6 +16,9 @@ class CraftingMaterialsPanel extends React.Component {
         this.tabs = [];
     }
 
+    componentDidMount() {
+        runAnalytics('crafting-components');
+    }
 
     render() {
         return (

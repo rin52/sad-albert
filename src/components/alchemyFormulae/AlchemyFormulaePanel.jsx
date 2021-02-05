@@ -12,6 +12,7 @@ import RecipeFilter from '../common/RecipeFilter';
 import Constants from '../../helper/Constants';
 import DisplayItem from '../common/DisplayItem';
 import filterRecipes from '../../helper/filterRecipes/filterRecipes';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedAlchemyFormulaeTab: (selectedTab) => {
@@ -33,6 +34,10 @@ class AlchemyFormulaePanel extends React.Component {
             filter: [Constants.ALL_FORMULAE],
         };
         this.tabs = [Constants.NOVICE_FORMULAE, Constants.JOURNEYMAN_FORMULAE, Constants.MASTER_FORMULAE];
+    }
+
+    componentDidMount() {
+        runAnalytics('alchemy-formulae');
     }
 
     filterUpdated = (newFilter) => {

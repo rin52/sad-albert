@@ -6,6 +6,7 @@ import IngredientsList from './IngredientsList';
 import IngredientCategory from '../../helper/IngredientCategory';
 import getIngredients from '../../helper/getData/getIngredients';
 import getMutagens from '../../helper/getData/getMutagens';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedIngredientsTab: (selectedTab) => {
@@ -24,6 +25,9 @@ class IngredientPanel extends React.Component {
         this.tabs = [];
     }
 
+    componentDidMount() {
+        runAnalytics('ingredients');
+    }
 
     render() {
         return (

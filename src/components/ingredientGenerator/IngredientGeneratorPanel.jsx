@@ -6,6 +6,7 @@ import HoardPanel from './subcomponents/hoard/HoardPanel';
 import getMonsters from '../../helper/getData/getMonsters';
 import getForaging from '../../helper/getData/getForaging';
 import { switchSelectedIngredientsGeneratorTab } from '../../actions/SystemActions';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedIngredientsTab: (selectedTab) => {
@@ -21,7 +22,11 @@ const mapStateToProps = state => ({
 class IngredientGeneratorPanel extends React.Component {
     constructor() {
         super();
-        this.tabs = ["Monsters", "Foraging", "Hoard of Monsters", "Multiple Locations" ];
+        this.tabs = ["Monsters", "Foraging", "Hoard of Monsters", "Multiple Locations"];
+    }
+
+    componentDidMount() {
+        runAnalytics('ingredient-generator');
     }
 
     renderPanel = () => {

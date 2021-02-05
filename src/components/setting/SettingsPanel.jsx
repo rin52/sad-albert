@@ -6,6 +6,7 @@ import DisplayArea from '../common/DisplayArea';
 import Constants from '../../helper/Constants';
 import StyledSelector from '../common/StyledSelector';
 import ChangeDataSourceModal from './ChangeDataSourceModal';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     changeSetting: (newSetting) => {
@@ -24,6 +25,10 @@ class SettingsPanel extends React.Component {
             dataSource: '',
             isWarningOpen: false,
         };
+    }
+
+    componentDidMount() {
+        runAnalytics('settings');
     }
 
     onDataSourceChange = (event) => {

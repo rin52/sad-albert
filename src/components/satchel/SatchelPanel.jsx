@@ -6,6 +6,7 @@ import ImportExportSatchel from './subcomponents/ImportExportSatchel';
 import SatchelIngredientsPanel from './subcategories/SatchelIngredientsPanel';
 import SatchelCraftedRecipesPanel from './subcategories/SatchelCraftedRecipesPanel';
 import SatchelFormulaePanel from './subcategories/SatchelFormulaePanel';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedSatchelTab: (selectedTab) => {
@@ -21,6 +22,10 @@ class SatchelPanel extends React.Component {
     constructor() {
         super();
         this.tabs = ["Ingredients", "Crafted Recipes", "Formulae"];
+    }
+
+    componentDidMount() {
+        runAnalytics('satchel');
     }
 
     renderPanel = () => {

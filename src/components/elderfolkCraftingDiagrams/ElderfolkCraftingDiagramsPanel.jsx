@@ -7,6 +7,7 @@ import ArmorEnhancementCraftingDiagramsPanel from './subcomponents/ArmorEnhancem
 import WeaponCraftingDiagramsPanel from './subcomponents/WeaponCraftingDiagramsPanel';
 import AmmunitionCraftingDiagramsPanel from './subcomponents/AmmunitionCraftingDiagramsPanel';
 import Constants from '../../helper/Constants';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedCraftingDiagramsTab: (selectedTab) => {
@@ -23,6 +24,10 @@ class ElderFolkCraftingDiagramsPanel extends React.Component {
         super();
         this.tabs = [ Constants.WEAPON_DIAGRAMS, Constants.AMMUNITION_DIAGRAMS,
             Constants.ARMOR_DIAGRAMS, Constants.ARMOR_ENHANCEMENT_DIAGRAMS ];
+    }
+
+    componentDidMount() {
+        runAnalytics('elderfolk-crafting-diagrams');
     }
 
     renderPanel = () => {

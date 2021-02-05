@@ -6,6 +6,7 @@ import ArmorCraftingDiagramsPanel from './subcomponents/ArmorCraftingDiagramsPan
 import WeaponCraftingDiagramsPanel from './subcomponents/WeaponCraftingDiagramsPanel';
 import IngredientCraftingDiagramsPanel from './subcomponents/IngredientCraftingDiagramsPanel';
 import Constants from '../../helper/Constants';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedCraftingDiagramsTab: (selectedTab) => {
@@ -21,6 +22,10 @@ class CraftingDiagramsPanel extends React.Component {
     constructor() {
         super();
         this.tabs = [Constants.INGREDIENT_DIAGRAMS, Constants.WEAPON_DIAGRAMS, Constants.ARMOR_DIAGRAMS];
+    }
+
+    componentDidMount() {
+        runAnalytics('crafting-diagrams');
     }
 
     renderPanel = () => {

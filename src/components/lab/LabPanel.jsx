@@ -9,6 +9,7 @@ import getMasterFormulae from '../../helper/getData/getRecipes/alchemy/getMaster
 import getPotions from '../../helper/getData/getRecipes/witcher/getPotions';
 import getBladeOils from '../../helper/getData/getRecipes/witcher/getBladeOils';
 import getDecoctions from '../../helper/getData/getRecipes/witcher/getDecoctions';
+import runAnalytics from '../../helper/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedLabTab: (selectedTab) => {
@@ -27,6 +28,10 @@ class LabPanel extends React.Component {
     constructor() {
         super();
         this.tabs = ["Witcher Brews", "Alchemy"];
+    }
+
+    componentDidMount() {
+        runAnalytics('lab');
     }
 
     renderPanel = () => {

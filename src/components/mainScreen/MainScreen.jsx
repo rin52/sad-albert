@@ -29,13 +29,6 @@ export default function AppsButton() {
     const classes = useStyles();
     const curApp = useSelector(state => state.systemState.app);
 
-    React.useEffect(() => {
-        console.log(process.env.REACT_APP_SIM);
-        if (process.env.REACT_APP_SIM === undefined) {
-            window.gtag('config', 'G-QY4K1FJZTN', { 'page_title': document.title, page_path: window.location.pathname + window.location.search });
-        }
-    }, []);
-
     const renderPanels = () => {
         if (curApp === Constants.INGREDIENT_GENERATOR) {
             return <IngredientGeneratorPanel />;
