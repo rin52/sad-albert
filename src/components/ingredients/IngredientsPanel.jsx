@@ -6,7 +6,7 @@ import IngredientsList from './IngredientsList';
 import IngredientCategory from '../../helper/IngredientCategory';
 import getIngredients from '../../helper/getData/getIngredients';
 import getMutagens from '../../helper/getData/getMutagens';
-import runAnalytics from '../../helper/runAnalytics';
+import runAnalytics from '../../helper/analytics/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedIngredientsTab: (selectedTab) => {

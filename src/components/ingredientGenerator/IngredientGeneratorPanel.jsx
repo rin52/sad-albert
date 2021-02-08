@@ -6,7 +6,7 @@ import HoardPanel from './subcomponents/hoard/HoardPanel';
 import getMonsters from '../../helper/getData/getMonsters';
 import getForaging from '../../helper/getData/getForaging';
 import { switchSelectedIngredientsGeneratorTab } from '../../actions/SystemActions';
-import runAnalytics from '../../helper/runAnalytics';
+import runAnalytics from '../../helper/analytics/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedIngredientsTab: (selectedTab) => {

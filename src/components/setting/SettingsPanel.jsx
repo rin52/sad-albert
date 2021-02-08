@@ -6,7 +6,7 @@ import DisplayArea from '../common/DisplayArea';
 import Constants from '../../helper/Constants';
 import StyledSelector from '../common/StyledSelector';
 import ChangeDataSourceModal from './ChangeDataSourceModal';
-import runAnalytics from '../../helper/runAnalytics';
+import runAnalytics from '../../helper/analytics/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     changeSetting: (newSetting) => {

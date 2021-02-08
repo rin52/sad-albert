@@ -7,7 +7,7 @@ import ArmorEnhancementCraftingDiagramsPanel from './subcomponents/ArmorEnhancem
 import WeaponCraftingDiagramsPanel from './subcomponents/WeaponCraftingDiagramsPanel';
 import AmmunitionCraftingDiagramsPanel from './subcomponents/AmmunitionCraftingDiagramsPanel';
 import Constants from '../../helper/Constants';
-import runAnalytics from '../../helper/runAnalytics';
+import runAnalytics from '../../helper/analytics/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedCraftingDiagramsTab: (selectedTab) => {

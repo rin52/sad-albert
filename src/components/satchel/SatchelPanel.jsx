@@ -6,7 +6,7 @@ import ImportExportSatchel from './subcomponents/ImportExportSatchel';
 import SatchelIngredientsPanel from './subcategories/SatchelIngredientsPanel';
 import SatchelCraftedRecipesPanel from './subcategories/SatchelCraftedRecipesPanel';
 import SatchelFormulaePanel from './subcategories/SatchelFormulaePanel';
-import runAnalytics from '../../helper/runAnalytics';
+import runAnalytics from '../../helper/analytics/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedSatchelTab: (selectedTab) => {

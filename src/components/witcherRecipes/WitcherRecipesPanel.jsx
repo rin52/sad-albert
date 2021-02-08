@@ -12,7 +12,7 @@ import Constants from '../../helper/Constants';
 import RecipeFilter from '../common/RecipeFilter';
 import DisplayItem from '../common/DisplayItem';
 import filterRecipes from '../../helper/filterRecipes/filterRecipes';
-import runAnalytics from '../../helper/runAnalytics';
+import runAnalytics from '../../helper/analytics/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedRecipesTab: (selectedTab) => {

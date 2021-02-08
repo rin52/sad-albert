@@ -4,7 +4,7 @@ import CenteredTabs from '../common/CenteredTabs';
 import IngredientsList from '../ingredients/IngredientsList';
 import CraftingCategory from '../../helper/CraftingCategory';
 import getCraftingComponents from '../../helper/getData/getCraftingComponents';
-import runAnalytics from '../../helper/runAnalytics';
+import runAnalytics from '../../helper/analytics/runAnalytics';
 
 const mapStateToProps = state => ({
     chosenSetting: state.systemState.chosenSetting,

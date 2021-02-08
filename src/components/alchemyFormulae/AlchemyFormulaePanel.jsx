@@ -12,7 +12,7 @@ import RecipeFilter from '../common/RecipeFilter';
 import Constants from '../../helper/Constants';
 import DisplayItem from '../common/DisplayItem';
 import filterRecipes from '../../helper/filterRecipes/filterRecipes';
-import runAnalytics from '../../helper/runAnalytics';
+import runAnalytics from '../../helper/analytics/runAnalytics';
 
 const mapDispatchToProps = dispatch => ({
     switchSelectedAlchemyFormulaeTab: (selectedTab) => {
