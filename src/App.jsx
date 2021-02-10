@@ -2,7 +2,6 @@ import React from 'react';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import MainScreen from './components/mainScreen/MainScreen';
 import Colors from './helper/Colors';
-import configureAnalytics from './helper/analytics/configureAnalytics';
 
 const themeColors = {
     palette: {
@@ -99,10 +98,6 @@ const themeColors = {
 const theme = createMuiTheme(themeColors);
 
 class App extends React.Component {
-    componentDidMount() {
-        configureAnalytics();
-    }
-
     render() {
         return (
             <MuiThemeProvider theme={theme}>
