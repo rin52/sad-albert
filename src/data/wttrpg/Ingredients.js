@@ -425,7 +425,7 @@ export default {
         cost: 106,
         weight: 1,
     },
-    FIEND_EYE: {
+    FIENDS_EYE: {
         item: 'Fiend\'s Eye',
         category: IngredientCategory.SOL,
         rarity: Rarity.RARE,

@@ -458,7 +458,7 @@ export default {
         cost: '62 gp',
         weight: 1,
     },
-    FIEND_EYE: {
+    FIENDS_EYE: {
         item: 'Fiend\'s Eye',
         category: IngredientCategory.SOL,
         DC: 18,
