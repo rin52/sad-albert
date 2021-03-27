@@ -215,7 +215,7 @@ export default {
             maxAmount: 6,
         },
         {
-            ...Ingredients.FIEND_EYE,
+            ...Ingredients.FIENDS_EYE,
             maxAmount: 3,
         },
         Mutagens.FIEND,

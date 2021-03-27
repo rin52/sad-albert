@@ -38,6 +38,7 @@ export default {
     POTIONS: 'Potions',
 
     RECIPES: 'Recipes',
+    REPORT_BUG_REQUEST_FEATURE: 'Report Bug/Request Feature',
 
     SATCHEL: 'Satchel',
     SETTINGS: 'Settings',

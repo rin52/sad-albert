@@ -55,6 +55,7 @@ export default function AppsButton() {
         Constants.DMG_POISONS,
         Constants.SATCHEL,
         Constants.SETTINGS,
+        Constants.REPORT_BUG_REQUEST_FEATURE
     ] : [
         Constants.INGREDIENT_GENERATOR,
         Constants.INGREDIENTS,
@@ -67,6 +68,7 @@ export default function AppsButton() {
         Constants.CRAFTING_DIAGRAMS,
         Constants.ELDERFOLK_CRAFTING_DIAGRAMS,
         Constants.SETTINGS,
+        Constants.REPORT_BUG_REQUEST_FEATURE
     ];
 
     if (chosenSetting !== Constants.DND_HOMEBREW) {
@@ -79,7 +81,9 @@ export default function AppsButton() {
 
     const handleClose = (app) => {
         setAnchorEl(null);
-        if (options.indexOf(app) !== -1) {
+        if (app === Constants.REPORT_BUG_REQUEST_FEATURE) {
+            window.open("https://github.com/rin52/sad-albert/issues", "_blank")
+        } else if (options.indexOf(app) !== -1) {
             dispatch(switchApp(app));
         }
     };

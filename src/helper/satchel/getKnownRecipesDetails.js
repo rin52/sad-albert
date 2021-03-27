@@ -23,7 +23,7 @@ export default function getKnownRecipesDetails(knownRecipes, chosenSetting) {
         if (knownRecipes.alchemy) {
             novice = getDetails(knownRecipes.alchemy.novice, Constants.NOVICE_FORMULAE, chosenSetting);
             journeyman = getDetails(knownRecipes.alchemy.journeyman, Constants.JOURNEYMAN_FORMULAE, chosenSetting);
-            master = getDetails(knownRecipes.alchemy.master, Constants.JOURNEYMAN_FORMULAE, chosenSetting);
+            master = getDetails(knownRecipes.alchemy.master, Constants.MASTER_FORMULAE, chosenSetting);
         }
     }
 
