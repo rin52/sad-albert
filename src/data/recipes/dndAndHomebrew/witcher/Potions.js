@@ -408,7 +408,7 @@ export default {
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 2 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
-            {category: IngredientCategory.HYDRAGENUM, amount: 1},
+            { category: IngredientCategory.HYDRAGENUM, amount: 1},
             { category: IngredientCategory.VERMILION, amount: 1 },
         ],
         effects: 'Weapon attacks deal +5 damage when imbiber\'s HP is half or lower',
