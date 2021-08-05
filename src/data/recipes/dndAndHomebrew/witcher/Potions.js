@@ -4,6 +4,7 @@ export default {
     BINDWEED: {
         name: 'Bindweed',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -26,6 +27,7 @@ export default {
     BLACK_BLOOD: {
         name: 'Black Blood',
         DC: 20,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 3 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -48,6 +50,7 @@ export default {
     BLIZZARD: {
         name: 'Blizzard',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 2 },
             { category: IngredientCategory.REBIS, amount: 2 },
@@ -69,6 +72,7 @@ export default {
     CAT: {
         name: 'Cat',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.REBIS, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 2 },
@@ -90,6 +94,7 @@ export default {
     DE_VRIES_EXTRACT: {
         name: 'De Vries\' Extract',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.REBIS, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 1 },
@@ -113,6 +118,7 @@ export default {
     FULL_MOON: {
         name: 'Full Moon',
         DC: 20,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.HYDRAGENUM, amount: 2 },
@@ -135,6 +141,7 @@ export default {
     GOLDEN_ORIOLE: {
         name: 'Golden Oriole',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -156,6 +163,7 @@ export default {
     KISS: {
         name: 'Kiss',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 2 },
             { category: IngredientCategory.VERMILION, amount: 1 },
@@ -177,6 +185,7 @@ export default {
     MARIBOR_FOREST: {
         name: 'Maribor Forest',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.REBIS, amount: 2 },
             { category: IngredientCategory.AETHER, amount: 1 },
@@ -193,6 +202,7 @@ export default {
     PETRIS_PHILTER: {
         name: 'Petri\'s Philter',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.REBIS, amount: 2 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -216,6 +226,7 @@ export default {
     SHRIKE: {
         name: 'Shrike',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.REBIS, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -239,6 +250,7 @@ export default {
     SWALLOW: {
         name: 'Swallow',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 2 },
@@ -261,6 +273,7 @@ export default {
     TAWNY_OWL: {
         name: 'Tawny Owl',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 2 },
@@ -282,6 +295,7 @@ export default {
     THUNDERBOLT: {
         name: 'Thunderbolt',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -305,6 +319,7 @@ export default {
     WHITE_HONEY: {
         name: 'White Honey',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 1},
             { category: IngredientCategory.REBIS, amount: 1},
@@ -321,6 +336,7 @@ export default {
     WHITE_RAFFARDS_DECOCTION: {
         name: 'White Raffard\'s Decoction',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -343,6 +359,7 @@ export default {
     WILLOW: {
         name: 'Willow',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 2 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -364,6 +381,7 @@ export default {
     WOLF: {
         name: 'Wolf',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.VITRIOL, amount: 2 },
             { category: IngredientCategory.HYDRAGENUM, amount: 2 },
@@ -386,6 +404,7 @@ export default {
     WOLVERINE: {
         name: 'Wolverine',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.AETHER, amount: 2 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -410,6 +429,8 @@ export default {
 
     // {
     //     name: '',
+    //     DC: 16,
+    //     craftTime: '1/2 Hour',
     //     ingredients: [
     //         {category: IngredientCategory.AETHER, amount: 1},
     //         {category: IngredientCategory.QUEBRITH, amount: 1},

@@ -6,6 +6,7 @@ export default {
     BEAST_OIL: {
         name: 'Beast Oil',
         DC: 14,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.VITRIOL, amount: 1},
             {category: IngredientCategory.AETHER, amount: 1},
@@ -16,6 +17,7 @@ export default {
     CURSED_OIL: {
         name: 'Cursed Oil',
         DC: 16,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.VERMILION, amount: 1},
             {category: IngredientCategory.AETHER, amount: 1},
@@ -29,6 +31,7 @@ export default {
     DRACONID_OIL: {
         name: 'Draconid Oil',
         DC: 16,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.QUEBRITH, amount: 2},
             {category: IngredientCategory.HYDRAGENUM, amount: 2},
@@ -40,6 +43,7 @@ export default {
     ELEMENTA_OIL: {
         name: 'Elementa Oil',
         DC: 16,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.REBIS, amount: 1},
             {category: IngredientCategory.HYDRAGENUM, amount: 1},
@@ -52,6 +56,7 @@ export default {
     HANGED_MANS_VENOM: {
         name: 'Hanged Man\'s Venom',
         DC: 16,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.CAELUM, amount: 1},
             {category: IngredientCategory.SOL, amount: 1},
@@ -64,6 +69,7 @@ export default {
     HYBRID_OIL: {
         name: 'Hybrid Oil',
         DC: 16,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.REBIS, amount: 1},
             {category: IngredientCategory.SOL, amount: 1},
@@ -76,6 +82,7 @@ export default {
     INSECTOID_OIL: {
         name: 'Insectoid Oil',
         DC: 14,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.HYDRAGENUM, amount: 1},
             {category: IngredientCategory.REBIS, amount: 1},
@@ -86,6 +93,7 @@ export default {
     NECROPHAGE_OIL: {
         name: 'Necrophage Oil',
         DC: 16,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.HYDRAGENUM, amount: 1},
             {category: IngredientCategory.SOL, amount: 1},
@@ -98,6 +106,7 @@ export default {
     OGROID_OIL: {
         name: 'Ogroid Oil',
         DC: 15,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.REBIS, amount: 1},
             {category: IngredientCategory.QUEBRITH, amount: 1},
@@ -109,6 +118,7 @@ export default {
     RELICT_OIL: {
         name: 'Relict Oil',
         DC: 16,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.QUEBRITH, amount: 1},
             {category: IngredientCategory.VERMILION, amount: 1},
@@ -121,6 +131,7 @@ export default {
     SPECTER_OIL: {
         name: 'Specter Oil',
         DC: 16,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.REBIS, amount: 1},
             {category: IngredientCategory.HYDRAGENUM, amount: 1},
@@ -133,6 +144,7 @@ export default {
     VAMPIRE_OIL: {
         name: 'Vampire Oil',
         DC: 16,
+        craftTime: '15 Minutes',
         ingredients: [
             {category: IngredientCategory.AETHER, amount: 1},
             {category: IngredientCategory.SOL, amount: 2},
@@ -143,6 +155,8 @@ export default {
     },
 // {
     //     name: '',
+    //     DC: 16,
+    //     craftTime: '15 Minutes',
     //     ingredients: [
     //         {category: IngredientCategory.VITRIOL, amount: 2},
     //         {category: IngredientCategory.HYDRAGENUM, amount: 1},

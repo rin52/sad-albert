@@ -4,6 +4,7 @@ export default {
     CHORT: {
         name: 'Chort',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.BLUE_MUTAGEN, amount: 1 },
             { category: IngredientCategory.HYDRAGENUM, amount: 1 },
@@ -17,6 +18,7 @@ export default {
     FORKTAIL: {
         name: 'Forktail',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.BLUE_MUTAGEN, amount: 1 },
             { category: IngredientCategory.CAELUM, amount: 1 },
@@ -32,6 +34,7 @@ export default {
     GHOUL: {
         name: 'Ghoul',
         DC: 14,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.RED_MUTAGEN, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -46,6 +49,7 @@ export default {
     GRIFFIN: {
         name: 'Griffin',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.GREEN_MUTAGEN, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1 },
@@ -60,6 +64,7 @@ export default {
     KIKIMORE: {
         name: 'Kikimore',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.GREEN_MUTAGEN, amount: 1 },
             {category: IngredientCategory.SOL, amount: 1},
@@ -74,6 +79,7 @@ export default {
     NEKKER: {
         name: 'Nekker',
         DC: 14,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.RED_MUTAGEN, amount: 1 },
             { category: IngredientCategory.QUEBRITH, amount: 1},
@@ -89,10 +95,11 @@ export default {
     NOONWRAITH: {
         name: 'Noonwraith',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.GREEN_MUTAGEN, amount: 1 },
             { category: IngredientCategory.AETHER, amount: 1 },
-            {category: IngredientCategory.SOL, amount: 1},
+            { category: IngredientCategory.SOL, amount: 1},
             { category: IngredientCategory.QUEBRITH, amount: 1 },
             { category: IngredientCategory.CAELUM, amount: 1},
             { category: IngredientCategory.FULGUR, amount: 1 },
@@ -104,6 +111,7 @@ export default {
     VAMPIRE: {
         name: 'Vampire',
         DC: 16,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.RED_MUTAGEN, amount: 1 },
             { category: IngredientCategory.SOL, amount: 1 },
@@ -118,6 +126,7 @@ export default {
     WEREWOLF: {
         name: 'Werewolf',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.RED_MUTAGEN, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 1 },
@@ -132,6 +141,7 @@ export default {
     WYVERN: {
         name: 'Wyvern',
         DC: 18,
+        craftTime: '1/2 Hour',
         ingredients: [
             { category: IngredientCategory.RED_MUTAGEN, amount: 1 },
             { category: IngredientCategory.REBIS, amount: 2},
@@ -146,6 +156,8 @@ export default {
 
     // {
     //     name: '',
+    //     DC: 16,
+    //     craftTime: '1/2 Hour',
     //     ingredients: [
     //         {category: IngredientCategory.MUTAGEN, amount: 1},
     //         {category: IngredientCategory.VITRIOL, amount: 2},
