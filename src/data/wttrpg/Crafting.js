@@ -137,6 +137,15 @@ export default {
         cost: 2,
         weight: 0.1,
     },
+    EMERALD_DUST: {
+        item: 'Emerald Dust',
+        category: CraftingCategory.INGOTS_AND_MINERALS,
+        DC: 22,
+        maxAmount: 3,
+        rarity: Rarity.RARE,
+        cost: 90,
+        weight: 0.1,
+    },
 
 
 

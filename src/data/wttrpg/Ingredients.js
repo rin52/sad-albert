@@ -394,6 +394,13 @@ export default {
         cost: 38,
         weight: 0.1,
     },
+    ESSENCE_OF_DEATH: {
+        item: 'Essence of Death',
+        category: IngredientCategory.FULGUR,
+        rarity: Rarity.RARE,
+        cost: 155,
+        weight: 0.1,
+    },
     ESSENCE_OF_FIRE: {
         item: 'Essence of Fire',
         category: IngredientCategory.SOL,
@@ -960,6 +967,20 @@ export default {
         rarity: Rarity.COMMON,
         cost: 14,
         weight: 0.1,
+    },
+    SYLVAN_HOOF: {
+        item: 'Sylvan Hoof',
+        category: IngredientCategory.HYDRAGENUM,
+        rarity: Rarity.RARE,
+        cost: 75,
+        weight: 1,
+    },
+    SYLVAN_HORN: {
+        item: 'Sylvan Horn',
+        category: IngredientCategory.QUEBRITH,
+        rarity: Rarity.RARE,
+        cost: 80,
+        weight: 0.5
     },
 
 

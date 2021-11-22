@@ -303,6 +303,12 @@ export default {
             maxAmount: 2,
         },
     ],
+    Gigascorpion: [
+        {
+            ...Ingredients.VENOM_EXTRACT,
+            maxAmount: 6,
+        },
+    ],
     Godling: [
         {
             ...Ingredients.GODLING_EYES,
@@ -630,6 +636,23 @@ export default {
             maxAmount: 12,
         },
         Mutagens.SUCCUBUS,
+    ],
+    Sylvan: [
+        {
+            ...Ingredients.SYLVAN_HOOF,
+            maxAmount: 2,
+        },
+        {
+            ...Ingredients.SYLVAN_HORN,
+            maxAmount: 2,
+        },
+    ],
+
+    'The Beast of Lake Tankred': [
+        {
+            ...Ingredients.ESSENCE_OF_WATER,
+            maxAmount: 12,
+        }
     ],
     Troll: [
         {

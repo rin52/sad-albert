@@ -43,6 +43,7 @@ export default {
     SATCHEL: 'Satchel',
     SETTINGS: 'Settings',
 
+    WEAPONS_OF_TOUSSAINT_DIAGRAMS: 'Weapons of Toussaint Diagrams',
     WEAPON_DIAGRAMS: 'Weapon Diagrams', 
     WITCHER: 'Witcher',
     WITCHER_RECIPES: 'Witcher Recipes',

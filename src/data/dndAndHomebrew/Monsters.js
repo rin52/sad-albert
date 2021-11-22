@@ -313,6 +313,18 @@ export default {
             maxAmount: 2,
         },
     ],
+    'Giant Frog': [
+        {
+            ...Ingredients.ESSENCE_OF_WATER,
+            maxAmount: 12,
+        }
+    ],
+    Gigascorpion: [
+        {
+            ...Ingredients.VENOM_EXTRACT,
+            maxAmount: 6,
+        },
+    ],
     Godling: [
         {
             ...Ingredients.GODLING_EYES,
@@ -650,6 +662,15 @@ export default {
         {
             ...Ingredients.INFUSED_DUST,
             maxAmount: 12,
+        },
+    ],    Sylvan: [
+        {
+            ...Ingredients.SYLVAN_HOOF,
+            maxAmount: 2,
+        },
+        {
+            ...Ingredients.SYLVAN_HORN,
+            maxAmount: 2,
         },
     ],
     Troll: [

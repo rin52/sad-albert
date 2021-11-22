@@ -423,6 +423,14 @@ export default {
         cost: '22 gp',
         weight: 0.1,
     },
+    ESSENCE_OF_DEATH: {
+        item: 'Essence of Death',
+        category: IngredientCategory.FULGUR,
+        rarity: Rarity.RARE,
+        DC: 18,
+        cost: '155 gp',
+        weight: 0.1,
+    },
     ESSENCE_OF_FIRE: {
         item: 'Essence of Fire',
         category: IngredientCategory.SOL,
@@ -1038,7 +1046,22 @@ export default {
         cost: '8 gp',
         weight: 0.1,
     },
-
+    SYLVAN_HOOF: {
+        item: 'Sylvan Hoof',
+        category: IngredientCategory.HYDRAGENUM,
+        DC: 18,
+        rarity: Rarity.RARE,
+        cost: '75 gp',
+        weight: 1,
+    },
+    SYLVAN_HORN: {
+        item: 'Sylvan Horn',
+        category: IngredientCategory.QUEBRITH,
+        rarity: Rarity.RARE,
+        DC: 18,
+        cost: '80 gp',
+        weight: 0.5
+    },
 
 
     TROLL_HIDE: {
