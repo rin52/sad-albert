@@ -113,6 +113,15 @@ export default {
         cost: 9,
         weight: 0.1,
     },
+    BES_HORN: {
+        item: 'Bes Horn',
+        category: IngredientCategory.FULGUR,
+        DC: 18,
+        maxAmount: 2,
+        rarity: Rarity.RARE,
+        cost: 166,
+        weight: 1,
+    },
     BOAR_TUSKS: {
         item: 'Boar Tusks',
         category: IngredientCategory.VITRIOL,
@@ -751,6 +760,15 @@ export default {
         category: IngredientCategory.SOL,
         rarity: Rarity.RARE,
         cost: 145,
+        weight: 2,
+    },
+    MARI_LWYD_SKULL: {
+        item: 'Mari Lwyd Skull',
+        category: IngredientCategory.HYDRAGENUM,
+        DC: 18,
+        rarity: Rarity.RARE,
+        maxAmount: 1,
+        cost: 200,
         weight: 2,
     },
     MISTLETOE: {

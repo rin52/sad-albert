@@ -54,6 +54,23 @@ export default {
         },
         Mutagens.BEAR,
     ],
+    Bes: [
+        {
+            ...Ingredients.BES_HORN,
+        },
+        {
+            ...Ingredients.INFUSED_DUST,
+            maxAmount: 20,
+        },
+        {
+            ...Ingredients.SPECTER_DUST,
+            maxAmount: 6,
+        },
+        {
+            ...Ingredients.ESSENCE_OF_WRAITH,
+            maxAmount: 12,
+        }
+    ],
     Boar: [
         {
             ...Ingredients.BOAR_TUSKS,
@@ -114,6 +131,20 @@ export default {
         Mutagens.BULLVORE,
     ],
 
+    Casglydd: [
+        {
+            ...Ingredients.INFUSED_DUST,
+            maxAmount: 10,
+        },
+        {
+            ...Ingredients.SPECTER_DUST,
+            maxAmount: 6,
+        },
+        {
+            ...Ingredients.ESSENCE_OF_WRAITH,
+            maxAmount: 6,
+        },
+    ],
     Cockatrice: [
         {
             ...Ingredients.COCKATRICE_CARAPACE,
@@ -132,6 +163,20 @@ export default {
             maxAmount: 6,
         },
         Mutagens.COCKATRICE,
+    ],
+    'Corpse Amalgam': [
+        {
+            ...Ingredients.LUNAR_SHARDS,
+            maxAmount: 1,
+        },
+        {
+            ...Ingredients.SPECTER_DUST,
+            maxAmount: 6,
+        },
+        {
+            ...Ingredients.ESSENCE_OF_WRAITH,
+            maxAmount: 6,
+        },
     ],
     Cyclops: [
         {
@@ -341,6 +386,12 @@ export default {
         },
         Mutagens.GRAVE_HAG,
     ],
+    'Great Bear': [
+        {
+            ...Ingredients.BEAR_FAT,
+            maxAmount: 6,
+        },
+    ],
     Griffin: [
         {
             ...Ingredients.GRIFFIN_EGG,
@@ -457,6 +508,12 @@ export default {
         },
         Mutagens.LESHEN,
     ],
+    'Living Armor': [
+        {
+            ...Ingredients.INFUSED_DUST,
+            maxAmount: 2,
+        },
+    ],
 
     Manticore: [
         {
@@ -480,6 +537,24 @@ export default {
             maxAmount: 12,
         },
         Mutagens.MANTICORE,
+    ],
+    'Mari Lywd': [
+        {
+            ...Ingredients.MARI_LWYD_SKULL,
+            maxAmount: 1,
+        },
+        {
+            ...Ingredients.INFUSED_DUST,
+            maxAmount: 10,
+        },
+        {
+            ...Ingredients.SPECTER_DUST,
+            maxAmount: 6,
+        },
+        {
+            ...Ingredients.ESSENCE_OF_WRAITH,
+            maxAmount: 12,
+        },
     ],
 
     Nekker: [
@@ -531,6 +606,20 @@ export default {
             maxAmount: 6,
         },
         Mutagens.PESTA,
+    ],
+    Penitent: [
+        {
+            ...Ingredients.SPECTER_DUST,
+            maxAmount: 6,
+        },
+        {
+            ...Ingredients.ESSENCE_OF_WRAITH,
+            maxAmount: 6,
+        },
+        {
+            ...Ingredients.INFUSED_DUST,
+            maxAmount: 6,
+        },
     ],
     Phoenix: [
         {

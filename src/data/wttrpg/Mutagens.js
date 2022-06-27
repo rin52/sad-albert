@@ -135,6 +135,13 @@ export default {
         DC: 16,
         rarity: Rarity.RARE,
     },
+    Penitent: {
+        item: 'Penitent Mutagen',
+        category: IngredientCategory.BLUE_MUTAGEN,
+        maxAmount: 1,
+        DC: 16,
+        rarity: Rarity.RARE,
+    },
     PESTA: {
         item: 'Pesta Mutagen',
         category: IngredientCategory.BLUE_MUTAGEN,

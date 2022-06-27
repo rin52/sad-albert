@@ -14,6 +14,15 @@ export default {
 
 
 
+    BEAR_HIDE: {
+        item: 'Bear Hide',
+        category: CraftingCategory.HIDES_AND_ANIMAL_PARTS,
+        DC: 10,
+        maxAmount: 3,
+        rarity: Rarity.COMMON,
+        cost: 30,
+        weight: 6,
+    },
     BEAST_BONES: {
         item: 'Beast Bones',
         category: CraftingCategory.HIDES_AND_ANIMAL_PARTS,
