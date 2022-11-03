@@ -18,6 +18,14 @@ export default {
         cost: 18,
         weight: 0.1,
     },
+    ALP_SALIVA: {
+        item: 'Alp Saliva',
+        category: IngredientCategory.HYDRAGENUM,
+        DC: 15,
+        rarity: Rarity.UNCOMMON,
+        cost: 145,
+        weight: 0.1,
+    },
     ARACHAS_CHITIN: {
         item: 'Arachas Chitin',
         category: IngredientCategory.VERMILION,
@@ -531,6 +539,14 @@ export default {
         rarity: Rarity.UNCOMMON,
         cost: 17,
         weight: 0.1,
+    },
+    GLUSTYWORP_STOMACH: {
+        item: 'Glustyworp Stomach',
+        category: IngredientCategory.CAELUM,
+        DC: 15,
+        rarity: Rarity.UNCOMMON,
+        cost: 96,
+        weight: 0.5,
     },
     GODLING_EYES: {
         item: 'Godling Eyes',
@@ -1074,6 +1090,13 @@ export default {
 
 
 
+    WERECAT_TEETH: {
+        item: 'Werecat Teeth',
+        category: IngredientCategory.REBIS,
+        rarity: Rarity.RARE,
+        cost: 88,
+        weight: 0.1,
+    },
     WEREWOLF_SALIVA: {
         item: 'Werewolf Saliva',
         category: IngredientCategory.HYDRAGENUM,

@@ -2,6 +2,24 @@ import Ingredients from "./Ingredients";
 import Mutagens from "./Mutagens";
 
 export default {
+    Alp: [
+        {
+            ...Ingredients.ABOMINATION_LYMPH,
+            maxAmount: 2,
+        },
+        {
+            ...Ingredients.ALP_SALIVA,
+            maxAmount: 6,
+        },
+        {
+            ...Ingredients.ESSENCE_OF_DEATH,
+            maxAmount: 12,
+        },
+        {
+            ...Ingredients.VAMPIRE_FANGS,
+            maxAmount: 3,
+        },
+    ],
     Arachas: [
         {
             ...Ingredients.ARACHAS_EYES,
@@ -31,6 +49,7 @@ export default {
             maxAmount: 6,
         },
     ],
+
     Barbegazi: [
         {
             ...Ingredients.BARBEGAZI_FUR,
@@ -351,6 +370,20 @@ export default {
     Gigascorpion: [
         {
             ...Ingredients.VENOM_EXTRACT,
+            maxAmount: 6,
+        },
+    ],
+    Glustyworp: [
+        // {
+        //     ...Ingredients.CHITIN,
+        //     maxAmount: 6,
+        // },
+        {
+            ...Ingredients.GLUSTYWORP_STOMACH,
+            maxAmount: 1,
+        },
+        {
+            ...Ingredients.GREEN_MOLD,
             maxAmount: 6,
         },
     ],
@@ -772,6 +805,19 @@ export default {
             maxAmount: 1,
         },
         Mutagens.VENDIGO,
+    ],
+
+
+
+    Werecat: [
+        // {
+        //     ...Ingredients.FIFTH_ESSENCE,
+        //     maxAmount: 3,
+        // },
+        {
+            ...Ingredients.WERECAT_TEETH,
+            maxAmount: 3
+        },
     ],
     Werewolf: [
         {

@@ -19,6 +19,14 @@ export default {
         cost: '11 gp',
         weight: 0.1,
     },
+    ALP_SALIVA: {
+        item: 'Alp Saliva',
+        category: IngredientCategory.HYDRAGENUM,
+        DC: 15,
+        rarity: Rarity.UNCOMMON,
+        cost: 145,
+        weight: 0.1,
+    },
     ARACHAS_EYES: {
         item: 'Arachas Eyes',
         category: IngredientCategory.FULGUR,
@@ -575,6 +583,14 @@ export default {
         rarity: Rarity.UNCOMMON,
         cost: '10 gp',
         weight: 0.1,
+    },
+    GLUSTYWORP_STOMACH: {
+        item: 'Glustyworp Stomach',
+        category: IngredientCategory.CAELUM,
+        DC: 15,
+        rarity: Rarity.UNCOMMON,
+        cost: '96 gp',
+        weight: 0.5,
     },
     GODLING_EYES: {
         item: 'Godling Eyes',
@@ -1161,6 +1177,14 @@ export default {
 
 
 
+    WERECAT_TEETH: {
+        item: 'Werecat Teeth',
+        category: IngredientCategory.REBIS,
+        rarity: Rarity.RARE,
+        DC: 18,
+        cost: 88,
+        weight: 0.1,
+    },
     WEREWOLF_SALIVA: {
         item: 'Werewolf Saliva',
         category: IngredientCategory.HYDRAGENUM,
