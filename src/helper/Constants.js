@@ -12,10 +12,14 @@ export default {
     CRAFTING_DIAGRAMS: 'Crafting Diagrams',
 
     DECOCTIONS: 'Decoctions',
+    DIMERITIUM: 'Dimeritium',
     DMG_POISONS: '5e Poisons',
     DND_HOMEBREW: 'D&D 5e Homebrew',
 
     ELDERFOLK_CRAFTING_DIAGRAMS: 'Elderfolk Crafting Diagrams',
+
+    FAST_ATTACK: 'Fast Attack',
+    FIRE: 'Fire',
 
     GRANDMASTER_DIAGRAMS: 'Grandmaster Diagrams',
 
@@ -25,6 +29,8 @@ export default {
 
     JOURNEYMAN_DIAGRAMS: 'Jorneyman Diagrams',
     JOURNEYMAN_FORMULAE: 'Journeyman Formulae',
+
+    KINETIC_DAMAGE: 'Kinetic Damage',
 
     LAB: 'Lab',
 
@@ -42,6 +48,9 @@ export default {
 
     SATCHEL: 'Satchel',
     SETTINGS: 'Settings',
+    SILVER: 'Silver',
+    STEEL: 'Steel',
+    STRONG_ATTACK: 'Strong Attack',
 
     WEAPONS_OF_TOUSSAINT_DIAGRAMS: 'Weapons of Toussaint Diagrams',
     WEAPON_DIAGRAMS: 'Weapon Diagrams', 

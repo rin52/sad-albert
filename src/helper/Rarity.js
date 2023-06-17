@@ -4,6 +4,7 @@ export default {
     COMMON: 'Common',
     EVERYDAY: 'Everyday',
 
+    LEGENDARY: 'Legendary',
 
     UNKNOWN: 'Unknown',
 }
